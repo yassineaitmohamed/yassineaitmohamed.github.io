@@ -4,87 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassine Ait Mohamed</title>
+    <!-- Importer Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Style général du corps de la page */
         body {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1200px;
+            margin: 20px auto;
             padding: 0 20px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.7;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f8f4; /* Fond léger vert */
+            color: #2c3e50; /* Texte foncé bleu-gris */
+            line-height: 1.8;
         }
+
+        /* Style de l'en-tête principal (nom) */
+        h1 {
+            font-size: 50px;
+            font-weight: 700;
+            text-align: center;
+            color: #27ae60; /* Vert émeraude */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Sous-titre */
+        .subtitle {
+            text-align: center;
+            color: #34495e; /* Gris-bleu doux */
+            font-size: 18px;
+            margin-top: -10px;
+        }
+
+        /* Style des sections */
         .container {
             display: flex;
             justify-content: space-between;
-            gap: 40px;
+            gap: 30px;
         }
-        .nav-section {
-            width: 220px;
-            flex-shrink: 0;
+
+        .nav-section, .content-section, .photo-section {
+            background-color: #ffffff; /* Blanc pour les cartes */
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
-        .content-section {
-            flex-grow: 1;
-            max-width: 600px;
+
+        /* Menu de navigation */
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #16a085; /* Vert turquoise */
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
-        .photo-section {
-            width: 200px;
-            flex-shrink: 0;
+        nav a:hover {
+            color: #1abc9c; /* Vert turquoise clair */
+            text-decoration: underline;
         }
+
+        /* Titres secondaires */
+        h2 {
+            font-size: 26px;
+            color: #27ae60; /* Vert émeraude */
+            border-bottom: 2px solid #2ecc71; /* Ligne verte */
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Paragraphes */
+        p {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        /* Liens dans le contenu */
+        a {
+            color: #27ae60;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1abc9c;
+        }
+
+        /* Photo de profil */
         .profile-photo {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #ccc;
-        }
-        h1 {
-            margin-bottom: 5px;
-            font-size: 34px;
-            color: green; /* Couleur verte */
-            text-align: center; /* Centrer le nom */
-        }
-        .subtitle {
-            margin-top: 0;
-            color: #555;
-            font-size: 14px;
-        }
-        nav a {
             display: block;
-            text-decoration: none;
-            color: #0366d6;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-        h2 {
-            margin-top: 30px;
-            font-size: 24px;
-            color: #24292e;
-        }
-        p {
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        a {
-            color: #0366d6;
-        }
-        a:hover {
-            text-decoration: underline;
+            margin: 0 auto;
+            border: 4px solid #27ae60; /* Contour vert */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="nav-section">
-            <h1>Yassine Ait Mohamed</h1>
-            <p class="subtitle">PhD Student<br>
-            Department of Mathematics<br>
-            University of Sherbrooke</p>
+    <!-- En-tête principal -->
+    <h1>Yassine Ait Mohamed</h1>
+    <p class="subtitle">PhD Student in Mathematics</p>
 
+    <!-- Contenu principal -->
+    <div class="container">
+        <!-- Section Navigation -->
+        <div class="nav-section">
+            <h2>Navigation</h2>
             <nav>
                 <a href="research.html">Research</a>
                 <a href="talks.html">Talks</a>
@@ -94,14 +124,20 @@
             </nav>
         </div>
 
+        <!-- Section Contenu -->
         <div class="content-section">
             <h2>Introduction</h2>
-            <p>I am a PhD student in Mathematics at the University of Sherbrooke, working in Algebraic and Symplectic geometry. Previously, I was a PhD student at Sidi Mohamed Ben Abdellah University in Pure Mathematics, where I worked on rings with derivations that satisfy certain algebraic conditions.</p>
+            <p>
+                I am a PhD student in Mathematics at the University of Sherbrooke, working in Algebraic and Symplectic geometry. Previously, I was a PhD student at Sidi Mohamed Ben Abdellah University in Pure Mathematics, where I worked on rings with derivations that satisfy certain algebraic conditions.
+            </p>
 
             <h2>Email</h2>
-            <p><a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a></p>
+            <p>
+                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
+            </p>
         </div>
 
+        <!-- Section Photo -->
         <div class="photo-section">
             <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
         </div>
