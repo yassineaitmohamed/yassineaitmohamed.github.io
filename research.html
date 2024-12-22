@@ -40,7 +40,6 @@
             font-size: 18px;
         }
         .journal {
-            margin-left: 20px;
             font-style: italic;
             color: #555;
         }
@@ -49,14 +48,44 @@
             margin-left: 20px;
             font-size: 14px;
             color: #444;
+            display: none;
         }
-        .show-abstract {
+        .toggle-button {
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
             color: #0366d6;
-            text-decoration: underline;
             font-size: 14px;
         }
+        .toggle-button span {
+            margin-left: 5px;
+        }
+        .triangle {
+            border-style: solid;
+            border-width: 5px 5px 0 5px;
+            border-color: #0366d6 transparent transparent transparent;
+            display: inline-block;
+            margin-right: 5px;
+            transform: rotate(0deg);
+            transition: transform 0.2s ease;
+        }
+        .triangle.open {
+            transform: rotate(90deg);
+        }
     </style>
+    <script>
+        function toggleAbstract(id, triangleId) {
+            const abstract = document.getElementById(id);
+            const triangle = document.getElementById(triangleId);
+            if (abstract.style.display === "none") {
+                abstract.style.display = "block";
+                triangle.classList.add("open");
+            } else {
+                abstract.style.display = "none";
+                triangle.classList.remove("open");
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Research</h1>
@@ -69,12 +98,15 @@
         <p class="paper-title">
             1. On graded rings with homogeneous derivations 
             [<a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>] 
-            <span class="show-abstract" onclick="document.getElementById('abstract1').style.display='block'">abstract</span>
         </p>
         <p class="journal">Revista de la Unión Matemática Argentina</p>
-        <p id="abstract1" class="abstract" style="display: none;">
+        <div class="toggle-button" onclick="toggleAbstract('abstract1', 'triangle1')">
+            <div id="triangle1" class="triangle"></div>
+            <span>abstract</span>
+        </div>
+        <div id="abstract1" class="abstract">
             The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
-        </p>
+        </div>
     </div>
     <div class="paper">
         <p class="paper-title">2. Generalized homogeneous derivations of graded rings</p>
