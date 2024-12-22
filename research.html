@@ -41,19 +41,47 @@
         .profiles a {
             margin-right: 20px;
         }
+        .abstract {
+            display: none;
+            margin-top: 10px;
+            margin-left: 20px;
+            color: #555;
+        }
+        .show-abstract {
+            cursor: pointer;
+            color: #0366d6;
+            text-decoration: underline;
+        }
     </style>
+    <script>
+        function toggleAbstract(id) {
+            const abstract = document.getElementById(id);
+            if (abstract.style.display === "none") {
+                abstract.style.display = "block";
+            } else {
+                abstract.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Research</h1>
     <div class="profiles">
         <a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed-3" target="_blank">ResearchGate</a>
-          <a href="https://scholar.google.ca/citations?hl=en&user=tZgtDqYAAAAJ&view_op=list_works&gmla=AFix5MazxQP0S2Xu97az0cn8jWPDKRnnjs4ullBvKwKm4Cyav7kIJkOJnCn1QHkKeHbTn1yfvJ17zR9uIKpwfdFR" target="_blank">Google Scolar</a>
+        <a href="https://scholar.google.ca/citations?hl=en&user=tZgtDqYAAAAJ&view_op=list_works&gmla=AFix5MazxQP0S2Xu97az0cn8jWPDKRnnjs4ullBvKwKm4Cyav7kIJkOJnCn1QHkKeHbTn1yfvJ17zR9uIKpwfdFR" target="_blank">Google Scholar</a>
     </div>   
     <h2>Keywords</h2>
     <p>Divisors; Symplectic Geometry; Differential geometry; Schemes theory; Central Simple Algebras; graded rings, Derivations; Generalized derivations</p>
     <h2>Papers</h2>
     <div class="paper">
-        <p>1. On graded rings with homogeneous derivations</p>
+        <p>1. <strong>On graded rings with homogeneous derivations</strong> 
+            [<a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>] 
+            <span class="show-abstract" onclick="toggleAbstract('abstract1')">abstract</span>
+        </p>
+        <p><em>Revista de la Unión Matemática Argentina</em></p>
+        <div id="abstract1" class="abstract">
+            The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+        </div>
         <p>2. Generalized homogeneous derivations of graded rings</p>
     </div>
     <h2>Master's Thesis</h2>
@@ -62,12 +90,11 @@
         [<a href="master_thesis.pdf" target="_blank">PDF</a>]</p>
     </div>
     
-    <!-- Updated Notes Section with PDF link -->
     <h2>Other Notes</h2>
     <div class="paper">
-       <p> On central simple algebras  [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>       
-        <p>Homogeneous involutions of graded rings [<a href="homogeneous_involutions.pdf" target="_blank">PDF</a>]</p>
-        <p>Some exemples of homogeneous derivations [<a href="Some_exemples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>    </div>
-
+       <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>       
+       <p>Homogeneous involutions of graded rings [<a href="homogeneous_involutions.pdf" target="_blank">PDF</a>]</p>
+       <p>Some examples of homogeneous derivations [<a href="Some_exemples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
+    </div>
 </body>
 </html>
