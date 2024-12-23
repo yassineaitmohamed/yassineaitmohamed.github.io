@@ -13,15 +13,9 @@
             color: #333;
             line-height: 1.8;
         }
-        h1 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        h2 {
+        h1, h2 {
             font-size: 24px;
-            margin-top: 30px;
+            margin-bottom: 20px;
             color: #24292e;
         }
         a {
@@ -36,91 +30,82 @@
             padding-left: 20px;
         }
         .paper-title {
+            font-size: 16px;
             font-weight: bold;
-            font-size: 18px;
         }
         .journal {
             font-style: italic;
             color: #555;
         }
+        .abstract-toggle {
+            cursor: pointer;
+            font-size: 14px;
+            color: #0366d6;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .abstract-toggle:hover {
+            text-decoration: underline;
+        }
         .abstract {
+            display: none;
             margin-top: 10px;
-            margin-left: 20px;
             font-size: 14px;
             color: #444;
-            display: none;
         }
-        .toggle-button {
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            color: #0366d6;
-            font-size: 14px;
-        }
-        .toggle-button span {
-            margin-left: 5px;
-        }
-        .triangle {
-            border-style: solid;
-            border-width: 5px 5px 0 5px;
-            border-color: #0366d6 transparent transparent transparent;
-            display: inline-block;
-            margin-right: 5px;
-            transform: rotate(0deg);
-            transition: transform 0.2s ease;
-        }
-        .triangle.open {
-            transform: rotate(90deg);
+        .links {
+            margin-top: 5px;
         }
     </style>
     <script>
-        function toggleAbstract(id, triangleId) {
+        function toggleAbstract(id) {
             const abstract = document.getElementById(id);
-            const triangle = document.getElementById(triangleId);
             if (abstract.style.display === "none") {
                 abstract.style.display = "block";
-                triangle.classList.add("open");
             } else {
                 abstract.style.display = "none";
-                triangle.classList.remove("open");
             }
         }
     </script>
 </head>
 <body>
     <h1>Research</h1>
-    <div class="profiles">
-        <a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed-3" target="_blank">ResearchGate</a>
-        <a href="https://scholar.google.ca/citations?hl=en&user=tZgtDqYAAAAJ&view_op=list_works&gmla=AFix5MazxQP0S2Xu97az0cn8jWPDKRnnjs4ullBvKwKm4Cyav7kIJkOJnCn1QHkKeHbTn1yfvJ17zR9uIKpwfdFR" target="_blank">Google Scholar</a>
-    </div>
     <h2>Papers</h2>
+
     <div class="paper">
         <p class="paper-title">
-            1. On graded rings with homogeneous derivations 
-            <span class="toggle-button" onclick="window.open('https://doi.org/10.33044/revuma.4934', '_blank')">
-                <div id="triangle-doi1" class="triangle"></div>
-                <span>DOI</span>
-            </span>
+            1. On graded rings with homogeneous derivations
         </p>
-        <p class="journal">Revista de la Unión Matemática Argentina</p>
-        <div class="toggle-button" onclick="toggleAbstract('abstract1', 'triangle1')">
-            <div id="triangle1" class="triangle"></div>
-            <span>abstract</span>
+        <p class="journal">Revista de la Unión Matemática Argentina (2022)</p>
+        <div class="links">
+            <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a> |
+            <a href="https://arxiv.org/abs/your-paper-link" target="_blank">arXiv</a> |
+            <a href="https://arxiv.org/pdf/your-paper-link" target="_blank">[pdf]</a>
         </div>
+        <a href="#abstract1" class="abstract-toggle" onclick="toggleAbstract('abstract1')">› abstract</a>
         <div id="abstract1" class="abstract">
             The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
         </div>
     </div>
+
     <div class="paper">
         <p class="paper-title">2. Generalized homogeneous derivations of graded rings</p>
+        <div class="links">
+            <a href="https://arxiv.org/abs/your-other-paper-link" target="_blank">arXiv</a> |
+            <a href="https://arxiv.org/pdf/your-other-paper-link" target="_blank">[pdf]</a>
+        </div>
     </div>
+
     <h2>Master's Thesis</h2>
     <div class="paper">
         <p class="paper-title">
             Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties
-            [<a href="master_thesis.pdf" target="_blank">PDF</a>]
         </p>
+        <div class="links">
+            <a href="master_thesis.pdf" target="_blank">[PDF]</a>
+        </div>
     </div>
+
     <h2>Other Notes</h2>
     <div class="paper">
         <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
