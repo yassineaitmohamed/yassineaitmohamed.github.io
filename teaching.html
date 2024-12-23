@@ -13,11 +13,43 @@
             color: #333;
             line-height: 1.6;
         }
-        h1 {
+        h1, h2 {
             font-size: 32px;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+            color: #24292e;
+        }
+        .entry {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+        }
+        .university::before {
+            background-color: #0366d6;
+        }
+        .online::before {
+            background-color: #28a745;
+        }
+        .school::before {
+            background-color: #6f42c1;
+        }
+        .date {
+            font-weight: 500;
+            color: #666;
+        }
+        .institution {
+            font-style: italic;
+            color: #666;
+        }
+        .position {
+            font-weight: 500;
         }
         .pdf-section {
             margin-top: 40px;
@@ -66,6 +98,58 @@
 <body>
     <h1>Teaching</h1>
 
+    <!-- First Section: Teaching Information -->
+    <div class="entry university">
+        <p>
+            <span class="date">September 2024 - December 2024</span><br>
+            <span class="position">Mathematics tutor</span><br>
+            <span class="institution">Center for mathematics help, Faculty of Sciences, University of Sherbrooke</span>
+        </p>
+    </div>
+
+    <div class="entry online">
+        <p>
+            <span class="date">September 2020 - December 2023</span><br>
+            <span class="position">Mathematics tutor</span><br>
+            <span class="institution">Algebra - real and complex analysis - Topology</span>
+        </p>
+    </div>
+
+    <div class="entry university">
+        <p>
+            <span class="date">October 2022 - January 2023</span><br>
+            <span class="position">Temporary teacher</span><br>
+            <span class="institution">Algebra and Analysis-BCG, Faculty of Science and Technology, Fez-Morocco</span>
+        </p>
+    </div>
+
+    <div class="entry school">
+        <p>
+            <span class="date">September 2022 - November 2023</span><br>
+            <span class="position">Mathematics tutor</span><br>
+            <span class="institution">Mini School Center, Fez-Morocco</span>
+            <br>Lessons for high school students
+        </p>
+    </div>
+
+    <div class="entry school">
+        <p>
+            <span class="date">September 2018 - March 2019</span><br>
+            <span class="position">Mathematics tutor</span><br>
+            <span class="institution">Olympia centre Zarhounia, Meknes - Morocco</span>
+            <br>Lessons for secondary school students
+        </p>
+    </div>
+
+    <div class="entry school">
+        <p>
+            <span class="date">September 2017 - March 2018</span><br>
+            <span class="position">Mathematics tutor</span><br>
+            <span class="institution">Maxcence centre, Meknes - Morocco</span>
+            <br>Lessons for secondary school students
+        </p>
+    </div>
+
     <!-- PDF Section -->
     <div class="pdf-section">
         <h2>Notes</h2>
@@ -113,26 +197,6 @@
             <div class="pdf-cell" onclick="window.open('Devoir_1__Suites_réelles (1).pdf', '_blank')">
                 <div class="triangle"></div>
                 <span>Devoir 1: Suites réelles</span>
-            </div>
-            <div class="pdf-cell" onclick="window.open('Devoir_1___Integrales_à_paramètres.pdf', '_blank')">
-                <div class="triangle"></div>
-                <span>Devoir 1: Intégrales à paramètres</span>
-            </div>
-            <div class="pdf-cell" onclick="window.open('Devoir_1__Mesures_et_intégration.pdf', '_blank')">
-                <div class="triangle"></div>
-                <span>Devoir 1: Mesures et intégration</span>
-            </div>
-            <div class="pdf-cell" onclick="window.open('Devoir1_groupes.pdf', '_blank')">
-                <div class="triangle"></div>
-                <span>Devoir (1) Groupes</span>
-            </div>
-            <div class="pdf-cell" onclick="window.open('Exercices_sur_les_anneaux.pdf', '_blank')">
-                <div class="triangle"></div>
-                <span>Exercices sur les anneaux</span>
-            </div>
-            <div class="pdf-cell" onclick="window.open('Reduction_des_endomorphismes__exercices.pdf', '_blank')">
-                <div class="triangle"></div>
-                <span>Exercices: Réduction des endomorphismes</span>
             </div>
         </div>
     </div>
