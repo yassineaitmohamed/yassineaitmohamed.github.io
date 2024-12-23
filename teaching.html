@@ -19,262 +19,122 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
-        .entry {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 25px;
-        }
-        .entry::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 12px;
-            height: 12px;
-        }
-        .university::before {
-            background-color: #0366d6;
-        }
-        .online::before {
-            background-color: #28a745;
-        }
-        .school::before {
-            background-color: #6f42c1;
-        }
-        .date {
-            font-weight: 500;
-            color: #666;
-        }
-        .institution {
-            font-style: italic;
-            color: #666;
-        }
-        .position {
-            font-weight: 500;
-        }
-        .subpage-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0366d6;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-        }
         .pdf-section {
             margin-top: 40px;
             padding: 20px;
             background-color: #f6f8fa;
             border-radius: 6px;
         }
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .pdf-cell {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e1e4e8;
+            font-size: 0.95em;
+            cursor: pointer;
+        }
+        .pdf-cell:hover {
+            background-color: #f1f8ff;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #0366d6;
+            margin-right: 10px;
+            transition: transform 0.2s ease;
+        }
         .pdf-link {
-            display: inline-block;
-            margin-right: 20px;
-            margin-bottom: 10px;
-            padding: 5px 10px;
             color: #0366d6;
             text-decoration: none;
-            border: 1px solid #e1e4e8;
-            border-radius: 4px;
+            display: inline-block;
         }
         .pdf-link:hover {
-            background-color: #f1f8ff;
-            text-decoration: none;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <h1>Teaching</h1>
 
-    <div class="entry university">
-        <p>
-            <span class="date">September 2024 - December 2024</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Center for mathematics help, Faculty of Sciences, University of Sherbrooke</span>
-        </p>
+    <!-- PDF Section -->
+    <div class="pdf-section">
+        <h2>Notes</h2>
+        <div class="pdf-grid">
+            <div class="pdf-cell" onclick="window.open('TD_Algebre_1.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>TD Algèbre 1</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('groupes.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Groupes</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('redu.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Note (1) Réduction des endomorphismes</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('topologie.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Série (1) Topologie</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Test_1.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Test (1)</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Devoir_1 (1).pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Test (2)</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Devoir3.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Devoir 3</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Test4.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Test (4)</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Série_1_Nombres_réels.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Série 1: Nombres réels</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Suites_réelles.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Série 1: Suites réelles</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Devoir_1__Suites_réelles (1).pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Devoir 1: Suites réelles</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Devoir_1___Integrales_à_paramètres.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Devoir 1: Intégrales à paramètres</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Devoir_1__Mesures_et_intégration.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Devoir 1: Mesures et intégration</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Devoir1_groupes.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Devoir (1) Groupes</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Exercices_sur_les_anneaux.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Exercices sur les anneaux</span>
+            </div>
+            <div class="pdf-cell" onclick="window.open('Reduction_des_endomorphismes__exercices.pdf', '_blank')">
+                <div class="triangle"></div>
+                <span>Exercices: Réduction des endomorphismes</span>
+            </div>
+        </div>
     </div>
-
-    <div class="entry online">
-        <p>
-            <span class="date">September 2020 - December 2023</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Algebra - real and complex analysis - Topology</span>
-        </p>
-    </div>
-
-    <div class="entry university">
-        <p>
-            <span class="date">October 2022 - January 2023</span><br>
-            <span class="position">Temporary teacher</span><br>
-            <span class="institution">Algebra and Analysis-BCG, Faculty of Science and Technology, Fez-Morocco</span>
-        </p>
-    </div>
-
-    <div class="entry school">
-        <p>
-            <span class="date">September 2022 - November 2023</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Mini School Center, Fez-Morocco</span>
-            <br>Lessons for high school students
-        </p>
-    </div>
-
-    <div class="entry school">
-        <p>
-            <span class="date">September 2018 - March 2019</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Olympia centre Zarhounia, Meknes - Morocco</span>
-            <br>Lessons for secondary school students
-        </p>
-    </div>
-
-    <div class="entry school">
-        <p>
-            <span class="date">September 2017 - March 2018</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Maxcence centre, Meknes - Morocco</span>
-            <br>Lessons for secondary school students
-        </p>
-    </div>
-
-    <!-- HTML -->
-<div class="pdf-section">
-    <h2>Notes</h2>
-    <div class="pdf-grid">
-        <div class="pdf-cell">
-            <a href="TD_Algebre_1.pdf" class="pdf-link">TD Algèbre 1</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="groupes.pdf" class="pdf-link">Groupes</a>
-        </div>
-        
-        
-        <div class="pdf-cell">
-            <a href="redu.pdf" class="pdf-link">Note (1) réduction des endomorphismes</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="topologie.pdf" class="pdf-link">Série (1) Topologie</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="Test_1.pdf" class="pdf-link">Test (1)</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="Devoir_1 (1).pdf" class="pdf-link">Test (2)</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="Devoir3.pdf" class="pdf-link">Devoir 3</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="Test4.pdf" class="pdf-link">Test (4)</a>
-        </div>  
-
- <div class="pdf-cell">
-            <a href="Série_1_Nombres_réels.pdf" class="pdf-link">Série 1: Nombres réels</a>
-        </div> 
-
- <div class="pdf-cell">
-            <a href="Suites_réelles.pdf" class="pdf-link">Série 1: Suites réelles </a>
-        </div>     
-
-
-<div class="pdf-cell">
-            <a href="Devoir_1__Suites_réelles (1).pdf" class="pdf-link">Devoir 1: Suites réelles </a>
-        </div>    
-        
-
-<div class="pdf-cell">
-            <a href="Devoir_1___Integrales_à_paramètres.pdf" class="pdf-link">Devoir 1: Integrales à paramètres </a>
-        </div>    
-
-
-
-<div class="pdf-cell">
-            <a href="Devoir_1__Mesures_et_intégration.pdf   " class="pdf-link">Devoir 1: Mesures_et_intégration </a>
-        </div>  
-
-<div class="pdf-cell">
-            <a href="Devoir1_groupes.pdf   " class="pdf-link">Devoir (1) Groupes </a>
-        </div> 
-
-<div class="pdf-cell">
-            <a href="Exercices_sur_les_anneaux.pdf  " class="pdf-link">Exercices sur les anneaux.pdf </a>
-        </div> 
-
-        
-<div class="pdf-cell">
-            <a href="Reduction_des_endomorphismes__exercices.pdf " class="pdf-link"> Exercices: Réduction des endomorphismes  </a>
-        </div> 
-        
-    </div>
-</div>
-
-
- 
-<!-- CSS -->
-<style>
-    .pdf-section {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: #f6f8fa;
-        border-radius: 6px;
-    }
-    .pdf-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
-    }
-    .pdf-cell {
-        background: white;
-        padding: 15px;
-        border-radius: 4px;
-        border: 1px solid #e1e4e8;
-        text-align: center;
-    }
-    .pdf-link {
-        color: #0366d6;
-        text-decoration: none;
-        display: block;
-        font-size: 0.9em;
-    }
-    .pdf-link:hover {
-        text-decoration: underline;
-    }
-</style>
-
-<!-- HTML -->
-<div class="resources-note">
-    <h3>Additional Resources</h3>
-    <div class="pdf-cell">
-            <a href="ALG31.pdf" class="pdf-link">Algèbre linéaire (1)</a>
-        </div>
-        <div class="pdf-cell">
-            <a href="ALG32.pdf" class="pdf-link">Algèbre linéaire (2)</a>
-        </div>
-<div class="pdf-cell">
-            <a href="SMA.pdf" class="pdf-link">SMA</a>
-        </div>
-    
-</div>
-
-<!-- CSS -->
-<style>
-.resources-note {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #e1e4e8;
-}
-.resources-note h3 {
-    font-size: 1.2em;
-    color: #24292e;
-    margin-bottom: 10px;
-}
-.resources-note p {
-    color: #586069;
-    font-size: 0.95em;
-}
-</style>
-
-    
 </body>
 </html>
