@@ -27,15 +27,30 @@
         }
         .paper {
             margin-bottom: 20px;
-            padding-left: 20px;
         }
         .paper-title {
             font-size: 16px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #0366d6;
+            margin-right: 10px;
+            transition: transform 0.2s ease;
+        }
+        .triangle.open {
+            transform: rotate(90deg);
         }
         .journal {
             font-style: italic;
             color: #555;
+            margin-left: 20px;
         }
         .abstract-toggle {
             cursor: pointer;
@@ -54,16 +69,20 @@
             color: #444;
         }
         .links {
+            margin-left: 20px;
             margin-top: 5px;
         }
     </style>
     <script>
-        function toggleAbstract(id) {
-            const abstract = document.getElementById(id);
-            if (abstract.style.display === "none") {
-                abstract.style.display = "block";
+        function togglePaperContent(id, triangleId) {
+            const content = document.getElementById(id);
+            const triangle = document.getElementById(triangleId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                triangle.classList.add("open");
             } else {
-                abstract.style.display = "none";
+                content.style.display = "none";
+                triangle.classList.remove("open");
             }
         }
     </script>
@@ -73,51 +92,64 @@
     <h2>Papers</h2>
 
     <div class="paper">
-        <p class="paper-title">
+        <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
+            <div id="triangle1" class="triangle"></div>
             1. On graded rings with homogeneous derivations
-        </p>
-        <p class="journal">Revista de la Unión Matemática Argentina (2022)</p>
-        <div class="links">
-            <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a> |
         </div>
-        <a href="#abstract1" class="abstract-toggle" onclick="toggleAbstract('abstract1')">› abstract</a>
-        <div id="abstract1" class="abstract">
-            The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+        <div id="paper1-content" style="display: none;">
+            <p class="journal">Revista de la Unión Matemática Argentina (2022)</p>
+            <div class="links">
+                <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a> |
+                <a href="https://arxiv.org/abs/your-paper-link" target="_blank">arXiv</a> |
+                <a href="https://arxiv.org/pdf/your-paper-link" target="_blank">[pdf]</a>
+            </div>
+            <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', '')">› abstract</a>
+            <div id="abstract1" class="abstract">
+                The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+            </div>
         </div>
     </div>
 
     <div class="paper">
-        <p class="paper-title">2. Generalized homogeneous derivations of graded rings</p>
-        <div class="links">
-            <a href="https://arxiv.org/pdf/your-other-paper-link" target="_blank">[pdf]</a>
+        <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
+            <div id="triangle2" class="triangle"></div>
+            2. Generalized homogeneous derivations of graded rings
         </div>
-</div>
-        <a href="#abstract1" class="abstract-toggle" onclick="toggleAbstract('abstract1')">› abstract</a>
-        <div id="abstract1" class="abstract">
-In this paper, we introduce a novel concept in graded rings called generalized homogeneous derivations, which serve as a natural generalization of the homogeneous derivations introduced by Kanunnikov. We provide an example demonstrating that the class of homogeneous derivations is strictly contained within the class of generalized homogeneous derivations. Furthermore, we extend several significant results, originally established for prime rings, to the context of gr-prime rings.
+        <div id="paper2-content" style="display: none;">
+            <div class="links">
+                <a href="https://arxiv.org/pdf/your-other-paper-link" target="_blank">[pdf]</a>
+            </div>
+            <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', '')">› abstract</a>
+            <div id="abstract2" class="abstract">
+                In this paper, we introduce a novel concept in graded rings called generalized homogeneous derivations, which serve as a natural generalization of the homogeneous derivations introduced by Kanunnikov. We provide an example demonstrating that the class of homogeneous derivations is strictly contained within the class of generalized homogeneous derivations. Furthermore, we extend several significant results, originally established for prime rings, to the context of gr-prime rings.
+            </div>
         </div>
     </div>
-        
-    </div>
 
-
-
-    
     <h2>Master's Thesis</h2>
     <div class="paper">
-        <p class="paper-title">
+        <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle3')">
+            <div id="triangle3" class="triangle"></div>
             Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties
-        </p>
-        <div class="links">
-            <a href="master_thesis.pdf" target="_blank">[PDF]</a>
+        </div>
+        <div id="thesis-content" style="display: none;">
+            <div class="links">
+                <a href="master_thesis.pdf" target="_blank">[PDF]</a>
+            </div>
         </div>
     </div>
 
     <h2>Other Notes</h2>
     <div class="paper">
-        <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
-        <p>Homogeneous involutions of graded rings [<a href="homogeneous_involutions.pdf" target="_blank">PDF</a>]</p>
-        <p>Some examples of homogeneous derivations [<a href="Some_exemples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
+        <div class="paper-title" onclick="togglePaperContent('notes-content', 'triangle4')">
+            <div id="triangle4" class="triangle"></div>
+            Notes
+        </div>
+        <div id="notes-content" style="display: none;">
+            <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
+            <p>Homogeneous involutions of graded rings [<a href="homogeneous_involutions.pdf" target="_blank">PDF</a>]</p>
+            <p>Some examples of homogeneous derivations [<a href="Some_exemples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
+        </div>
     </div>
 </body>
 </html>
