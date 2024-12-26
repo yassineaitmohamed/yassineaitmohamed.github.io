@@ -79,10 +79,10 @@
             const triangle = document.getElementById(triangleId);
             if (content.style.display === "none") {
                 content.style.display = "block";
-                triangle.classList.add("open");
+                if (triangle) triangle.classList.add("open");
             } else {
                 content.style.display = "none";
-                triangle.classList.remove("open");
+                if (triangle) triangle.classList.remove("open");
             }
         }
     </script>
@@ -90,12 +90,12 @@
 <body>
     <h1>Research</h1>
 
-<ul>
+    <ul>
         <li><a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed" target="_blank">ResearchGate</a></li>
         <li><a href="https://scholar.google.com/citations?hl=en&user=sdjW_N8AAAAJ&view_op=list_works&citft=1&email_for_op=yassine.ait.mohamedu%40gmail.com&gmla=AFix5Mag6Y58PmPRQ-1RrxJgXTlNK6-thG88_YZjYir3bEgwImlKavbAT4heHhYQ06mpbH1g-__R1-SH53QRrXLkb1REFLBbWIXIIebzAZCAF91S2F7ePxzOF4o2McSEWhtV6zHNIQlw_nOtjKIc3SvB4Z5LM-gXEl8OS7OA127kekD4gtW4zE__L_7cJWxEpFimWxSaY91LIYAsaJLjV8V_ZoiqC3FCcpGt7UNUn8RoVc0WPstYPkpXBA6A" target="_blank">Google Scholar</a></li>
         <li><a href="https://arxiv.org/a/aitmohamed_y_1.html" target="_blank">arXiv</a></li>
     </ul>
-    
+
     <h2>Papers</h2>
 
     <div class="paper">
@@ -104,7 +104,7 @@
             1. On graded rings with homogeneous derivations
         </div>
         <div id="paper1-content" style="display: none;">
-            <p class="journal">Revista de la Unión Matemática Argentina </p>
+            <p class="journal">Revista de la Unión Matemática Argentina</p>
             <div class="links">
                 <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
             </div>
@@ -124,8 +124,6 @@
             <div class="links">
                 <a href="https://arxiv.org/abs/2412.17187" target="_blank">[arxiv]</a>
             </div>
-
-            
             <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', '')">&#8250; abstract</a>
             <div id="abstract2" class="abstract">
                 In this paper, we introduce a novel concept in graded rings called generalized homogeneous derivations, which serve as a natural generalization of the homogeneous derivations introduced by Kanunnikov. We provide an example demonstrating that the class of homogeneous derivations is strictly contained within the class of generalized homogeneous derivations. Furthermore, we extend several significant results, originally established for prime rings, to the context of gr-prime rings.
@@ -133,27 +131,31 @@
         </div>
     </div>
 
-<h2>Papers in Preparation</h2>
+    <h2>Papers in Preparation</h2>
     
     <div class="paper">
         <div class="paper-title">
-            1. Homogeneous involutions in graded rings        </div>
+            1. Homogeneous involutions in graded rings
+        </div>
     </div>
 
-    <div class="paper-title">
-            2. On Central Identities with Homogeneous Derivations in gr-Prime Rings        </div>
-    </div>    
-<a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', '')">&#8250; abstract</a>
-            <div id="abstract2" class="abstract">
+    <div class="paper">
+        <div class="paper-title" onclick="togglePaperContent('paper3-content', 'triangle3')">
+            <div id="triangle3" class="triangle"></div>
+            2. On Central Identities with Homogeneous Derivations in gr-Prime Rings
+        </div>
+        <div id="paper3-content" style="display: none;">
+            <a href="#abstract3" class="abstract-toggle" onclick="togglePaperContent('abstract3', '')">&#8250; abstract</a>
+            <div id="abstract3" class="abstract">
                 In this paper, we explore centrally-valued identities in gr-prime rings, involving pairs of homogeneous derivations. Our investigation extends several established results concerning the commutativity of prime rings to the graded setting. Additionally, we provide counterexamples to illustrate that these findings cannot be generalized to gr-semiprime rings.
             </div>
+        </div>
+    </div>
 
-
-    
     <h2>Master's Thesis</h2>
     <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle3')">
-            <div id="triangle3" class="triangle"></div>
+        <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle4')">
+            <div id="triangle4" class="triangle"></div>
             Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties
         </div>
         <div id="thesis-content" style="display: none;">
@@ -165,12 +167,13 @@
 
     <h2>Other Notes</h2>
     <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('notes-content', 'triangle4')">
-            <div id="triangle4" class="triangle"></div>
+        <div class="paper-title" onclick="togglePaperContent('notes-content', 'triangle5')">
+            <div id="triangle5" class="triangle"></div>
             Notes
         </div>
+        <div id="notes-content" style="display: none;">
             <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
-            <p>Some examples of homogeneous derivations [<a href="Some_exemples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
+            <p>Some examples of homogeneous derivations [<a href="Some_examples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
         </div>
     </div>
 </body>
