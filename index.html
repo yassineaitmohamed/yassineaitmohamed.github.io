@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.4">
     <title>Yassine Ait Mohamed</title>
     <style>
-        /* Vos styles CSS existants ici */
         body {
             max-width: 1100px;
             margin: 40px auto;
@@ -16,10 +15,76 @@
             line-height: 1.8;
             font-size: 18px;
         }
-        /* ... autres styles */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .nav-section {
+            width: 250px;
+            flex-shrink: 0;
+        }
+        .content-section {
+            flex-grow: 1;
+            max-width: 700px;
+        }
+        .photo-section {
+            width: 220px;
+            flex-shrink: 0;
+        }
+        .profile-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 38px;
+            color: #24292e;
+        }
+        .subtitle {
+            margin-top: 0;
+            color: #555;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #0366d6;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        h2 {
+            margin-top: 30px;
+            font-size: 28px;
+            color: #24292e;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a {
+            color: green;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 16px;
+            color: #444;
+        }
     </style>
     <script>
-        // Script pour le compteur de visiteurs
         function updateVisitorCount() {
             const countElement = document.getElementById('visitor-count');
             fetch('https://api.countapi.xyz/hit/yassineaitmohamed.github.io/visits')
@@ -64,17 +129,17 @@
             <p>
                 <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
             </p>
-
-            <!-- Section pour le compteur de visiteurs -->
-            <h2>Visitor Count</h2>
-            <p>
-                This page has been visited <span id="visitor-count">0</span> times.
-            </p>
         </div>
 
         <div class="photo-section">
             <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
         </div>
     </div>
+
+    <footer>
+        <p>
+            This page has been visited <span id="visitor-count">0</span> times.
+        </p>
+    </footer>
 </body>
 </html>
