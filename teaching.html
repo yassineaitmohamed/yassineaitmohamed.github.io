@@ -11,45 +11,49 @@
             padding: 0 20px;
             font-family: 'Courier New', Courier, monospace;
             color: #003366;
-            line-height: 1.6;
+            line-height: 1.8; /* Augmente l'espacement entre les lignes */
+            font-size: 18px; /* Augmente la taille de la police */
+            background-color: #f9f9f9;
         }
-        h1, h2 {
-            font-size: 32px;
+        h1 {
+            font-size: 36px; /* Augmente la taille du titre principal */
+            margin-bottom: 30px;
+            color: #003366;
+        }
+        h2 {
+            font-size: 28px; /* Augmente la taille des sous-titres */
             margin-bottom: 20px;
-            color: #333333;
+            color: #003366;
         }
         .entry {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 25px;
+            padding-left: 30px;
+            margin-bottom: 30px;
         }
         .entry::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 8px;
-            width: 12px;
-            height: 12px;
-        }
-        .university::before {
+            top: 10px;
+            width: 14px;
+            height: 14px;
             background-color: green;
-        }
-        .online::before {
-            background-color: green;
-        }
-        .school::before {
-            background-color: green;
+            border-radius: 50%; /* Ajoute un cercle pour indiquer chaque entrée */
         }
         .date {
-            font-weight: 500;
+            font-weight: 600;
             color: green;
+            font-size: 18px;
         }
         .institution {
             font-style: italic;
             color: green;
+            font-size: 18px;
         }
         .position {
             font-weight: 500;
+            font-size: 18px;
+            margin-top: 5px;
         }
         .pdf-section {
             margin-top: 40px;
@@ -60,30 +64,31 @@
         .pdf-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 20px; /* Ajoute de l'espace entre les éléments */
             margin-top: 20px;
         }
         .pdf-cell {
             display: flex;
             align-items: center;
-            padding: 10px 15px;
+            padding: 15px;
             background: white;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid #e1e4e8;
-            font-size: 0.95em;
+            font-size: 18px; /* Taille uniforme des textes */
             cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .pdf-cell:hover {
             background-color: #f1f8ff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .triangle {
             width: 0;
             height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid green;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid green;
             margin-right: 10px;
-            transition: transform 0.2s ease;
         }
         .pdf-link {
             color: green;
@@ -102,45 +107,43 @@
     <div class="entry university">
         <p>
             <span class="date">September 2024 - December 2024</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Center for mathematics help, Faculty of Sciences, University of Sherbrooke</span>
+            <span class="position">Mathematics Tutor</span><br>
+            <span class="institution">Center for Mathematics Help, Faculty of Sciences, University of Sherbrooke</span>
         </p>
     </div>
 
     <div class="entry online">
         <p>
             <span class="date">September 2020 - December 2023</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Algebra - real and complex analysis - Topology</span>
+            <span class="position">Mathematics Tutor</span><br>
+            <span class="institution">Algebra, Real and Complex Analysis, Topology</span>
         </p>
     </div>
-
-    
 
     <div class="entry school">
         <p>
             <span class="date">September 2022 - November 2023</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Mini School Center, Fez-Morocco</span>
-            <br>Lessons for high school students
+            <span class="position">Mathematics Tutor</span><br>
+            <span class="institution">Mini School Center, Fez-Morocco</span><br>
+            Lessons for high school students
         </p>
     </div>
 
     <div class="entry school">
         <p>
             <span class="date">September 2018 - March 2019</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Olympia centre Zarhounia, Meknes - Morocco</span>
-            <br>Lessons for secondary school students
+            <span class="position">Mathematics Tutor</span><br>
+            <span class="institution">Olympia Centre Zarhounia, Meknes - Morocco</span><br>
+            Lessons for secondary school students
         </p>
     </div>
 
     <div class="entry school">
         <p>
             <span class="date">September 2017 - March 2018</span><br>
-            <span class="position">Mathematics tutor</span><br>
-            <span class="institution">Maxcence centre, Meknes - Morocco</span>
-            <br>Lessons for secondary school students
+            <span class="position">Mathematics Tutor</span><br>
+            <span class="institution">Maxcence Centre, Meknes - Morocco</span><br>
+            Lessons for secondary school students
         </p>
     </div>
 
@@ -156,19 +159,17 @@
                 <div class="triangle"></div>
                 <span>Groupes</span>
             </div>
-
-     <div class="pdf-cell" onclick="window.open('Exercices__Analyse_II.pdf', '_blank')">
+            <div class="pdf-cell" onclick="window.open('Exercices__Analyse_II.pdf', '_blank')">
                 <div class="triangle"></div>
                 <span>Exercices: Analyse II</span>
             </div>
-            
             <div class="pdf-cell" onclick="window.open('redu.pdf', '_blank')">
                 <div class="triangle"></div>
-                <span>Note (1) Réduction des endomorphismes</span>
+                <span>Note (1): Réduction des endomorphismes</span>
             </div>
             <div class="pdf-cell" onclick="window.open('topologie.pdf', '_blank')">
                 <div class="triangle"></div>
-                <span>Série (1) Topologie</span>
+                <span>Série (1): Topologie</span>
             </div>
             <div class="pdf-cell" onclick="window.open('Test_1.pdf', '_blank')">
                 <div class="triangle"></div>
