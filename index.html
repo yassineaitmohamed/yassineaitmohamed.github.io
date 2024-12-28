@@ -10,9 +10,10 @@
             margin: 40px auto;
             padding: 0 20px;
             font-family: 'Courier New', Courier, monospace;
-            background-color:  #f9f9f9;
+            background-color: #f9f9f9;
             color: #0066CC;
-            line-height: 1.5;
+            line-height: 1.8; /* Augmente l'espacement entre les lignes */
+            font-size: 18px; /* Augmente la taille de la police par défaut */
         }
         .container {
             display: flex;
@@ -20,40 +21,41 @@
             gap: 40px;
         }
         .nav-section {
-            width: 220px;
+            width: 250px; /* Augmente la largeur pour plus de clarté */
             flex-shrink: 0;
         }
         .content-section {
             flex-grow: 1;
-            max-width: 600px;
+            max-width: 700px; /* Augmente la largeur pour faciliter la lecture */
         }
         .photo-section {
-            width: 200px;
+            width: 220px; /* Augmente la taille pour équilibrer avec le contenu */
             flex-shrink: 0;
         }
         .profile-photo {
-            width: 200px;
-            height: 200px;
+            width: 220px; /* Augmente la taille de la photo */
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ccc;
         }
         h1 {
-            margin-bottom: 5px;
-            font-size: 34px;
+            margin-bottom: 10px;
+            font-size: 38px; /* Augmente la taille du titre principal */
             color: #24292e;
         }
         .subtitle {
             margin-top: 0;
             color: #555;
-            font-size: 14px;
+            font-size: 18px; /* Augmente la taille du sous-titre */
+            line-height: 1.5;
         }
         nav a {
             display: block;
             text-decoration: none;
             color: #0366d6;
-            margin-bottom: 10px;
-            font-size: 16px;
+            margin-bottom: 12px;
+            font-size: 18px; /* Augmente la taille des liens de navigation */
         }
         nav a:hover {
             text-decoration: underline;
@@ -61,15 +63,16 @@
         }
         h2 {
             margin-top: 30px;
-            font-size: 24px;
+            font-size: 28px; /* Augmente la taille des titres de sections */
             color: #24292e;
         }
         p {
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 18px; /* Augmente la taille des paragraphes */
+            margin-bottom: 20px; /* Ajoute un espacement pour l'aération */
         }
         a {
             color: green;
+            font-size: 18px; /* Uniformise la taille des liens */
         }
         a:hover {
             text-decoration: underline;
@@ -80,9 +83,11 @@
     <div class="container">
         <div class="nav-section">
             <h1>Yassine Ait Mohamed</h1>
-            <p class="subtitle">PhD Student<br>
-            Department of Mathematics<br>
-            University of Sherbrooke</p>
+            <p class="subtitle">
+                PhD Student<br>
+                Department of Mathematics<br>
+                University of Sherbrooke
+            </p>
 
             <nav>
                 <a href="research.html">Research</a>
@@ -95,18 +100,20 @@
 
         <div class="content-section">
             <h2>Introduction</h2>
-            <p>I am a PhD student in Mathematics at the University of Sherbrooke. 
+            <p>
+                I am a PhD student in Mathematics at the University of Sherbrooke. 
                 Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah. 
             </p>
 
             <h2>Email</h2>
-            <p><a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a></p>
+            <p>
+                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
+            </p>
         </div>
 
         <div class="photo-section">
             <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
         </div>
     </div>
-
 </body>
 </html>
