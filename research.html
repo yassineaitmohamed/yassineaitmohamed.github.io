@@ -11,16 +11,16 @@
             padding: 0 20px;
             font-family: 'Courier New', Courier, monospace;
             color: #990000;
-            line-height: 1.8; /* Augmente l'espacement entre les lignes */
-            font-size: 18px; /* Augmente la taille de la police */
+            line-height: 1.8;
+            font-size: 18px;
         }
         h1 {
-            font-size: 32px; /* Augmente la taille du titre principal */
+            font-size: 32px;
             margin-bottom: 30px;
             color: #003366;
         }
         h2 {
-            font-size: 28px; /* Augmente la taille des sous-titres */
+            font-size: 28px;
             margin-bottom: 20px;
             color: #003366;
         }
@@ -33,10 +33,10 @@
             text-decoration: underline;
         }
         .paper {
-            margin-bottom: 30px; /* Augmente l'espacement entre les articles */
+            margin-bottom: 30px;
         }
         .paper-title {
-            font-size: 20px; /* Augmente la taille du titre des articles */
+            font-size: 20px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -80,7 +80,7 @@
             margin-top: 5px;
         }
         .collaboration {
-            color: cyan; /* Mise en évidence en cyan */
+            color: cyan;
             font-size: 18px;
         }
     </style>
@@ -138,6 +138,26 @@
             <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', '')">&#8250; abstract</a>
             <div id="abstract2" class="abstract">
                 In this paper, we introduce a novel concept in graded rings called generalized homogeneous derivations...
+            </div>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-title" onclick="togglePaperContent('paper3-content', 'triangle3')">
+            <div id="triangle3" class="triangle"></div>
+            3. Certain functional identities involving a pair of homogeneous derivations with central values in gr-prime rings
+        </div>
+        <div id="paper3-content" style="display: none;">
+            <p class="journal">To be submitted (2024)</p>
+            <div class="links">
+                <a href="https://arxiv.org/abs/2412.XXXXX" target="_blank">[arxiv]</a>
+            </div>
+            <a href="#abstract3" class="abstract-toggle" onclick="togglePaperContent('abstract3', '')">&#8250; abstract</a>
+            <div id="abstract3" class="abstract">
+                In this paper, we explore functional identities with central values in gr-prime rings involving pairs of homogeneous derivations. 
+                We establish commutativity conditions that extend classical results from prime rings to the graded setting. 
+                In particular, we show that under certain conditions on homogeneous derivations, the ring must be commutative. 
+                Furthermore, we demonstrate that these results cannot be extended to gr-semiprime rings.
             </div>
         </div>
     </div>
