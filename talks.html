@@ -11,36 +11,40 @@
             padding: 0 20px;
             font-family: 'Courier New', Courier, monospace;
             color: #003366;
-            line-height: 1.6;
+            line-height: 1.8; /* Augmente l'espacement entre les lignes */
+            font-size: 20px; /* Augmente la taille de la police */
         }
         h1 {
-            font-size: 32px;
+            font-size: 36px; /* Augmente la taille du titre principal */
             margin-bottom: 30px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
         .talk {
             position: relative;
-            margin-bottom: 25px;
-            padding-left: 25px;
+            margin-bottom: 30px; /* Augmente l'espacement entre les discussions */
+            padding-left: 30px; /* Augmente l'espace à gauche pour plus d'aération */
         }
         .talk::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 8px;
-            width: 12px;
-            height: 12px;
+            top: 10px;
+            width: 14px; /* Augmente la taille de l'indicateur circulaire */
+            height: 14px;
             background-color: #dc3545;
+            border-radius: 50%; /* Rend l'indicateur circulaire */
         }
         .date {
             font-weight: bold;
             color: #24292e;
+            font-size: 20px; /* Augmente la taille des dates */
         }
         .pdf-link {
             color: green;
             text-decoration: none;
             margin-left: 10px;
+            font-size: 20px; /* Augmente la taille des liens PDF */
         }
         .pdf-link:hover {
             text-decoration: underline;
