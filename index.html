@@ -84,20 +84,6 @@
             color: #444;
         }
     </style>
-    <script>
-        function updateVisitorCount() {
-            const countElement = document.getElementById('visitor-count');
-            fetch('https://api.countapi.xyz/hit/yassineaitmohamed.github.io/visits')
-                .then(response => response.json())
-                .then(data => {
-                    countElement.textContent = data.value;
-                })
-                .catch(error => {
-                    console.error('Erreur lors de la mise à jour du compteur :', error);
-                });
-        }
-        window.onload = updateVisitorCount;
-    </script>
 </head>
 <body>
     <div class="container">
@@ -121,25 +107,17 @@
         <div class="content-section">
             <h2>Introduction</h2>
             <p>
-                I am a PhD student in Mathematics at the University of Sherbrooke under the supervision of Maxence Mayrand. 
+                I am a PhD student in Mathematics at the University of Sherbrooke under the supervision of <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
                 Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah. 
             </p>
 
             <h2>Email</h2>
-            <p>
-                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
-            </p>
+            <p>Email: <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a></p>
         </div>
 
         <div class="photo-section">
             <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
         </div>
     </div>
-
-    <footer>
-        <p>
-            This page has been visited <span id="visitor-count">0</span> times.
-        </p>
-    </footer>
 </body>
 </html>
