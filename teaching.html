@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teaching - Yassine Ait Mohamed</title>
     <style>
         body {
@@ -11,17 +11,17 @@
             padding: 0 20px;
             font-family: 'Courier New', Courier, monospace;
             color: #003366;
-            line-height: 1.8; /* Augmente l'espacement entre les lignes */
-            font-size: 18px; /* Augmente la taille de la police */
+            line-height: 1.8;
+            font-size: 18px;
             background-color: #f9f9f9;
         }
         h1 {
-            font-size: 36px; /* Augmente la taille du titre principal */
+            font-size: 36px;
             margin-bottom: 30px;
             color: #003366;
         }
         h2 {
-            font-size: 28px; /* Augmente la taille des sous-titres */
+            font-size: 28px;
             margin-bottom: 20px;
             color: #003366;
         }
@@ -31,14 +31,14 @@
             margin-bottom: 30px;
         }
         .entry::before {
-            content: '';
+            content: ''; 
             position: absolute;
             left: 0;
             top: 10px;
             width: 14px;
             height: 14px;
             background-color: green;
-            border-radius: 50%; /* Ajoute un cercle pour indiquer chaque entrée */
+            border-radius: 50%; 
         }
         .date {
             font-weight: 600;
@@ -64,7 +64,7 @@
         .pdf-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px; /* Ajoute de l'espace entre les éléments */
+            gap: 20px;
             margin-top: 20px;
         }
         .pdf-cell {
@@ -74,7 +74,7 @@
             background: white;
             border-radius: 6px;
             border: 1px solid #e1e4e8;
-            font-size: 18px; /* Taille uniforme des textes */
+            font-size: 18px;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -105,20 +105,19 @@
 
     <!-- First Section: Teaching Information -->
     <div class="entry university">
-
-<p>
-    <span class="date">September 2024 - December 2024</span><br>
+        <p>
+            <span class="date">September 2024 - December 2024</span><br>
             <span class="position">Teaching Assistant</span><br>
-            <span class="institution">Differential and Integral Calculus I (MAT194),  University of Sherbrooke</span>
+            <span class="institution">Differential and Integral Calculus I (MAT194), University of Sherbrooke</span>
         </p>
     </div>
-<p>
+    <div class="entry university">
+        <p>
             <span class="date">September 2024 - December 2024</span><br>
             <span class="position">Mathematics Tutor</span><br>
             <span class="institution">Center for Mathematics Help, University of Sherbrooke</span>
         </p>
     </div>
-
     <div class="entry online">
         <p>
             <span class="date">September 2020 - December 2023</span><br>
@@ -126,7 +125,6 @@
             <span class="institution">Algebra, Real and Complex Analysis, Topology</span>
         </p>
     </div>
-
     <div class="entry school">
         <p>
             <span class="date">September 2022 - November 2023</span><br>
@@ -135,7 +133,6 @@
             Lessons for high school students
         </p>
     </div>
-
     <div class="entry school">
         <p>
             <span class="date">September 2018 - March 2019</span><br>
@@ -144,7 +141,6 @@
             Lessons for secondary school students
         </p>
     </div>
-
     <div class="entry school">
         <p>
             <span class="date">September 2017 - March 2018</span><br>
@@ -162,12 +158,10 @@
                 <div class="triangle"></div>
                 <span>TD Algèbre 1</span>
             </div>
-
-<div class="pdf-cell" onclick="window.open('Logique_11.pdf', '_blank')">
+            <div class="pdf-cell" onclick="window.open('Logique_11.pdf', '_blank')">
                 <div class="triangle"></div>
                 <span>Résumé 1: Ensembles et applications</span>
             </div>
-            
             <div class="pdf-cell" onclick="window.open('groupes.pdf', '_blank')">
                 <div class="triangle"></div>
                 <span>Groupes</span>
