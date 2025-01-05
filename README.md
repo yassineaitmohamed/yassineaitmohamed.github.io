@@ -1,2 +1,2 @@
-# yassine.ait.mohamed.github.io
+# yassineaitmohamed.github.io
 Home page
