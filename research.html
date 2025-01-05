@@ -10,29 +10,27 @@
             margin: 20px auto;
             padding: 0 10px;
             font-family: Arial, sans-serif;
-            color: #222; /* Couleur neutre pour le texte */
+            color: #333; /* Texte en gris foncé */
             line-height: 1.6;
             font-size: 16px;
-            background-color: #f8f9fa; /* Fond gris très clair */
+            background-color: #f9f9f9; /* Fond gris clair */
         }
         h1 {
             font-size: 28px;
             margin-bottom: 20px;
-            color: #333; /* Couleur sombre pour le titre principal */
+            color: #000; /* Titre noir */
         }
         h2 {
             font-size: 24px;
             margin-bottom: 15px;
-            color: #555; /* Couleur neutre pour les sous-titres */
+            color: #444; /* Sous-titre gris foncé */
         }
         a {
-            color: #0066cc; /* Bleu sobre pour les liens */
+            color: #0056b3; /* Bleu professionnel pour les liens */
             text-decoration: none;
-            font-size: 16px;
         }
         a:hover {
             text-decoration: underline;
-            color: #004c99; /* Bleu légèrement plus foncé au survol */
         }
         .paper-title {
             font-size: 18px;
@@ -40,14 +38,14 @@
             display: flex;
             align-items: center;
             cursor: pointer;
-            color: #333; /* Couleur neutre pour les titres des articles */
+            color: #333; /* Gris foncé */
         }
         .triangle {
             width: 0;
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 6px solid #0066cc; /* Bleu sobre pour les triangles */
+            border-top: 6px solid #333; /* Triangle en gris foncé */
             margin-right: 10px;
             transition: transform 0.2s ease;
         }
@@ -56,30 +54,29 @@
         }
         .journal {
             font-style: italic;
-            color: #777; /* Gris doux pour les noms de journaux */
+            color: #555; /* Gris moyen */
             margin-left: 10px;
         }
         .abstract-toggle {
             cursor: pointer;
             font-size: 14px;
-            color: #0066cc; /* Bleu sobre pour les liens "abstract" */
+            color: #0056b3; /* Bleu professionnel */
             text-decoration: none;
         }
         .abstract-toggle:hover {
-            color: #004c99; /* Bleu plus foncé au survol */
+            text-decoration: underline;
         }
         .abstract {
             display: none;
             margin-top: 5px;
             font-size: 14px;
-            color: #444; /* Gris foncé pour le contenu des résumés */
-            background-color: #f1f3f5; /* Fond gris clair */
+            color: #555; /* Texte en gris moyen */
+            background-color: #f1f1f1; /* Fond gris très clair */
             padding: 10px;
             border-radius: 5px;
-            border: 1px solid #e0e0e0; /* Bordure douce */
         }
         .highlight {
-            color: #d9534f; /* Rouge subtil pour les éléments mis en évidence */
+            color: #000; /* Noir pour le texte en surbrillance */
             font-weight: bold;
         }
     </style>
@@ -101,8 +98,9 @@
     <h1>Research</h1>
     
     <ul>
-        <li><a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed-2" target="_blank">ResearchGate</a></li> 
+        <li><a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed-2" target="_blank">ResearchGate</a></li>
     </ul>
+
     <h2>Papers</h2>
 
     <div class="paper">
@@ -112,12 +110,10 @@
         </div>
         <div id="paper1-content" style="display: none;">
             <p class="journal">Revista de la Unión Matemática Argentina</p>
-            <div class="links">
-                <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
-            </div>
+            <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
             <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', '')">&#8250; abstract</a>
             <div id="abstract1" class="abstract">
-                The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+               This paper establishes interesting results related to homogeneous derivations and extends several significant results to graded rings.
             </div>
         </div>
     </div>
@@ -128,13 +124,35 @@
             2. Generalized homogeneous derivations of graded rings
         </div>
         <div id="paper2-content" style="display: none;">
-            <div class="links">
-                <a href="https://arxiv.org/abs/2412.17187" target="_blank">[arxiv]</a>
-            </div>
+            <a href="https://arxiv.org/abs/2412.17187" target="_blank">[arXiv]</a>
             <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', '')">&#8250; abstract</a>
             <div id="abstract2" class="abstract">
-                In this paper, we introduce a novel concept in graded rings called generalized homogeneous derivations, which serve as a natural generalization of the homogeneous derivations introduced by Kanunnikov. We provide an example demonstrating that the class of homogeneous derivations is strictly contained within the class of generalized homogeneous derivations. Furthermore, we extend several significant results, originally established for prime rings, to the context of gr-prime rings.
+               This paper introduces generalized homogeneous derivations and extends significant results from prime rings to graded prime rings.
             </div>
+        </div>
+    </div>
+
+    <h2>Master's Thesis</h2>
+    <div class="paper">
+        <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle3')">
+            <div id="triangle3" class="triangle"></div>
+            Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties
+        </div>
+        <div id="thesis-content" style="display: none;">
+            <a href="master_thesis.pdf" target="_blank">[PDF]</a>
+        </div>
+    </div>
+
+    <h2>Other Notes</h2>
+    <div class="paper">
+        <div class="paper-title" onclick="togglePaperContent('notes-content', 'triangle4')">
+            <div id="triangle4" class="triangle"></div>
+            Notes
+        </div>
+        <div id="notes-content" style="display: none;">
+            <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
+            <p>Non-homogeneity of Lie and Jordan products [<a href="Countreex.pdf" target="_blank">PDF</a>]</p>
+            <p>Examples of homogeneous derivations [<a href="Some_examples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
         </div>
     </div>
 </body>
