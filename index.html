@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassine Ait Mohamed</title>
     <style>
         body {
@@ -17,8 +17,9 @@
         }
         .container {
             display: flex;
-            justify-content: space-between;
-            gap: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
         .nav-section {
             width: 250px;
@@ -29,12 +30,14 @@
             max-width: 700px;
         }
         .photo-section {
-            width: 220px;
             flex-shrink: 0;
+            display: flex;
+            justify-content: center;
         }
         .profile-photo {
-            width: 220px;
-            height: 220px;
+            width: 100%;
+            max-width: 220px;
+            height: auto;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ccc;
@@ -104,6 +107,10 @@
             </nav>
         </div>
 
+        <div class="photo-section">
+            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+        </div>
+
         <div class="content-section">
             <h2>Introduction</h2>
             <p>
@@ -116,10 +123,6 @@
                 <a href="mailto:y.aitmohamed@yahoo.com" style="color:#2C3E50;">y.aitmohamed@yahoo.com</a> 
             
             </p>
-        </div>
-
-        <div class="photo-section">
-            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
         </div>
     </div>
 </body>
