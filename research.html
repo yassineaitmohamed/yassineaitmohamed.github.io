@@ -10,44 +10,44 @@
             margin: 20px auto;
             padding: 0 10px;
             font-family: 'Courier New', Courier, monospace;
-            color: #333; /* Couleur neutre pour le texte */
-            line-height: 1.6;
-            font-size: 16px;
-            background-color: #f0f8ff; /* Fond bleu très clair */
+            color: #990000;
+            line-height: 1.6; /* Diminue l'interligne */
+            font-size: 16px; /* Réduction de la taille de la police */
         }
         h1 {
-            font-size: 28px;
+            font-size: 28px; /* Réduction de la taille du titre principal */
             margin-bottom: 20px;
-            color: #00bcd4; /* Cyan principal */
+            color: #003366;
         }
         h2 {
-            font-size: 24px;
+            font-size: 24px; /* Réduction de la taille des sous-titres */
             margin-bottom: 15px;
-            color: #008c9e; /* Cyan foncé */
+            color: #003366;
         }
         a {
-            color: #ff9800; /* Orange doux */
+            color: green;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 16px; /* Réduction de la taille de la police des liens */
         }
         a:hover {
             text-decoration: underline;
-            color: #ff5722; /* Orange vif */
+        }
+        .paper {
+            margin-bottom: 20px; /* Réduction de l'espacement entre les articles */
         }
         .paper-title {
-            font-size: 18px;
+            font-size: 18px; /* Réduction de la taille de la police des titres des articles */
             font-weight: bold;
             display: flex;
             align-items: center;
             cursor: pointer;
-            color: #673ab7; /* Violet doux */
         }
         .triangle {
             width: 0;
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 6px solid #00bcd4; /* Cyan principal */
+            border-top: 6px solid green;
             margin-right: 10px;
             transition: transform 0.2s ease;
         }
@@ -56,29 +56,24 @@
         }
         .journal {
             font-style: italic;
-            color: #555; /* Gris neutre */
-            margin-left: 10px;
+            color: #555;
+            margin-left: 10px; /* Réduction de l'espace entre les éléments */
         }
         .abstract-toggle {
             cursor: pointer;
-            font-size: 14px;
-            color: #ff9800; /* Orange doux */
+            font-size: 14px; /* Réduction de la taille de la police pour les liens "abstract" */
+            color: green;
             text-decoration: none;
-        }
-        .abstract-toggle:hover {
-            color: #ff5722; /* Orange vif */
+            display: inline-block;
         }
         .abstract {
             display: none;
-            margin-top: 5px;
-            font-size: 14px;
-            color: #444; /* Gris foncé */
-            background-color: #e3f2fd; /* Fond cyan très clair */
-            padding: 10px;
-            border-radius: 5px;
+            margin-top: 5px; /* Réduction de l'espacement vertical */
+            font-size: 14px; /* Réduction de la taille de la police dans les résumés */
+            color: #444;
         }
         .highlight {
-            color: #d32f2f; /* Rouge profond */
+            color: blue;
             font-weight: bold;
         }
     </style>
@@ -170,6 +165,7 @@
         </div>
     </div>
 
+    
     <h2>Master's Thesis</h2>
     <div class="paper">
         <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle5')">
@@ -197,4 +193,3 @@
     </div>
 </body>
 </html>
-
