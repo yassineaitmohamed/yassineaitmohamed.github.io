@@ -4,74 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talks - Yassine Ait Mohamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #003366;
-            line-height: 1.8; /* Augmente l'espacement entre les lignes */
-            font-size: 20px; /* Augmente la taille de la police */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.8;
+            color: #003366;
+            background-color: #ffffff;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #24292e;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #dc3545;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+        
         h1 {
-            font-size: 36px; /* Augmente la taille du titre principal */
+            font-size: 36px;
             margin-bottom: 30px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
+            color: #24292e;
         }
+        
         .talk {
             position: relative;
-            margin-bottom: 30px; /* Augmente l'espacement entre les discussions */
-            padding-left: 30px; /* Augmente l'espace à gauche pour plus d'aération */
+            margin-bottom: 30px;
+            padding-left: 30px;
         }
+        
         .talk::before {
             content: '';
             position: absolute;
             left: 0;
             top: 10px;
-            width: 14px; /* Augmente la taille de l'indicateur circulaire */
+            width: 14px;
             height: 14px;
             background-color: #dc3545;
-            border-radius: 50%; /* Rend l'indicateur circulaire */
+            border-radius: 50%;
         }
+        
         .date {
             font-weight: bold;
             color: #24292e;
-            font-size: 20px; /* Augmente la taille des dates */
+            font-size: 20px;
         }
+        
+        .talk p {
+            font-size: 18px;
+            color: #003366;
+            line-height: 1.8;
+        }
+        
         .pdf-link {
             color: green;
             text-decoration: none;
             margin-left: 10px;
-            font-size: 20px; /* Augmente la taille des liens PDF */
+            font-size: 18px;
         }
+        
         .pdf-link:hover {
             text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Talks</h1>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-name">Yassine Ait Mohamed</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="talks.html">Talks</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="talk">
-        <p><span class="date">November 2024:</span> On bound quivers, MAT728 Selected Topics in Algebra, Faculty of Sciences, University of Sherbrooke [<a href="quivers.pdf" class="pdf-link">PDF</a>]</p>
-    </div>
-
-    <div class="talk">
-        <p><span class="date">January 2023:</span> On Graded Rings (1), seminar of Non-commutative Algebra, Laboratory of Meddling and Mathematical Structures, Faculty of Science and Technology-Fez [<a href="graded_rings.pdf" class="pdf-link">PDF</a>]</p>
-    </div>
-
-    <div class="talk">
-        <p><span class="date">December 2021:</span> Tensor algebra and enveloping algebra of a Lie algebra, seminar of Theory of Hopf algebras, Faculty of Science Dhar El Mahraz</p>
-    </div>
-
-    <div class="talk">
-        <p><span class="date">November 2021:</span> About Riemann-Roch Theorem, seminar of Algebraic geometry, Faculty of Science Dhar El Mahraz [<a href="roch.pdf" class="pdf-link">PDF</a>]</p>
-    </div>
-
-    <div class="talk">
-        <p><span class="date">February 2021:</span> Action of a Lie group on a differential variety, seminar of Differential geometry 2, Faculty of Science Dhar El Mahraz</p>
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Talks</h1>
+        
+        <div class="talk">
+            <p><span class="date">November 2024:</span> On bound quivers, MAT728 Selected Topics in Algebra, Faculty of Sciences, University of Sherbrooke [<a href="quivers.pdf" class="pdf-link">PDF</a>]</p>
+        </div>
+        
+        <div class="talk">
+            <p><span class="date">January 2023:</span> On Graded Rings (1), seminar of Non-commutative Algebra, Laboratory of Meddling and Mathematical Structures, Faculty of Science and Technology-Fez [<a href="graded_rings.pdf" class="pdf-link">PDF</a>]</p>
+        </div>
+        
+        <div class="talk">
+            <p><span class="date">December 2021:</span> Tensor algebra and enveloping algebra of a Lie algebra, seminar of Theory of Hopf algebras, Faculty of Science Dhar El Mahraz</p>
+        </div>
+        
+        <div class="talk">
+            <p><span class="date">November 2021:</span> About Riemann-Roch Theorem, seminar of Algebraic geometry, Faculty of Science Dhar El Mahraz [<a href="roch.pdf" class="pdf-link">PDF</a>]</p>
+        </div>
+        
+        <div class="talk">
+            <p><span class="date">February 2021:</span> Action of a Lie group on a differential variety, seminar of Differential geometry 2, Faculty of Science Dhar El Mahraz</p>
+        </div>
     </div>
 </body>
 </html>
