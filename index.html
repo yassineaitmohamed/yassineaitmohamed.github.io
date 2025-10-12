@@ -120,29 +120,53 @@
         .social-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             margin-top: 25px;
-            align-items: center;
+            align-items: flex-start;
+            width: 100%;
         }
         
         .social-links a {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            gap: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
             background-color: #f5f5f5;
             color: #555;
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 18px;
+            font-size: 14px;
+            width: 100%;
+        }
+        
+        .social-links a i {
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
         }
         
         .social-links a:hover {
             background-color: #0066cc;
             color: white;
-            transform: translateY(-2px);
+            transform: translateX(5px);
+            text-decoration: none;
+        }
+        
+        .social-links .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .social-links .info-item i {
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
+            color: #0066cc;
         }
         
         .contact-info {
@@ -223,33 +247,49 @@
             
             <!-- Social Links -->
             <div class="social-links">
-                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" title="Email">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sherbrooke, Canada</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-university"></i>
+                    <span>University of Sherbrooke</span>
+                </div>
+                <a href="mailto:y.aitmohamed@yahoo.com">
                     <i class="fas fa-envelope"></i>
+                    <span>Email</span>
                 </a>
-                <a href="cv.html" title="CV">
+                <a href="cv.html">
                     <i class="fas fa-file-alt"></i>
+                    <span>CV</span>
                 </a>
-                <a href="#" title="Google Scholar">
+                <a href="https://scholar.google.com/citations?user=VciBdx4AAAAJ&hl=fr" target="_blank">
                     <i class="fas fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
                 </a>
-                <a href="#" title="LinkedIn">
+                <a href="https://ca.linkedin.com/in/yassine-ait-mohamed-ab0515363/" target="_blank">
                     <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
                 </a>
-                <a href="#" title="ResearchGate">
+                <a href="#" target="_blank">
                     <i class="fab fa-researchgate"></i>
+                    <span>ResearchGate</span>
                 </a>
-                <a href="#" title="GitHub">
+                <a href="#" target="_blank">
                     <i class="fab fa-github"></i>
+                    <span>GitHub</span>
                 </a>
             </div>
             
             <div class="contact-info">
                 <strong>Contact</strong><br>
-                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
+                <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
             </div>
         </div>
         
-        <div class="content">            
+        <div class="content">
+            <div class="intro-title">Welcome to my website</div>
+            
             <div class="intro-text">
                 I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
                 <a href="https://maxencemayrand.github.io/" target="_blank">Prof. Maxence Mayrand</a>.
@@ -265,7 +305,7 @@
 
             <h2>Research Interests</h2>
             <p class="intro-text">
-                Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry
+                [Ajoutez ici vos intérêts de recherche]
             </p>
         </div>
     </div>
