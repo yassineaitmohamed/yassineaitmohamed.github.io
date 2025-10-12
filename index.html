@@ -2,108 +2,271 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassine Ait Mohamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            max-width: 1000px;
-            margin: 40px auto;
-            font-family: Arial, sans-serif;
-            line-height: 1.8;
-            font-size: 16px;
-            color: #333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+        
+        /* Main Container */
         .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 40px;
             display: grid;
-            grid-template-columns: 250px 1fr 200px;
-            gap: 20px;
+            grid-template-columns: 250px 1fr;
+            gap: 60px;
             align-items: start;
         }
-        .nav-section {
-            grid-column: 1 / 2;
-        }
-        .nav-section h1 {
-            margin-bottom: 10px;
-            font-size: 28px;
-            font-weight: bold;
-            color: #003366;
-        }
-        .nav-section p {
-            margin: 0;
-            color: #555;
-        }
-        .nav-section a {
-            display: block;
-            margin: 10px 0;
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .nav-section a:hover {
-            text-decoration: underline;
-        }
-        .content-section {
+        
+        /* Content Section */
+        .content {
             grid-column: 2 / 3;
         }
-        .content-section h2 {
-            font-size: 22px;
-            color: #003366;
-            margin-bottom: 10px;
+        
+        .intro-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
         }
-        .content-section p {
-            margin: 0;
+        
+        .intro-text {
+            font-size: 16px;
             color: #555;
+            margin-bottom: 30px;
+            line-height: 1.8;
         }
-        .content-section a {
+        
+        .affiliation {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        /* Photo Section */
+        .photo-section {
+            grid-column: 1 / 2;
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f0f0f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Social Icons - Vertical */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+            align-items: center;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+        
+        .social-links a:hover {
+            background-color: #0066cc;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Section Titles */
+        h2 {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+        
+        /* Links */
+        a {
             color: #0066cc;
             text-decoration: none;
         }
-        .content-section a:hover {
+        
+        a:hover {
             text-decoration: underline;
         }
-        .photo-section {
-            grid-column: 3 / 4;
-            text-align: center;
-        }
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ccc;
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .photo-section {
+                position: relative;
+                top: 0;
+            }
+            
+            .content {
+                grid-column: 1 / 2;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-name">Yassine Ait Mohamed</div>
+            <ul class="nav-links">
+                <li><a href="research.html">Research</a></li>
+                <li><a href="talks.html">Talks</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="mathlinks.html">Math Links</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
-        <!-- Navigation Section -->
-        <div class="nav-section">
-            <h1>Yassine Ait Mohamed</h1>
-            <p>PhD Student<br>Department of Mathematics<br>University of Sherbrooke</p>
-            <a href="research.html">Research</a>
-            <a href="talks.html">Talks</a>
-            <a href="cv.html">CV</a>
-            <a href="teaching.html">Teaching</a>
-            <a href="mathlinks.html">Math Links</a>
-        </div>
-
-        <!-- Content Section -->
-        <div class="content-section">
-            <h2>Introduction</h2>
-            <p>
-                I am a PhD student in Mathematics at the University of Sherbrooke.
-                Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah.
-            </p>
-
-            <h2>Email</h2>
-            <p>
-                <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
-            </p>
-        </div>
-
         <!-- Photo Section -->
         <div class="photo-section">
             <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="mailto:y.aitmohamed@yahoo.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="cv.html" title="CV">
+                    <i class="fas fa-file-alt"></i>
+                </a>
+                <a href="#" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="#" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" title="ResearchGate">
+                    <i class="fab fa-researchgate"></i>
+                </a>
+                <a href="#" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <strong>Contact</strong><br>
+                <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="intro-title">Welcome to my website</div>
+            
+            <div class="intro-text">
+                I am a PhD student in Mathematics at the University of Sherbrooke.
+                Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah.
+            </div>
+            
+            <div class="affiliation">
+                <strong>PhD Student</strong><br>
+                Department of Mathematics<br>
+                University of Sherbrooke
+            </div>
+
+            <h2>Research Interests</h2>
+            <p class="intro-text">
+                [Ajoutez ici vos intérêts de recherche]
+            </p>
         </div>
     </div>
 </body>
