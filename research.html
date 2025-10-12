@@ -2,86 +2,246 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research - Yassine Ait Mohamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 0 10px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #003366;
-            line-height: 1.6; /* Diminue l'interligne */
-            font-size: 16px; /* Réduction de la taille de la police */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
         }
-        h1 {
-            font-size: 28px; /* Réduction de la taille du titre principal */
-            margin-bottom: 20px;
-            color: #dc3545;
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        h2 {
-            font-size: 24px; /* Réduction de la taille des sous-titres */
-            margin-bottom: 15px;
-            color: #003366;
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        a {
-            color: green;
+        
+        .nav-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
             text-decoration: none;
-            font-size: 16px; /* Réduction de la taille de la police des liens */
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        a:hover {
+        
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        /* Links Section */
+        .links-section {
+            margin-bottom: 30px;
+        }
+        
+        .links-section a {
+            display: inline-block;
+            margin-right: 20px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .links-section a:hover {
             text-decoration: underline;
         }
+        
+        /* Research Groups */
+        .research-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .research-info h3 {
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .research-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .research-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Paper */
         .paper {
-            margin-bottom: 20px; /* Réduction de l'espacement entre les articles */
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
         }
+        
+        .paper:last-child {
+            border-bottom: none;
+        }
+        
         .paper-title {
-            font-size: 18px; /* Réduction de la taille de la police des titres des articles */
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 600;
+            color: #0066cc;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             cursor: pointer;
+            line-height: 1.4;
         }
+        
+        .paper-title:hover {
+            color: #0052a3;
+        }
+        
         .triangle {
             width: 0;
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 6px solid green;
-            margin-right: 10px;
+            border-top: 8px solid #0066cc;
+            margin-right: 12px;
+            margin-top: 6px;
             transition: transform 0.2s ease;
+            flex-shrink: 0;
         }
+        
         .triangle.open {
             transform: rotate(90deg);
         }
+        
+        .paper-content {
+            display: none;
+            margin-top: 12px;
+            margin-left: 30px;
+        }
+        
         .journal {
             font-style: italic;
-            color: #555;
-            margin-left: 10px; /* Réduction de l'espace entre les éléments */
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 15px;
         }
+        
+        .links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 15px;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
         .abstract-toggle {
             cursor: pointer;
-            font-size: 14px; /* Réduction de la taille de la police pour les liens "abstract" */
-            color: green;
+            font-size: 14px;
+            color: #0066cc;
             text-decoration: none;
             display: inline-block;
+            margin-top: 8px;
         }
+        
+        .abstract-toggle:hover {
+            text-decoration: underline;
+        }
+        
         .abstract {
             display: none;
-            margin-top: 5px; /* Réduction de l'espacement vertical */
-            font-size: 14px; /* Réduction de la taille de la police dans les résumés */
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            font-size: 15px;
             color: #444;
+            line-height: 1.6;
         }
+        
         .highlight {
-            color: blue;
-            font-weight: bold;
+            color: #0066cc;
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
         }
     </style>
     <script>
         function togglePaperContent(id, triangleId) {
             const content = document.getElementById(id);
             const triangle = document.getElementById(triangleId);
-            if (content.style.display === "none") {
+            if (content.style.display === "none" || content.style.display === "") {
                 content.style.display = "block";
                 if (triangle) triangle.classList.add("open");
             } else {
@@ -92,110 +252,101 @@
     </script>
 </head>
 <body>
-    
-    <h1>Research</h1>
-
-
-     <ul> 
- <li><a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed?ev=hdr_xprf" target="_blank">Resarchgate</a></li>         
-    </ul>    <ul> 
- <li><a href="https://scholar.google.com/citations?hl=en&user=3eePuSAAAAAJ&view_op=list_works&gmla=AFix5MaJ-js0YEpjRkX3HBOMEOXVdFa2_EQQ3zqgi_v5Q-lt08dlkzaZwruerctBPhzJUaVpI-_WtA_xYk4E552x" target="_blank">Google Scholar</a></li>         
-    </ul>
-    <h2>Papers</h2>
-
-    <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
-            <div id="triangle1" class="triangle"></div>
-            1. On graded rings with homogeneous derivations
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-name">Yassine Ait Mohamed</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="talks.html">Talks</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+            </ul>
         </div>
-        <div id="paper1-content" style="display: none;">
-            <p class="journal">Revista de la Unión Matemática Argentina</p>
-            <div class="links">
-                <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Research</h1>
+
+        <div class="links-section">
+            <a href="https://www.researchgate.net/profile/Yassine-Ait-Mohamed?ev=hdr_xprf" target="_blank">ResearchGate</a>
+            <a href="https://scholar.google.com/citations?hl=en&user=3eePuSAAAAAJ&view_op=list_works&gmla=AFix5MaJ-js0YEpjRkX3HBOMEOXVdFa2_EQQ3zqgi_v5Q-lt08dlkzaZwruerctBPhzJUaVpI-_WtA_xYk4E552x" target="_blank">Google Scholar</a>
+        </div>
+
+        <!-- Research Groups -->
+        <div class="research-info">
+            <h3>Research Group</h3>
+            <p><a href="https://sag.recherche.usherbrooke.ca/equipe" target="_blank">Groupe de recherche en algèbre et géométrie</a></p>
+        </div>
+
+        <div class="research-info">
+            <h3>Seminar Organization</h3>
+            <p>Organizer of <a href="https://junior-seminar-geomphys.github.io/JSGMP/index.html" target="_blank">Junior Seminar in Geometry and Mathematical Physics</a></p>
+        </div>
+
+        <h2>Publications</h2>
+
+        <div class="paper">
+            <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
+                <div id="triangle1" class="triangle"></div>
+                <span>On graded rings with homogeneous derivations</span>
             </div>
-            <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', '')">&#8250; abstract</a>
-            <div id="abstract1" class="abstract">
-               The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
-            </div>
-        </div>
-    </div>
-
-    <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
-            <div id="triangle2" class="triangle"></div>
-            2. Generalized homogeneous derivations of graded rings
-        </div>
-        <div id="paper2-content" style="display: none;">
-            <div class="links">
-                <a href="https://arxiv.org/abs/2412.17187" target="_blank">[arxiv]</a>
-            </div>
-            <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', '')">&#8250; abstract</a>
-            <div id="abstract2" class="abstract">
-                In this paper, we introduce a novel concept in graded rings called generalized homogeneous derivations, which serve as a natural generalization of the homogeneous derivations introduced by Kanunnikov. We provide an example demonstrating that the class of homogeneous derivations is strictly contained within the class of generalized homogeneous derivations. Furthermore, we extend several significant results, originally established for prime rings, to the context of gr-prime rings.
-            </div>
-        </div>
-    </div>
-
-   
-       
-
-    <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('paper3-content', 'triangle3')">
-            <div id="triangle3" class="triangle"></div>
-            3. Identities Related to Generalized Homogeneous Derivations on Graded Ideals 
-            <span style="font-weight: normal;">(with <span class="highlight">Nabil Benjaa</span>)</span>
-        </div>
-        <div id="paper3-content" style="display: none;">
-            <a href="#abstract3" class="abstract-toggle" onclick="togglePaperContent('abstract3', '')">&#8250; abstract</a>
-            <div id="abstract3" class="abstract">
-             The purpose of this paper is to study the structure of gr-prime and gr-semiprime rings through functional identities involving generalized homogeneous derivations acting on graded ideals. These mappings lead to conditions ensuring either commutativity of the ring or the existence of nonzero central graded ideals.
+            <div id="paper1-content" class="paper-content">
+                <p class="journal">Revista de la Unión Matemática Argentina</p>
+                <div class="links">
+                    <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
+                </div>
+                <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', ''); event.stopPropagation();">▸ abstract</a>
+                <div id="abstract1" class="abstract">
+                    The concept of homogeneous derivations was introduced by Kanunnikov (2018). In this paper, we establish interesting results related to homogeneous derivations. First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+                </div>
             </div>
         </div>
-    </div>
 
-<div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('paper4-content', 'triangle4')">
-            <div id="triangle3" class="triangle"></div>
-            4. Certain functional identities involving a pair of homogeneous derivations with central values in gr-prime rings
-            <span style="font-weight: normal;">(with <span class="highlight">Nabil Benjaa</span>)</span>
-        </div>
-        <div id="paper4-content" style="display: none;">
-            <a href="#abstract4" class="abstract-toggle" onclick="togglePaperContent('abstract4', '')">&#8250; abstract</a>
-            <div id="abstract4" class="abstract">
-            In this paper, we explore functional identities with central values in gr-prime rings involving pairs of homogeneous derivations. We establish commu-tativity conditions that extend classical results from prime rings to the graded setting. In particular, we show that under certain conditions for homogeneous derivations, the ring must be commutative. Furthermore, we demonstrate that these results cannot be extended to gr-semiprime rings.
+        <div class="paper">
+            <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
+                <div id="triangle2" class="triangle"></div>
+                <span>Generalized homogeneous derivations in graded rings</span>
+            </div>
+            <div id="paper2-content" class="paper-content">
+                <div class="links">
+                    <a href="https://arxiv.org/abs/2412.17187" target="_blank">arXiv</a>
+                </div>
+                <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', ''); event.stopPropagation();">▸ abstract</a>
+                <div id="abstract2" class="abstract">
+              We introduce a notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations introduced by Kanunnikov. We define gr-generalized derivations as those that preserve the degree of homogeneous elements. We extend classical results from prime rings to the graded setting, and we establish conditions ensuring the existence of nontrivial central graded ideals in gr-semiprime rings.                </div>
             </div>
         </div>
-    </div>
+
+      
 
 
-
-
-
-
-    
-    <h2>Master's Thesis</h2>
-    <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle5')">
-            <div id="triangle5" class="triangle"></div>
-            Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties
-        </div>
-        <div id="thesis-content" style="display: none;">
-            <div class="links">
-                <a href="master_thesis.pdf" target="_blank">[PDF]</a>
+        <h2>Master's Thesis</h2>
+        <div class="paper">
+            <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle5')">
+                <div id="triangle5" class="triangle"></div>
+                <span>Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties</span>
+            </div>
+            <div id="thesis-content" class="paper-content">
+                <div class="links">
+                    <a href="master_thesis.pdf" target="_blank">PDF</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <h2>Other Notes</h2>
-    <div class="paper">
-        <div class="paper-title" onclick="togglePaperContent('notes-content', 'triangle6')">
-            <div id="triangle6" class="triangle"></div>
-            Notes
-        </div>
-        <div id="notes-content" style="display: none;">
-            <p>On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
-            <p>Non-homogeneity of Lie and Jordan products in the matrix ring $M_4(k)$ under dihedral group $D_{10}$ grading [<a href="Countreex.pdf" target="_blank">PDF</a>]</p>
-            <p>Some examples of homogeneous derivations [<a href="Some_examples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
+        <h2>Other Notes</h2>
+        <div class="paper">
+            <div class="paper-title" onclick="togglePaperContent('notes-content', 'triangle6')">
+                <div id="triangle6" class="triangle"></div>
+                <span>Notes</span>
+            </div>
+            <div id="notes-content" class="paper-content">
+                <p>• On central simple algebras [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
+                <p>• Non-homogeneity of Lie and Jordan products in the matrix ring $M_4(k)$ under dihedral group $D_{10}$ grading [<a href="Countreex.pdf" target="_blank">PDF</a>]</p>
+                <p>• Some examples of homogeneous derivations [<a href="Some_examples_of_homogeneous_derivations.pdf" target="_blank">PDF</a>]</p>
+            </div>
         </div>
     </div>
 </body>
