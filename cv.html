@@ -4,81 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Yassine Ait Mohamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            max-width: 1100px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #0288d1;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1000px;
             margin: 40px auto;
-            padding: 0 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            font-size: 18px; /* Augmentation de la taille par défaut du texte */
-            color: #003366;
-            line-height: 1.8; /* Augmente l'espacement entre les lignes pour une meilleure lisibilité */
+            padding: 0 40px;
         }
+        
         h1 {
-            font-size: 36px; /* Taille augmentée */
+            font-size: 32px;
             margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
+            color: #1a1a1a;
+            font-weight: 600;
         }
+        
         h2 {
-            font-size: 28px; /* Taille augmentée */
-            margin-top: 30px;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #0288d1;
+            font-weight: 600;
         }
+        
         .summary-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e3f2fd;
             align-items: baseline;
         }
+        
+        .institution {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 18px;
+        }
+        
         .position {
             color: #666;
-            margin-right: 20px;
-            font-size: 16px; /* Taille augmentée */
+            margin-left: 20px;
+            font-size: 16px;
+            flex-grow: 1;
         }
-        a {
-            color: #0366d6;
-            text-decoration: none;
-            font-size: 18px; /* Taille augmentée */
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        
         .dates {
             color: #666;
             white-space: nowrap;
-            font-size: 16px; /* Taille augmentée */
+            font-size: 16px;
+        }
+        
+        /* Review Activities */
+        .review-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e1f5fe;
+        }
+        
+        .review-date {
+            color: #666;
+            font-size: 16px;
+            min-width: 120px;
+        }
+        
+        .review-content {
+            flex-grow: 1;
+        }
+        
+        .review-journal {
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .review-note {
+            color: #666;
+            font-size: 15px;
+            font-style: italic;
+            margin-top: 4px;
+        }
+        
+        a {
+            color: #039be5;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .summary-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .position {
+                margin-left: 0;
+            }
+            
+            .review-item {
+                flex-direction: column;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>CV</h1>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-name">Yassine Ait Mohamed</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="talks.html">Talks</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <h2>Summary</h2>
-    <div class="summary">
-        <div class="summary-item">
-            <span>University of Sherbrooke</span>
-            <span class="position">PhD Student in Mathematics</span>
-            <span class="dates">2024—</span>
+    <!-- Main Content -->
+    <div class="container">
+        <h1>CV</h1>
+        
+        <h2>Summary</h2>
+        <div class="summary">
+            <div class="summary-item">
+                <span class="institution">University of Sherbrooke</span>
+                <span class="position">PhD Student in Mathematics</span>
+                <span class="dates">2024—</span>
+            </div>
+            <div class="summary-item">
+                <span class="institution">University of Sidi Mohamed Ben Abdellah</span>
+                <span class="position">PhD Student in Mathematics</span>
+                <span class="dates">2022—2023</span>
+            </div>
+            <div class="summary-item">
+                <span class="institution">University of Sidi Mohamed Ben Abdellah</span>
+                <span class="position">Master's degree in Mathematics</span>
+                <span class="dates">2020—2022</span>
+            </div>
+            <div class="summary-item">
+                <span class="institution">University of Moulay Ismail</span>
+                <span class="position">Bachelor's degree in Mathematics</span>
+                <span class="dates">2016—2020</span>
+            </div>
         </div>
-        <div class="summary-item">
-            <span>University of Sidi Mohamed Ben Abdellah </span>
-            <span class="position">PhD Student in Mathematics</span>
-            <span class="dates">2022—2023</span>
+
+        <h2>Peer Review Activities</h2>
+        <div class="review-activities">
+            <div class="review-item">
+                <span class="review-date">February 2025</span>
+                <div class="review-content">
+                    <div class="review-journal">Peer Reviewer, Asian Research Journal of Mathematics</div>
+                    <div class="review-note">Recipient of Certificate of Excellence in Reviewing</div>
+                </div>
+            </div>
+            <div class="review-item">
+                <span class="review-date">June 2025</span>
+                <div class="review-content">
+                    <div class="review-journal">Peer Reviewer, International Journal of Neutrosophic Science</div>
+                </div>
+            </div>
+            <div class="review-item">
+                <span class="review-date">August 2025</span>
+                <div class="review-content">
+                    <div class="review-journal">Peer Reviewer, Proceedings of the International Geometry Center</div>
+                </div>
+            </div>
         </div>
-        <div class="summary-item">
-            <span>University of Sidi Mohamed Ben Abdellah</span>
-            <span class="position">Master's degree in Mathematics</span>
-            <span class="dates">2020—2022</span>
-        </div>
-        <div class="summary-item">
-            <span>University of Mouly Ismail </span>
-            <span class="position">Bachelor's degree in Mathematics</span>
-            <span class="dates">2016—2020</span>
-        </div>
+        
+        <h2>Full CV</h2>
+        <p><a href="cv.pdf">[PDF]</a></p>
     </div>
-
-    <h2>Full CV</h2>
-    <p><a href="cv.pdf">[pdf]</a></p>
-
 </body>
 </html>
