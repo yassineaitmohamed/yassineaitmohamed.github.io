@@ -13,7 +13,7 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             line-height: 1.8;
             color: #003366;
             background-color: #ffffff;
@@ -55,7 +55,6 @@
             text-decoration: none;
             color: #003366;
             font-weight: 500;
-            font-size: 17px;
             transition: color 0.3s;
         }
         
@@ -72,6 +71,32 @@
             grid-template-columns: 250px 1fr;
             gap: 60px;
             align-items: start;
+        }
+        
+        /* Content Section */
+        .content {
+            grid-column: 2 / 3;
+        }
+        
+        .intro-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .affiliation {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 30px;
+            line-height: 1.8;
         }
         
         /* Photo Section */
@@ -91,7 +116,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        /* Social Links */
+        /* Social Icons - Vertical */
         .social-links {
             display: flex;
             flex-direction: column;
@@ -101,8 +126,7 @@
             width: 100%;
         }
         
-        .social-links a,
-        .social-links .info-item {
+        .social-links a {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -116,8 +140,7 @@
             width: 100%;
         }
         
-        .social-links a i,
-        .social-links .info-item i {
+        .social-links a i {
             width: 24px;
             text-align: center;
             font-size: 16px;
@@ -130,15 +153,19 @@
             text-decoration: none;
         }
         
-        .social-links a:hover i {
-            color: white;
-        }
-        
         .social-links .info-item {
-            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            font-size: 16px;
+            color: #003366;
         }
         
         .social-links .info-item i {
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
             color: #dc3545;
         }
         
@@ -147,32 +174,6 @@
             font-size: 16px;
             color: #003366;
             line-height: 1.6;
-        }
-        
-        .contact-info strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .contact-info a {
-            color: green;
-            text-decoration: none;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Content Section */
-        .content {
-            grid-column: 2 / 3;
-        }
-        
-        .intro-text {
-            font-size: 18px;
-            color: #003366;
-            margin-bottom: 30px;
-            line-height: 1.8;
         }
         
         /* Section Titles */
@@ -265,15 +266,15 @@
                     <i class="fas fa-graduation-cap"></i>
                     <span>Google Scholar</span>
                 </a>
+               
             </div>
             
             <div class="contact-info">
-                <strong>Contact</strong>
+                <strong>Contact</strong><br>
                 <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
             </div>
         </div>
         
-        <!-- Content Section -->
         <div class="content">
             <div class="intro-text">
                 I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
@@ -284,7 +285,7 @@
 
             <h2>Research Interests</h2>
             <p class="intro-text">
-                Derivations theory, Algebraic geometry, Lie groups, Topological quantum field theories, Shifted symplectic geometry
+               Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry
             </p>
         </div>
     </div>
