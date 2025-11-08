@@ -15,22 +15,23 @@
         body {
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.8;
-            color: #003366;
+            color: #002147;
             background-color: #ffffff;
+            font-size: 18px;
         }
         
         /* Navigation */
         nav {
             background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
+            border-bottom: 2px solid #002147;
+            padding: 25px 0;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
         .nav-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
             display: flex;
@@ -39,99 +40,129 @@
         }
         
         .nav-name {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 600;
-            color: #24292e;
+            color: #002147;
             white-space: nowrap;
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
         
         .nav-links a {
             text-decoration: none;
-            color: #003366;
+            color: #002147;
             font-weight: 500;
+            font-size: 20px;
             transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            color: #dc3545;
+            color: #003d82;
         }
         
         /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 40px;
         }
         
         h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            color: #24292e;
+            font-size: 42px;
+            margin-bottom: 35px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #002147;
+            color: #002147;
         }
         
         .talk {
             position: relative;
-            margin-bottom: 30px;
-            padding-left: 30px;
+            margin-bottom: 35px;
+            padding-left: 35px;
         }
         
         .talk::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 10px;
-            width: 14px;
-            height: 14px;
-            background-color: #dc3545;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            background-color: #002147;
             border-radius: 50%;
         }
         
         .date {
             font-weight: bold;
-            color: #24292e;
-            font-size: 20px;
+            color: #002147;
+            font-size: 22px;
         }
         
         .talk p {
-            font-size: 18px;
-            color: #003366;
+            font-size: 20px;
+            color: #002147;
             line-height: 1.8;
         }
         
         .pdf-link {
-            color: green;
+            color: #003d82;
             text-decoration: none;
             margin-left: 10px;
-            font-size: 18px;
+            font-size: 20px;
         }
         
         .pdf-link:hover {
             text-decoration: underline;
+            color: #002147;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 18px;
+            }
+            
+            .nav-name {
+                font-size: 26px;
             }
             
             .nav-links {
-                gap: 15px;
+                gap: 18px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
+            .nav-links a {
+                font-size: 18px;
+            }
+            
             .container {
                 padding: 0 20px;
+            }
+            
+            h1 {
+                font-size: 34px;
+            }
+            
+            .date {
+                font-size: 20px;
+            }
+            
+            .talk p {
+                font-size: 18px;
+            }
+            
+            .pdf-link {
+                font-size: 18px;
             }
         }
     </style>
