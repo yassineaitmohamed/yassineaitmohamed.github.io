@@ -15,22 +15,23 @@
         body {
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.8;
-            color: #003366;
+            color: #002147; /* Oxford Blue */
             background-color: #ffffff;
+            font-size: 18px;
         }
         
         /* Navigation */
         nav {
             background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
+            border-bottom: 2px solid #002147;
+            padding: 25px 0;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
         .nav-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
             display: flex;
@@ -39,37 +40,38 @@
         }
         
         .nav-name {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 600;
-            color: #24292e;
+            color: #002147;
             white-space: nowrap;
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
         
         .nav-links a {
             text-decoration: none;
-            color: #003366;
+            color: #002147;
             font-weight: 500;
+            font-size: 20px;
             transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            color: #dc3545;
+            color: #003d82;
         }
         
         /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 60px auto;
             padding: 0 40px;
             display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 60px;
+            grid-template-columns: 280px 1fr;
+            gap: 70px;
             align-items: start;
         }
         
@@ -79,24 +81,24 @@
         }
         
         .intro-title {
-            font-size: 22px;
+            font-size: 28px;
             font-weight: 600;
-            color: #24292e;
+            color: #002147;
             margin-bottom: 20px;
         }
         
         .intro-text {
-            font-size: 18px;
-            color: #003366;
+            font-size: 22px;
+            color: #002147;
             margin-bottom: 30px;
-            line-height: 1.8;
+            line-height: 1.9;
         }
         
         .affiliation {
-            font-size: 18px;
-            color: #003366;
+            font-size: 22px;
+            color: #002147;
             margin-bottom: 30px;
-            line-height: 1.8;
+            line-height: 1.9;
         }
         
         /* Photo Section */
@@ -108,20 +110,20 @@
         }
         
         .profile-photo {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #f0f0f0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 4px solid #002147;
+            box-shadow: 0 6px 12px rgba(0, 33, 71, 0.2);
         }
         
         /* Social Icons - Vertical */
         .social-links {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 18px;
+            margin-top: 30px;
             align-items: flex-start;
             width: 100%;
         }
@@ -129,25 +131,25 @@
         .social-links a {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
+            gap: 14px;
+            padding: 12px 15px;
             border-radius: 8px;
-            background-color: #f5f5f5;
-            color: #003366;
+            background-color: #002147;
+            color: #ffffff;
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 16px;
+            font-size: 19px;
             width: 100%;
         }
         
         .social-links a i {
-            width: 24px;
+            width: 26px;
             text-align: center;
-            font-size: 16px;
+            font-size: 19px;
         }
         
         .social-links a:hover {
-            background-color: #dc3545;
+            background-color: #003d82;
             color: white;
             transform: translateX(5px);
             text-decoration: none;
@@ -156,56 +158,71 @@
         .social-links .info-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
-            font-size: 16px;
-            color: #003366;
+            gap: 14px;
+            padding: 12px 15px;
+            font-size: 19px;
+            color: #002147;
         }
         
         .social-links .info-item i {
-            width: 24px;
+            width: 26px;
             text-align: center;
-            font-size: 16px;
-            color: #dc3545;
+            font-size: 19px;
+            color: #003d82;
         }
         
         .contact-info {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #003366;
-            line-height: 1.6;
+            margin-top: 25px;
+            font-size: 19px;
+            color: #002147;
+            line-height: 1.7;
         }
         
         /* Section Titles */
         h2 {
-            font-size: 24px;
-            color: #24292e;
-            margin-bottom: 15px;
-            margin-top: 40px;
+            font-size: 30px;
+            color: #002147;
+            margin-bottom: 18px;
+            margin-top: 45px;
             font-weight: 600;
+            border-bottom: 2px solid #002147;
+            padding-bottom: 10px;
         }
         
         /* Links */
         a {
-            color: green;
+            color: #003d82;
             text-decoration: none;
         }
         
         a:hover {
             text-decoration: underline;
+            color: #002147;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 18px;
+            }
+            
+            .nav-name {
+                font-size: 26px;
             }
             
             .nav-links {
-                gap: 15px;
+                gap: 18px;
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+            
+            .nav-links a {
+                font-size: 18px;
             }
             
             .container {
@@ -220,6 +237,14 @@
             
             .content {
                 grid-column: 1 / 2;
+            }
+            
+            .intro-text {
+                font-size: 19px;
+            }
+            
+            h2 {
+                font-size: 26px;
             }
         }
     </style>
