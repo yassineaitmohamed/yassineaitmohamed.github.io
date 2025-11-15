@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Yassine Ait Mohamed</title>
+    <title>Yassine Ait Mohamed</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,376 +14,422 @@
         
         body {
             font-family: 'Courier New', Courier, monospace;
-            line-height: 1.8;
-            color: #002147;
-            background-color: #ffffff;
-            font-size: 18px;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fafafa;
         }
-        
-        /* Navigation */
-        nav {
-            background-color: #ffffff;
-            border-bottom: 2px solid #002147;
-            padding: 25px 0;
-            position: sticky;
+
+        /* Animated Vector Lines */
+        .vector-lines {
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
+
+        .vector-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(100, 100, 100, 0.15), transparent);
+            height: 1px;
+        }
+
+        .vector-line.vertical {
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(100, 100, 100, 0.15), transparent);
+        }
+
+        @keyframes slideRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200vw); }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200vh); }
+        }
+
+        @keyframes slideLeft {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .vector1 { top: 15%; width: 600px; animation: slideRight 28s infinite linear; }
+        .vector2 { top: 45%; width: 500px; animation: slideRight 35s infinite linear 5s; }
+        .vector3 { top: 70%; width: 550px; animation: slideLeft 32s infinite linear 3s; }
+        .vector4 { left: 35%; animation: slideDown 40s infinite linear 2s; }
+        .vector5 { left: 75%; animation: slideDown 38s infinite linear 8s; }
+
+        /* Layout */
+        .page-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
-        
+
+        /* Vertical Navigation */
+        .vertical-nav {
+            width: 260px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-header {
+            margin-bottom: 50px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
         .nav-name {
-            font-size: 32px;
-            font-weight: 600;
-            color: #002147;
-            white-space: nowrap;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #002147;
-            font-weight: 500;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #003d82;
-        }
-        
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 40px;
-        }
-        
-        h1 {
-            font-size: 42px;
-            margin-bottom: 35px;
-            color: #002147;
-            font-weight: 600;
-        }
-        
-        h2 {
-            font-size: 32px;
-            margin-top: 45px;
-            margin-bottom: 25px;
-            color: #002147;
-            font-weight: 600;
-            border-bottom: 2px solid #002147;
-            padding-bottom: 10px;
-        }
-        
-        /* Links Section */
-        .links-section {
-            margin-bottom: 30px;
-        }
-        
-        .links-section a {
-            display: inline-block;
-            margin-right: 20px;
-            color: #003d82;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        
-        .links-section a:hover {
-            text-decoration: underline;
-            color: #002147;
-        }
-        
-        /* Research Groups */
-        .research-info {
-            background-color: #f0f4f8;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border: 1px solid #002147;
-        }
-        
-        .research-info h3 {
-            font-size: 24px;
-            color: #002147;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        
-        .research-info p {
-            font-size: 19px;
-        }
-        
-        .research-info a {
-            color: #003d82;
-            text-decoration: none;
-            font-size: 19px;
-        }
-        
-        .research-info a:hover {
-            text-decoration: underline;
-            color: #002147;
-        }
-        
-        /* Paper */
-        .paper {
-            margin-bottom: 30px;
-            padding: 18px 0;
-            border-bottom: 1px solid #d0d0d0;
-        }
-        
-        .paper:last-child {
-            border-bottom: none;
-        }
-        
-        .paper-title {
             font-size: 22px;
             font-weight: 600;
-            color: #003d82;
+            color: #333;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-title {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            list-style: none;
             display: flex;
-            align-items: flex-start;
-            cursor: pointer;
-            line-height: 1.4;
+            flex-direction: column;
+            gap: 5px;
         }
-        
-        .paper-title:hover {
-            color: #002147;
+
+        .nav-menu li a {
+            display: block;
+            padding: 12px 15px;
+            color: #555;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.2s;
+            border-radius: 4px;
         }
-        
-        .triangle {
-            width: 0;
-            height: 0;
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 9px solid #002147;
-            margin-right: 14px;
-            margin-top: 7px;
-            transition: transform 0.2s ease;
+
+        .nav-menu li a:hover {
+            background-color: #f5f5f5;
+            color: #000;
+        }
+
+        .nav-menu li a.active {
+            background-color: #f0f0f0;
+            color: #000;
+            font-weight: 500;
+        }
+
+        /* Contact Info */
+        .nav-contact {
+            margin-top: auto;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .nav-contact-item i {
+            width: 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        .nav-contact-item a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .nav-contact-item a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Photo Header */
+        .photo-header {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            margin-bottom: 50px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
             flex-shrink: 0;
         }
-        
-        .triangle.open {
-            transform: rotate(90deg);
+
+        .photo-info {
+            flex: 1;
         }
-        
-        .paper-content {
-            display: none;
-            margin-top: 14px;
-            margin-left: 35px;
+
+        .photo-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 15px;
+            color: #555;
         }
-        
-        .journal {
-            font-style: italic;
-            color: #002147;
-            margin-bottom: 10px;
-            font-size: 19px;
+
+        .photo-info-item i {
+            color: #888;
+            width: 22px;
+            text-align: center;
         }
-        
-        .links a {
-            color: #003d82;
+
+        .photo-info-item a {
+            color: #555;
             text-decoration: none;
-            margin-right: 18px;
-            font-size: 19px;
         }
-        
-        .links a:hover {
+
+        .photo-info-item a:hover {
             text-decoration: underline;
-            color: #002147;
+            color: #000;
         }
-        
-        .abstract-toggle {
-            cursor: pointer;
-            font-size: 18px;
-            color: #003d82;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        
-        .abstract-toggle:hover {
-            text-decoration: underline;
-            color: #002147;
-        }
-        
-        .abstract {
-            display: none;
-            margin-top: 12px;
-            padding: 18px;
-            background-color: #f0f4f8;
-            border-radius: 6px;
-            font-size: 19px;
-            color: #002147;
-            line-height: 1.8;
-            border: 1px solid #d0d0d0;
-        }
-        
-        .highlight {
-            color: #003d82;
+
+        /* Typography */
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 25px;
             font-weight: 600;
         }
-        
-        .paper p {
-            font-size: 19px;
-            margin-bottom: 8px;
+
+        h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            font-weight: 600;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 10px;
         }
-        
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .interests-list {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.9;
+        }
+
+        /* Links */
+        a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                font-size: 16px;
+            .vertical-nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                padding: 25px 20px;
             }
-            
-            .nav-container {
-                flex-direction: column;
-                gap: 18px;
-            }
-            
-            .nav-name {
-                font-size: 26px;
-            }
-            
-            .nav-links {
-                gap: 18px;
+
+            .nav-menu {
+                flex-direction: row;
                 flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .nav-menu li a {
+                padding: 10px 15px;
+            }
+
+            .nav-contact {
+                margin-top: 20px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+
+            .content-wrapper {
+                padding: 30px 25px;
+            }
+
+            .photo-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .photo-info {
+                width: 100%;
+            }
+
+            .photo-info-item {
                 justify-content: center;
             }
-            
-            .nav-links a {
-                font-size: 18px;
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
             }
-            
-            .container {
-                padding: 0 20px;
-            }
-            
+
             h1 {
-                font-size: 34px;
+                font-size: 24px;
             }
-            
+
             h2 {
-                font-size: 28px;
-            }
-            
-            .paper-title {
                 font-size: 20px;
             }
         }
     </style>
-    <script>
-        function togglePaperContent(id, triangleId) {
-            const content = document.getElementById(id);
-            const triangle = document.getElementById(triangleId);
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block";
-                if (triangle) triangle.classList.add("open");
-            } else {
-                content.style.display = "none";
-                if (triangle) triangle.classList.remove("open");
-            }
-        }
-    </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="nav-name">Yassine Ait Mohamed</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+    <!-- Animated Vector Lines -->
+    <div class="vector-lines">
+        <div class="vector-line vector1"></div>
+        <div class="vector-line vector2"></div>
+        <div class="vector-line vector3"></div>
+        <div class="vector-line vector4 vertical"></div>
+        <div class="vector-line vector5 vertical"></div>
+    </div>
+
+    <div class="page-container">
+        <!-- Vertical Navigation -->
+        <nav class="vertical-nav">
+            <div class="nav-header">
+                <div class="nav-name">Yassine Ait Mohamed</div>
+                <div class="nav-title">PhD Student</div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="talks.html">Talks</a></li>
                 <li><a href="cv.html">CV</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
             </ul>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Research</h1>
-
-
-        <!-- Research Groups -->
-        <div class="research-info">
-            <h3>Research Group</h3>
-            <p><a href="https://sag.recherche.usherbrooke.ca/equipe" target="_blank">SAG - Algebraic and Geometric Structures</a></p>
-        </div>
-
-        <div class="research-info">
-            <h3>Seminar Organization</h3>
-            <p>Organizer of <a href="https://junior-seminar-geomphys.github.io/JSGMP/index.html" target="_blank">Junior Seminar in Geometry and Mathematical Physics</a></p>
-        </div>
-
-        <h2>Publications</h2>
-
-        <div class="paper">
-            <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
-                <div id="triangle1" class="triangle"></div>
-                <span>On graded rings with homogeneous derivations</span>
-            </div>
-            <div id="paper1-content" class="paper-content">
-                <p class="journal">Revista de la Unión Matemática Argentina</p>
-                <div class="links">
-                    <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
+            <div class="nav-contact">
+                <div class="nav-contact-item">
+                    <i class="fas fa-university"></i>
+                    <span>UdeS</span>
                 </div>
-                <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', ''); event.stopPropagation();">▸ abstract</a>
-                <div id="abstract1" class="abstract">
-         We establish results related to homogeneous derivations, a con-cept introduced by Kanunnikov (2018). First, we prove the existence of a
-non-trivial family of derivations that are not homogeneous on graded rings.
-Furthermore, based on homogeneous derivations, we extend certain existing
-significant results in the context of prime (resp. semiprime) rings to gr-prime
-(resp. gr-semiprime) rings, such as Posner’s and Herstein’s theorems.                </div>
-            </div>
-        </div>
-
-        <div class="paper">
-            <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
-                <div id="triangle2" class="triangle"></div>
-                <span>Generalized homogeneous derivations in graded rings</span>
-            </div>
-            <div id="paper2-content" class="paper-content">
-                <div class="links">
-                    <a href="https://arxiv.org/abs/2412.17187" target="_blank">arXiv</a>
+                <div class="nav-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sherbrooke, QC</span>
                 </div>
-                <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', ''); event.stopPropagation();">▸ abstract</a>
-                <div id="abstract2" class="abstract">
-              We introduce a notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations introduced by Kanunnikov. We define gr-generalized derivations as those that preserve the degree of homogeneous elements. We extend classical results from prime rings to the graded setting, and we establish conditions ensuring the existence of nontrivial central graded ideals in gr-semiprime rings.                </div>
-            </div>
-        </div>
-        
-
-
-        <h2>Master's Thesis</h2>
-        <div class="paper">
-            <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle5')">
-                <div id="triangle5" class="triangle"></div>
-                <span>Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties</span>
-            </div>
-            <div id="thesis-content" class="paper-content">
-                <div class="links">
-                    <a href="master_thesis.pdf" target="_blank">PDF</a>
+                <div class="nav-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:y.aitmohamed@yahoo.com">Email</a>
                 </div>
             </div>
-        </div>
+        </nav>
 
-        <h2>Other Notes</h2>
-        <div class="paper">
-            <p>• Note on Central Simple Algebras and the Brauer Group [<a href="On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
-            <p>• Note on Sheaf Theory [<a href="Note_on_sheaf_theory.pdf" target="_blank">PDF</a>]</p>                
-            <p>• Non-homogeneity of Lie and Jordan Products under Non-Abelian Gradings [<a href="Countreex.pdf" target="_blank">PDF</a>]</p>
-        </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Photo and Info -->
+                <div class="photo-header">
+                    <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+                    
+                    <div class="photo-info">
+                        <div class="photo-info-item">
+                            <i class="fas fa-university"></i>
+                            <span>Université de Sherbrooke</span>
+                        </div>
+                        <div class="photo-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sherbrooke, Québec, Canada</span>
+                        </div>
+                        <div class="photo-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
+                        </div>
+                        <div class="photo-info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>PhD Student in Mathematics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <h1>About</h1>
+                <p class="intro-text">
+                    I am a PhD student in Mathematics at the Université de Sherbrooke, under the supervision of 
+                    <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
+                </p>
+                <p class="intro-text">
+                    Before that, I was a PhD student at the Université Sidi Mohamed Ben Abdellah, supervised by 
+                    <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Lahcen Oukhtite</a>.
+                </p>
+
+                <h2>Research Interests</h2>
+                <p class="interests-list">
+                    • Derivations theory<br>
+                    • Algebraic geometry<br>
+                    • Lie groups and Lie algebroids<br>
+                    • Topological quantum field theories<br>
+                    • Shifted symplectic geometry<br>
+                    • Poisson structures
+                </p>
+            </div>
+        </main>
     </div>
 </body>
 </html>
