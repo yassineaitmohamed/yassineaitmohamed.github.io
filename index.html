@@ -11,465 +11,167 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --bg-color: #f8f9fa;
-            --text-color: #333333;
-            --heading-color: #002147;
-            --nav-bg: #ffffff;
-            --link-color: #003d82;
-            --sidebar-bg: #ffffff;
-            --content-bg: #ffffff;
-        }
-
-        body.dark-mode {
-            --bg-color: #1a1a1a;
-            --text-color: #d0d0d0;
-            --heading-color: #6db3f2;
-            --nav-bg: #242424;
-            --link-color: #6db3f2;
-            --sidebar-bg: #242424;
-            --content-bg: #1e1e1e;
-        }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: background-color 0.3s, color 0.3s;
-            height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Animated Vectors */
-        .vector-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .vector-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(0, 33, 71, 0.04), transparent);
-            height: 1px;
-        }
-
-        body.dark-mode .vector-line {
-            background: linear-gradient(90deg, transparent, rgba(109, 179, 242, 0.08), transparent);
-        }
-
-        .vector-line.vertical {
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, rgba(0, 61, 130, 0.04), transparent);
-        }
-
-        body.dark-mode .vector-line.vertical {
-            background: linear-gradient(180deg, transparent, rgba(109, 179, 242, 0.08), transparent);
-        }
-
-        @keyframes slideRight {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(200vw); }
-        }
-
-        @keyframes slideDown {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(200vh); }
-        }
-
-        @keyframes slideLeft {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .vector1 { top: 20%; width: 600px; animation: slideRight 35s infinite linear; }
-        .vector2 { top: 50%; width: 500px; animation: slideRight 40s infinite linear 7s; }
-        .vector3 { top: 75%; width: 550px; animation: slideLeft 37s infinite linear 4s; }
-        .vector4 { left: 40%; animation: slideDown 45s infinite linear 3s; }
-        .vector5 { left: 75%; animation: slideDown 42s infinite linear 10s; }
-
-        /* Header - Full Width */
-        header {
-            background-color: var(--nav-bg);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            transition: background-color 0.3s;
-        }
-
-        body.dark-mode header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .header-container {
-            max-width: 100%;
-            padding: 0 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 65px;
-        }
-
-        .site-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--heading-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.8;
+            color: #003366;
+            background-color: #ffffff;
+@@ -55,7 +55,6 @@
             text-decoration: none;
+            color: #003366;
+            font-weight: 500;
+            font-size: 17px;
             transition: color 0.3s;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            align-items: center;
+@@ -74,6 +73,32 @@
+            align-items: start;
         }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.2s;
+        /* Content Section */
+        .content {
+            grid-column: 2 / 3;
+        }
+        
+        .intro-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #24292e;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .affiliation {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        /* Photo Section */
+        .photo-section {
+            grid-column: 1 / 2;
+@@ -91,7 +116,7 @@
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        nav a:hover, nav a.active {
-            color: var(--heading-color);
-        }
-
-        .theme-toggle-icon {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 20px;
-            cursor: pointer;
-            padding: 8px;
-            transition: color 0.2s;
-        }
-
-        .theme-toggle-icon:hover {
-            color: var(--heading-color);
-        }
-
-        /* Main Layout - Full Screen */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            height: 100vh;
-            padding-top: 65px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Sidebar - Fixed Left */
-        .sidebar {
-            background-color: var(--sidebar-bg);
-            padding: 80px 60px;
+        /* Social Links */
+        /* Social Icons - Vertical */
+        .social-links {
             display: flex;
             flex-direction: column;
+@@ -101,8 +126,7 @@
+            width: 100%;
+        }
+
+        .social-links a,
+        .social-links .info-item {
+        .social-links a {
+            display: flex;
             align-items: center;
+            gap: 12px;
+@@ -116,8 +140,7 @@
+            width: 100%;
+        }
+
+        .social-links a i,
+        .social-links .info-item i {
+        .social-links a i {
+            width: 24px;
             text-align: center;
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
-            transition: background-color 0.3s;
-            overflow-y: auto;
-        }
-
-        body.dark-mode .sidebar {
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .profile-photo {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            margin-bottom: 30px;
-            object-fit: cover;
-        }
-
-        .sidebar h1 {
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--heading-color);
-            margin-bottom: 15px;
-            transition: color 0.3s;
-        }
-
-        .sidebar .title {
-            font-size: 18px;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-
-        .sidebar .affiliation {
             font-size: 16px;
-            color: var(--text-color);
-            margin-bottom: 30px;
+@@ -130,15 +153,19 @@
+            text-decoration: none;
+        }
+
+        .social-links a:hover i {
+            color: white;
+        }
+        
+        .social-links .info-item {
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            font-size: 16px;
+            color: #003366;
+        }
+
+        .social-links .info-item i {
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
+            color: #dc3545;
+        }
+
+@@ -149,32 +176,6 @@
             line-height: 1.6;
         }
 
-        .sidebar-contact {
-            margin-top: 30px;
+        .contact-info strong {
+            display: block;
+            margin-bottom: 5px;
         }
-
-        .sidebar-contact a {
-            display: inline-block;
-            color: var(--link-color);
-            font-size: 28px;
-            transition: color 0.3s;
-        }
-
-        .sidebar-contact a:hover {
-            color: var(--heading-color);
-        }
-
-        /* Main Content - Full Right Side */
-        .main-content {
-            background-color: var(--content-bg);
-            padding: 80px 100px;
-            overflow-y: auto;
-            transition: background-color 0.3s;
-        }
-
-        .content-wrapper {
-            max-width: 900px;
-        }
-
-        .main-content h2 {
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--heading-color);
-            margin-bottom: 40px;
-            transition: color 0.3s;
-        }
-
-        .main-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        .main-content a {
-            color: var(--link-color);
+        
+        .contact-info a {
+            color: green;
             text-decoration: none;
-            transition: color 0.3s;
         }
-
-        .main-content a:hover {
+        
+        .contact-info a:hover {
             text-decoration: underline;
         }
-
-        .main-content h3 {
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--heading-color);
-            margin-top: 50px;
-            margin-bottom: 25px;
-            transition: color 0.3s;
+        
+        /* Content Section */
+        .content {
+            grid-column: 2 / 3;
         }
-
-        .interests-list {
+        
+        .intro-text {
             font-size: 18px;
-            line-height: 1.9;
-            color: var(--text-color);
+            color: #003366;
+            margin-bottom: 30px;
+            line-height: 1.8;
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .sidebar {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                padding: 60px 40px;
-            }
-
-            body.dark-mode .sidebar {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            }
-
-            .main-content {
-                padding: 60px 40px;
-            }
-
-            .header-container {
-                padding: 0 30px;
-            }
-
-            nav ul {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .header-container {
-                padding: 0 20px;
-                flex-direction: column;
-                height: auto;
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
-
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-top: 10px;
-            }
-
-            nav a {
-                font-size: 14px;
-            }
-
-            .main-layout {
-                padding-top: 100px;
-            }
-
-            .sidebar {
-                padding: 40px 20px;
-            }
-
-            .profile-photo {
-                width: 180px;
-                height: 180px;
-            }
-
-            .sidebar h1 {
-                font-size: 26px;
-            }
-
-            .main-content {
-                padding: 40px 20px;
-            }
-
-            .main-content h2 {
-                font-size: 36px;
-            }
-
-            .main-content h3 {
-                font-size: 26px;
-            }
-
-            .main-content p {
-                font-size: 16px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Animated Vectors -->
-    <div class="vector-lines">
-        <div class="vector-line vector1"></div>
-        <div class="vector-line vector2"></div>
-        <div class="vector-line vector3"></div>
-        <div class="vector-line vector4 vertical"></div>
-        <div class="vector-line vector5 vertical"></div>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="site-title">Yassine Ait Mohamed</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-                    <li>
-                        <button class="theme-toggle-icon" onclick="toggleTheme()" aria-label="Toggle theme">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Layout -->
-    <div class="main-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
-            
-            <h1>Yassine Ait Mohamed</h1>
-            
-            <p class="title">PhD Student</p>
-            
-            <p class="affiliation">
-                Université de Sherbrooke<br>
-                Département de mathématiques
-            </p>
-
-            <div class="sidebar-contact">
-                <a href="mailto:y.aitmohamed@yahoo.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
+        
+        /* Section Titles */
+        h2 {
+            font-size: 24px;
+@@ -265,15 +266,15 @@
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
                 </a>
+               
             </div>
-        </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="content-wrapper">
-                <h2>About me</h2>
-                
-                <p>
-                    I am a PhD student in Mathematics at the Université de Sherbrooke, under the supervision of 
-                    <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
-                </p>
-                
-                <p>
-                    Before that, I was a PhD student at the Université Sidi Mohamed Ben Abdellah, supervised by 
-                    <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Lahcen Oukhtite</a>.
-                </p>
-
-                <h3>Research Interests</h3>
-                
-                <div class="interests-list">
-                    My research focuses on advanced topics in differential and algebraic geometry, including derivations theory, algebraic geometry, Lie groups and Lie algebroids, topological quantum field theories, shifted symplectic geometry, and Poisson structures.
-                </div>
+            <div class="contact-info">
+                <strong>Contact</strong>
+                <strong>Contact</strong><br>
+                <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
             </div>
-        </main>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <div class="intro-text">
+                I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
+@@ -284,9 +285,9 @@
+
+            <h2>Research Interests</h2>
+            <p class="intro-text">
+                Derivations theory, Algebraic geometry, Lie groups, Topological quantum field theories, Shifted symplectic geometry
+               Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry
+            </p>
+        </div>
     </div>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.querySelector('.theme-toggle-icon i');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                icon.className = 'fas fa-sun';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.className = 'fas fa-moon';
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            const icon = document.querySelector('.theme-toggle-icon i');
-            
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                icon.className = 'fas fa-sun';
-            }
-        });
-    </script>
 </body>
 </html>
