@@ -12,11 +12,40 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --bg-color: #fff;
+            --text-color: #494e52;
+            --heading-color: #002147;
+            --nav-bg: #f8f9fa;
+            --nav-border: #e5e5e5;
+            --nav-hover: #f0f0f0;
+            --link-color: #003d82;
+            --border-color: #f2f3f3;
+            --sidebar-bg: #fff;
+            --card-bg: #fff;
+            --card-shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #d4d4d4;
+            --heading-color: #6db3f2;
+            --nav-bg: #2a2a2a;
+            --nav-border: #3a3a3a;
+            --nav-hover: #3a3a3a;
+            --link-color: #6db3f2;
+            --border-color: #3a3a3a;
+            --sidebar-bg: #242424;
+            --card-bg: #242424;
+            --card-shadow: rgba(0, 0, 0, 0.3);
+        }
+
         body {
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.65;
-            color: #494e52;
-            background-color: #fff;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Animated Vector Lines */
@@ -36,10 +65,18 @@
             height: 1px;
         }
 
+        body.dark-mode .vector-line {
+            background: linear-gradient(90deg, transparent, rgba(109, 179, 242, 0.15), transparent);
+        }
+
         .vector-line.vertical {
             width: 1px;
             height: 100%;
             background: linear-gradient(180deg, transparent, rgba(0, 61, 130, 0.08), transparent);
+        }
+
+        body.dark-mode .vector-line.vertical {
+            background: linear-gradient(180deg, transparent, rgba(109, 179, 242, 0.15), transparent);
         }
 
         @keyframes slideRight {
@@ -71,193 +108,257 @@
             z-index: 1;
         }
 
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background-color: #fff;
-            border-right: 1px solid #f2f3f3;
+        /* Vertical Navigation - Left */
+        .vertical-nav {
+            width: 220px;
+            background-color: var(--nav-bg);
+            border-right: 1px solid var(--nav-border);
             position: fixed;
             height: 100vh;
             left: 0;
             top: 0;
-            padding: 0;
+            padding: 40px 0;
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
-        .sidebar-content {
-            padding: 30px 25px;
+        .nav-header {
+            padding: 0 25px;
+            margin-bottom: 40px;
+        }
+
+        .nav-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--heading-color);
+            margin-bottom: 8px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .nav-title {
+            font-size: 13px;
+            color: var(--text-color);
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding: 0 15px;
+        }
+
+        .nav-menu li a {
+            display: block;
+            padding: 12px 18px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.2s;
+            border-radius: 6px;
+        }
+
+        .nav-menu li a:hover {
+            background-color: var(--nav-hover);
+            color: var(--heading-color);
+        }
+
+        .nav-menu li a.active {
+            background-color: var(--nav-hover);
+            color: var(--heading-color);
+            font-weight: 500;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            margin-top: auto;
+            padding: 0 25px;
+        }
+
+        .theme-toggle-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--nav-hover);
+            border: 1px solid var(--nav-border);
+            border-radius: 6px;
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: var(--heading-color);
+            color: #fff;
+            border-color: var(--heading-color);
+        }
+
+        .theme-toggle-btn i {
+            font-size: 16px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 220px;
+            flex: 1;
+            padding: 0;
+        }
+
+        /* Top Right Photo/Info Section */
+        .top-section {
+            background-color: var(--card-bg);
+            padding: 40px 60px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 35px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .photo-info-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            max-width: 600px;
         }
 
         .profile-photo {
-            width: 100%;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 3px solid #002147;
-            margin-bottom: 20px;
+            object-fit: cover;
+            border: 3px solid var(--heading-color);
+            flex-shrink: 0;
+            transition: border-color 0.3s;
         }
 
-        .sidebar-name {
-            font-size: 20px;
-            font-weight: 600;
-            color: #002147;
-            margin-bottom: 15px;
-            text-align: center;
+        .photo-info {
+            flex: 1;
         }
 
-        .sidebar-bio {
+        .photo-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
             font-size: 14px;
-            color: #494e52;
-            margin-bottom: 20px;
-            text-align: center;
-            line-height: 1.6;
+            color: var(--text-color);
         }
 
-        .sidebar-links {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-links li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar-links li i {
-            color: #002147;
+        .photo-info-item i {
+            color: var(--heading-color);
             width: 20px;
             text-align: center;
-            margin-right: 8px;
+            transition: color 0.3s;
         }
 
-        .sidebar-links a {
-            color: #494e52;
+        .photo-info-item a {
+            color: var(--link-color);
             text-decoration: none;
-            font-size: 14px;
+            transition: color 0.3s;
         }
 
-        .sidebar-links a:hover {
+        .photo-info-item a:hover {
             text-decoration: underline;
-            color: #002147;
         }
 
-        .sidebar-links span {
-            color: #494e52;
-            font-size: 14px;
-        }
-
-        /* Top Navigation */
-        .top-nav {
-            background-color: #002147;
-            position: fixed;
-            top: 0;
-            left: 280px;
-            right: 0;
-            z-index: 100;
-            border-bottom: 1px solid #003d82;
-        }
-
-        .nav-list {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-list li a {
-            display: block;
-            padding: 15px 25px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            transition: background-color 0.2s;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-list li a:hover {
-            background-color: #003d82;
-        }
-
-        .nav-list li a.active {
-            background-color: #003d82;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 280px;
-            margin-top: 52px;
-            flex: 1;
+        /* Content Section */
+        .content-section {
             padding: 50px 60px;
-            max-width: 1000px;
+            max-width: 900px;
         }
 
         h1 {
             font-size: 32px;
-            color: #002147;
+            color: var(--heading-color);
             margin-bottom: 25px;
             font-weight: 600;
-            border-bottom: 2px solid #f2f3f3;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 15px;
+            transition: color 0.3s, border-color 0.3s;
         }
 
         h2 {
             font-size: 24px;
-            color: #002147;
+            color: var(--heading-color);
             margin-bottom: 20px;
             margin-top: 40px;
             font-weight: 600;
+            transition: color 0.3s;
         }
 
         p {
             font-size: 16px;
-            color: #494e52;
+            color: var(--text-color);
             margin-bottom: 15px;
             line-height: 1.65;
         }
 
         .interests-list {
             font-size: 16px;
-            color: #494e52;
+            color: var(--text-color);
             line-height: 1.8;
         }
 
         a {
-            color: #003d82;
+            color: var(--link-color);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         a:hover {
             text-decoration: underline;
-            color: #002147;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .sidebar {
+            .vertical-nav {
                 width: 100%;
                 height: auto;
                 position: relative;
                 border-right: none;
-                border-bottom: 1px solid #f2f3f3;
+                border-bottom: 1px solid var(--nav-border);
+                padding: 25px 0;
             }
 
-            .top-nav {
-                left: 0;
-                position: relative;
-                top: 0;
-            }
-
-            .nav-list {
+            .nav-menu {
+                flex-direction: row;
                 flex-wrap: wrap;
+                gap: 8px;
             }
 
-            .nav-list li a {
-                padding: 12px 18px;
-                font-size: 14px;
+            .theme-toggle {
+                margin-top: 20px;
             }
 
             .main-content {
                 margin-left: 0;
-                margin-top: 0;
+            }
+
+            .top-section {
+                padding: 30px 20px;
+                justify-content: center;
+            }
+
+            .photo-info-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .photo-info-item {
+                justify-content: center;
+            }
+
+            .content-section {
                 padding: 30px 20px;
             }
 
@@ -286,68 +387,117 @@
     </div>
 
     <div class="page-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
-                
-                <h2 class="sidebar-name">Yassine Ait Mohamed</h2>
-                
-                <p class="sidebar-bio">PhD Student in Mathematics</p>
-                
-                <ul class="sidebar-links">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Sherbrooke, Canada</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-university"></i>
-                        <span>Université de Sherbrooke</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:y.aitmohamed@yahoo.com">Email</a>
-                    </li>
-                </ul>
+        <!-- Vertical Navigation - Left -->
+        <nav class="vertical-nav">
+            <div class="nav-header">
+                <div class="nav-name">Yassine Ait Mohamed</div>
+                <div class="nav-title">PhD Student</div>
             </div>
-        </aside>
 
-        <!-- Top Navigation -->
-        <nav class="top-nav">
-            <ul class="nav-list">
+            <ul class="nav-menu">
                 <li><a href="index.html" class="active">About</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="talks.html">Talks</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="cv.html">CV</a></li>
             </ul>
+
+            <div class="theme-toggle">
+                <button class="theme-toggle-btn" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                    <span class="theme-text">Dark Mode</span>
+                </button>
+            </div>
         </nav>
 
         <!-- Main Content -->
         <main class="main-content">
-            <h1>About me</h1>
-            
-            <p>
-                I am a PhD student in Mathematics at the Université de Sherbrooke, under the supervision of 
-                <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
-            </p>
-            
-            <p>
-                Before that, I was a PhD student at the Université Sidi Mohamed Ben Abdellah, supervised by 
-                <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Lahcen Oukhtite</a>.
-            </p>
+            <!-- Top Right Photo/Info Section -->
+            <div class="top-section">
+                <div class="photo-info-wrapper">
+                    <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+                    
+                    <div class="photo-info">
+                        <div class="photo-info-item">
+                            <i class="fas fa-university"></i>
+                            <span>Université de Sherbrooke</span>
+                        </div>
+                        <div class="photo-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sherbrooke, Québec, Canada</span>
+                        </div>
+                        <div class="photo-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
+                        </div>
+                        <div class="photo-info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>PhD Student in Mathematics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Research Interests</h2>
-            
-            <div class="interests-list">
-                • Derivations theory<br>
-                • Algebraic geometry<br>
-                • Lie groups and Lie algebroids<br>
-                • Topological quantum field theories<br>
-                • Shifted symplectic geometry<br>
-                • Poisson structures
+            <!-- Content Section -->
+            <div class="content-section">
+                <h1>About me</h1>
+                
+                <p>
+                    I am a PhD student in Mathematics at the Université de Sherbrooke, under the supervision of 
+                    <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
+                </p>
+                
+                <p>
+                    Before that, I was a PhD student at the Université Sidi Mohamed Ben Abdellah, supervised by 
+                    <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Lahcen Oukhtite</a>.
+                </p>
+
+                <h2>Research Interests</h2>
+                
+                <div class="interests-list">
+                    • Derivations theory<br>
+                    • Algebraic geometry<br>
+                    • Lie groups and Lie algebroids<br>
+                    • Topological quantum field theories<br>
+                    • Shifted symplectic geometry<br>
+                    • Poisson structures
+                </div>
             </div>
         </main>
     </div>
+
+    <script>
+        // Dark mode toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeText = document.querySelector('.theme-text');
+            const themeIcon = document.querySelector('.theme-toggle-btn i');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeText.textContent = 'Light Mode';
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeText.textContent = 'Dark Mode';
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeText = document.querySelector('.theme-text');
+            const themeIcon = document.querySelector('.theme-toggle-btn i');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeText.textContent = 'Light Mode';
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+    </script>
 </body>
 </html>
