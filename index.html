@@ -13,42 +13,36 @@
         }
         
         :root {
-            --bg-color: #fff;
-            --text-color: #494e52;
+            --bg-color: #ffffff;
+            --text-color: #4a4a4a;
             --heading-color: #002147;
-            --nav-bg: #f8f9fa;
-            --nav-border: #e5e5e5;
-            --nav-hover: #f0f0f0;
+            --nav-bg: #ffffff;
+            --nav-border: #e8e8e8;
             --link-color: #003d82;
-            --border-color: #f2f3f3;
-            --sidebar-bg: #fff;
-            --card-bg: #fff;
-            --card-shadow: rgba(0, 0, 0, 0.05);
+            --sidebar-bg: #ffffff;
+            --border-light: #e8e8e8;
         }
 
         body.dark-mode {
             --bg-color: #1a1a1a;
-            --text-color: #d4d4d4;
+            --text-color: #d0d0d0;
             --heading-color: #6db3f2;
-            --nav-bg: #2a2a2a;
-            --nav-border: #3a3a3a;
-            --nav-hover: #3a3a3a;
+            --nav-bg: #242424;
+            --nav-border: #333333;
             --link-color: #6db3f2;
-            --border-color: #3a3a3a;
             --sidebar-bg: #242424;
-            --card-bg: #242424;
-            --card-shadow: rgba(0, 0, 0, 0.3);
+            --border-light: #333333;
         }
 
         body {
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.65;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Animated Vector Lines */
+        /* Animated Vectors */
         .vector-lines {
             position: fixed;
             top: 0;
@@ -61,22 +55,22 @@
 
         .vector-line {
             position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(0, 33, 71, 0.08), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 33, 71, 0.05), transparent);
             height: 1px;
         }
 
         body.dark-mode .vector-line {
-            background: linear-gradient(90deg, transparent, rgba(109, 179, 242, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(109, 179, 242, 0.1), transparent);
         }
 
         .vector-line.vertical {
             width: 1px;
             height: 100%;
-            background: linear-gradient(180deg, transparent, rgba(0, 61, 130, 0.08), transparent);
+            background: linear-gradient(180deg, transparent, rgba(0, 61, 130, 0.05), transparent);
         }
 
         body.dark-mode .vector-line.vertical {
-            background: linear-gradient(180deg, transparent, rgba(109, 179, 242, 0.15), transparent);
+            background: linear-gradient(180deg, transparent, rgba(109, 179, 242, 0.1), transparent);
         }
 
         @keyframes slideRight {
@@ -94,290 +88,225 @@
             100% { transform: translateX(-100%); }
         }
 
-        .vector1 { top: 18%; width: 700px; animation: slideRight 30s infinite linear; }
-        .vector2 { top: 48%; width: 550px; animation: slideRight 38s infinite linear 6s; }
-        .vector3 { top: 72%; width: 600px; animation: slideLeft 34s infinite linear 4s; }
-        .vector4 { left: 38%; animation: slideDown 42s infinite linear 3s; }
-        .vector5 { left: 73%; animation: slideDown 40s infinite linear 9s; }
+        .vector1 { top: 20%; width: 600px; animation: slideRight 35s infinite linear; }
+        .vector2 { top: 50%; width: 500px; animation: slideRight 40s infinite linear 7s; }
+        .vector3 { top: 75%; width: 550px; animation: slideLeft 37s infinite linear 4s; }
+        .vector4 { left: 40%; animation: slideDown 45s infinite linear 3s; }
+        .vector5 { left: 75%; animation: slideDown 42s infinite linear 10s; }
 
-        /* Layout */
-        .page-container {
+        /* Header */
+        header {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
             display: flex;
-            min-height: 100vh;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .site-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--heading-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--heading-color);
+        }
+
+        .theme-toggle-icon {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px;
+            transition: color 0.2s;
+        }
+
+        .theme-toggle-icon:hover {
+            color: var(--heading-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
             position: relative;
             z-index: 1;
         }
 
-        /* Vertical Navigation - Left */
-        .vertical-nav {
-            width: 220px;
-            background-color: var(--nav-bg);
-            border-right: 1px solid var(--nav-border);
-            position: fixed;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            padding: 40px 0;
-            display: flex;
-            flex-direction: column;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .nav-header {
-            padding: 0 25px;
-            margin-bottom: 40px;
-        }
-
-        .nav-name {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--heading-color);
-            margin-bottom: 8px;
-            white-space: nowrap;
-            transition: color 0.3s;
-        }
-
-        .nav-title {
-            font-size: 13px;
-            color: var(--text-color);
-            font-weight: 400;
-        }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            padding: 0 15px;
-        }
-
-        .nav-menu li a {
-            display: block;
-            padding: 12px 18px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 15px;
-            transition: all 0.2s;
-            border-radius: 6px;
-        }
-
-        .nav-menu li a:hover {
-            background-color: var(--nav-hover);
-            color: var(--heading-color);
-        }
-
-        .nav-menu li a.active {
-            background-color: var(--nav-hover);
-            color: var(--heading-color);
-            font-weight: 500;
-        }
-
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            margin-top: auto;
-            padding: 0 25px;
-        }
-
-        .theme-toggle-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--nav-hover);
-            border: 1px solid var(--nav-border);
-            border-radius: 6px;
-            color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-
-        .theme-toggle-btn:hover {
-            background-color: var(--heading-color);
-            color: #fff;
-            border-color: var(--heading-color);
-        }
-
-        .theme-toggle-btn i {
-            font-size: 16px;
-        }
-
-        /* Main Content Area */
-        .main-content {
-            margin-left: 220px;
-            flex: 1;
-            padding: 0;
-        }
-
-        /* Top Right Photo/Info Section */
-        .top-section {
-            background-color: var(--card-bg);
-            padding: 40px 60px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 35px;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .photo-info-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-            max-width: 600px;
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            align-self: start;
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 100%;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--heading-color);
-            flex-shrink: 0;
+            margin-bottom: 20px;
+            border: 3px solid var(--border-light);
             transition: border-color 0.3s;
         }
 
-        .photo-info {
-            flex: 1;
-        }
-
-        .photo-info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: var(--text-color);
-        }
-
-        .photo-info-item i {
+        .sidebar h1 {
+            font-size: 24px;
+            font-weight: 600;
             color: var(--heading-color);
-            width: 20px;
-            text-align: center;
+            margin-bottom: 10px;
             transition: color 0.3s;
         }
 
-        .photo-info-item a {
+        .sidebar .affiliation {
+            font-size: 14px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .sidebar-info {
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-info i {
+            width: 20px;
+            color: var(--heading-color);
+            margin-right: 8px;
+            transition: color 0.3s;
+        }
+
+        .sidebar-info a {
             color: var(--link-color);
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .photo-info-item a:hover {
+        .sidebar-info a:hover {
             text-decoration: underline;
         }
 
-        /* Content Section */
-        .content-section {
-            padding: 50px 60px;
-            max-width: 900px;
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
         }
 
-        h1 {
-            font-size: 32px;
+        .main-content h2 {
+            font-size: 28px;
+            font-weight: 600;
             color: var(--heading-color);
             margin-bottom: 25px;
-            font-weight: 600;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 15px;
-            transition: color 0.3s, border-color 0.3s;
-        }
-
-        h2 {
-            font-size: 24px;
-            color: var(--heading-color);
-            margin-bottom: 20px;
             margin-top: 40px;
-            font-weight: 600;
             transition: color 0.3s;
         }
 
-        p {
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
             font-size: 16px;
-            color: var(--text-color);
+            line-height: 1.7;
             margin-bottom: 15px;
-            line-height: 1.65;
+            color: var(--text-color);
+        }
+
+        .main-content a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .main-content a:hover {
+            text-decoration: underline;
         }
 
         .interests-list {
             font-size: 16px;
-            color: var(--text-color);
             line-height: 1.8;
-        }
-
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            color: var(--text-color);
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .vertical-nav {
-                width: 100%;
-                height: auto;
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sidebar {
                 position: relative;
-                border-right: none;
-                border-bottom: 1px solid var(--nav-border);
-                padding: 25px 0;
-            }
-
-            .nav-menu {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .theme-toggle {
-                margin-top: 20px;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .top-section {
-                padding: 30px 20px;
-                justify-content: center;
-            }
-
-            .photo-info-wrapper {
-                flex-direction: column;
+                top: 0;
                 text-align: center;
             }
 
-            .photo-info-item {
+            .sidebar .affiliation,
+            .sidebar-info {
+                text-align: center;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                padding: 0 20px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
                 justify-content: center;
             }
 
-            .content-section {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }
-
-            h2 {
-                font-size: 21px;
-            }
-
-            p {
-                font-size: 15px;
+            nav a {
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Vector Lines -->
+    <!-- Animated Vectors -->
     <div class="vector-lines">
         <div class="vector-line vector1"></div>
         <div class="vector-line vector2"></div>
@@ -386,116 +315,96 @@
         <div class="vector-line vector5 vertical"></div>
     </div>
 
-    <div class="page-container">
-        <!-- Vertical Navigation - Left -->
-        <nav class="vertical-nav">
-            <div class="nav-header">
-                <div class="nav-name">Yassine Ait Mohamed</div>
-                <div class="nav-title">PhD Student</div>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="site-title">Yassine Ait Mohamed</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">about</a></li>
+                    <li><a href="research.html">research</a></li>
+                    <li><a href="publications.html">publications</a></li>
+                    <li><a href="talks.html">talks</a></li>
+                    <li><a href="teaching.html">teaching</a></li>
+                    <li><a href="cv.html">cv</a></li>
+                    <li>
+                        <button class="theme-toggle-icon" onclick="toggleTheme()" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="talks.html">Talks</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="cv.html">CV</a></li>
-            </ul>
-
-            <div class="theme-toggle">
-                <button class="theme-toggle-btn" onclick="toggleTheme()">
-                    <i class="fas fa-moon"></i>
-                    <span class="theme-text">Dark Mode</span>
-                </button>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+            
+            <h1>Yassine Ait Mohamed</h1>
+            
+            <p class="affiliation">
+                PhD Student<br>
+                Université de Sherbrooke
+            </p>
+            
+            <div class="sidebar-info">
+                <div><i class="fas fa-map-marker-alt"></i>Sherbrooke, QC, Canada</div>
+                <div><i class="fas fa-envelope"></i><a href="mailto:y.aitmohamed@yahoo.com">Email</a></div>
             </div>
-        </nav>
+        </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Top Right Photo/Info Section -->
-            <div class="top-section">
-                <div class="photo-info-wrapper">
-                    <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
-                    
-                    <div class="photo-info">
-                        <div class="photo-info-item">
-                            <i class="fas fa-university"></i>
-                            <span>Université de Sherbrooke</span>
-                        </div>
-                        <div class="photo-info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Sherbrooke, Québec, Canada</span>
-                        </div>
-                        <div class="photo-info-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
-                        </div>
-                        <div class="photo-info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>PhD Student in Mathematics</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p>
+                I am a PhD student in Mathematics at the Université de Sherbrooke, under the supervision of 
+                <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
+            </p>
+            
+            <p>
+                Before that, I was a PhD student at the Université Sidi Mohamed Ben Abdellah, supervised by 
+                <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Lahcen Oukhtite</a>.
+            </p>
 
-            <!-- Content Section -->
-            <div class="content-section">
-                <h1>About me</h1>
-                
-                <p>
-                    I am a PhD student in Mathematics at the Université de Sherbrooke, under the supervision of 
-                    <a href="https://maxencemayrand.github.io/" target="_blank">Maxence Mayrand</a>.
-                </p>
-                
-                <p>
-                    Before that, I was a PhD student at the Université Sidi Mohamed Ben Abdellah, supervised by 
-                    <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Lahcen Oukhtite</a>.
-                </p>
-
-                <h2>Research Interests</h2>
-                
-                <div class="interests-list">
-                    • Derivations theory<br>
-                    • Algebraic geometry<br>
-                    • Lie groups and Lie algebroids<br>
-                    • Topological quantum field theories<br>
-                    • Shifted symplectic geometry<br>
-                    • Poisson structures
-                </div>
+            <h2>Research Interests</h2>
+            
+            <div class="interests-list">
+                • Derivations theory<br>
+                • Algebraic geometry<br>
+                • Lie groups and Lie algebroids<br>
+                • Topological quantum field theories<br>
+                • Shifted symplectic geometry<br>
+                • Poisson structures
             </div>
         </main>
     </div>
 
     <script>
-        // Dark mode toggle
         function toggleTheme() {
             const body = document.body;
-            const themeText = document.querySelector('.theme-text');
-            const themeIcon = document.querySelector('.theme-toggle-btn i');
+            const icon = document.querySelector('.theme-toggle-icon i');
             
             body.classList.toggle('dark-mode');
             
             if (body.classList.contains('dark-mode')) {
-                themeText.textContent = 'Light Mode';
-                themeIcon.className = 'fas fa-sun';
+                icon.className = 'fas fa-sun';
                 localStorage.setItem('theme', 'dark');
             } else {
-                themeText.textContent = 'Dark Mode';
-                themeIcon.className = 'fas fa-moon';
+                icon.className = 'fas fa-moon';
                 localStorage.setItem('theme', 'light');
             }
         }
 
-        // Load saved theme on page load
+        // Load saved theme
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
-            const themeText = document.querySelector('.theme-text');
-            const themeIcon = document.querySelector('.theme-toggle-btn i');
+            const icon = document.querySelector('.theme-toggle-icon i');
             
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
-                themeText.textContent = 'Light Mode';
-                themeIcon.className = 'fas fa-sun';
+                icon.className = 'fas fa-sun';
             }
         });
     </script>
