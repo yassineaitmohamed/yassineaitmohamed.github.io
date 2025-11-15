@@ -63,14 +63,14 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 1fr 280px;
             gap: 60px;
             padding: 0 20px;
         }
 
         /* Content Section */
         .content {
-            grid-column: 2 / 3;
+            grid-column: 1 / 2;
         }
 
         .intro-title {
@@ -96,7 +96,7 @@
 
         /* Photo Section */
         .photo-section {
-            grid-column: 1 / 2;
+            grid-column: 2 / 3;
             position: sticky;
             top: 20px;
             display: flex;
@@ -230,6 +230,7 @@
 
             .photo-section {
                 position: static;
+                order: -1;
             }
 
             .content {
@@ -251,24 +252,6 @@
     </nav>
 
     <div class="container">
-        <div class="photo-section">
-            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
-            
-            <div class="social-links">
-                <a href="https://github.com/yassineaitmohamed" target="_blank">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-               
-               
-            </div>
-
-            <div class="contact-info">
-                <strong>Contact</strong><br>
-                <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
-            </div>
-        </div>
-
         <div class="content">
             <div class="intro-text">
                 I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
@@ -281,6 +264,22 @@
             <p class="intro-text">
                 Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry
             </p>
+
+            <h2>Contact</h2>
+            <p class="intro-text">
+                <a href="mailto:y.aitmohamed@yahoo.com">y.aitmohamed@yahoo.com</a>
+            </p>
+        </div>
+
+        <div class="photo-section">
+            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+            
+            <div class="social-links">
+                <a href="https://github.com/yassineaitmohamed" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
         </div>
     </div>
 </body>
