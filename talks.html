@@ -15,59 +15,54 @@
         body {
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.8;
-            color: #002147;
-            background-color: #ffffff;
+            color: #003366;
+            background-color: #f5f5dc;
             font-size: 18px;
+            padding: 20px;
         }
         
         /* Navigation */
         nav {
-            background-color: #ffffff;
-            border-bottom: 2px solid #002147;
-            padding: 25px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            padding: 40px 40px 20px 40px;
+            background-color: #f5f5dc;
+            border-bottom: 2px solid #d4d4b8;
+            margin-bottom: 50px;
+            gap: 20px;
         }
-        
+
         .nav-name {
-            font-size: 32px;
-            font-weight: 600;
-            color: #002147;
+            font-size: 36px;
+            font-weight: 700;
+            color: #24292e;
             white-space: nowrap;
         }
-        
+
         .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 40px;
+            flex-wrap: wrap;
             list-style: none;
         }
-        
+
         .nav-links a {
             text-decoration: none;
-            color: #002147;
+            color: #003366;
             font-weight: 500;
             font-size: 20px;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
-            color: #003d82;
+            color: #dc3545;
         }
         
         /* Main Container */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto;
             padding: 0 40px;
         }
         
@@ -75,8 +70,9 @@
             font-size: 42px;
             margin-bottom: 35px;
             padding-bottom: 12px;
-            border-bottom: 2px solid #002147;
-            color: #002147;
+            border-bottom: 2px solid #dc3545;
+            color: #24292e;
+            font-weight: 600;
         }
         
         .talk {
@@ -92,57 +88,44 @@
             top: 12px;
             width: 16px;
             height: 16px;
-            background-color: #002147;
+            background-color: #dc3545;
             border-radius: 50%;
         }
         
         .date {
             font-weight: bold;
-            color: #002147;
+            color: #24292e;
             font-size: 22px;
         }
         
         .talk p {
             font-size: 20px;
-            color: #002147;
+            color: #003366;
             line-height: 1.8;
         }
         
         .pdf-link {
-            color: #003d82;
+            color: #dc3545;
             text-decoration: none;
             margin-left: 10px;
             font-size: 20px;
+            font-weight: 500;
         }
         
         .pdf-link:hover {
             text-decoration: underline;
-            color: #002147;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-            
-            .nav-container {
+            nav {
                 flex-direction: column;
-                gap: 18px;
+                gap: 15px;
+                padding: 20px;
             }
-            
-            .nav-name {
-                font-size: 26px;
-            }
-            
+
             .nav-links {
-                gap: 18px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-links a {
-                font-size: 18px;
+                gap: 15px;
             }
             
             .container {
@@ -170,15 +153,13 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="nav-name">Yassine Ait Mohamed</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="talks.html">Talks</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-            </ul>
+        <div class="nav-name">Yassine Ait Mohamed</div>
+        <div class="nav-links">
+            <a href="yassine_website.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="talks.html">Talks</a>
+            <a href="cv.html">CV</a>
+            <a href="teaching.html">Teaching</a>
         </div>
     </nav>
 
@@ -186,14 +167,12 @@
     <div class="container">
         <h1>Talks</h1>
 
-
-      <div class="talk">
-            <p><span class="date">November 2025:</span> Poisson structures on 1-shifted coisotropics, Séminaire SAG, Université de Sherbrooke </p>
+        <div class="talk">
+            <p><span class="date">November 2025:</span> Poisson structures on 1-shifted coisotropics, Séminaire SAG, Université de Sherbrooke</p>
         </div>
         
-        
         <div class="talk">
-            <p><span class="date">November 2024:</span> On bound quivers, MAT728 Selected Topics in Algebra, Université  de Sherbrooke [<a href="quivers.pdf" class="pdf-link">PDF</a>]</p>
+            <p><span class="date">November 2024:</span> On bound quivers, MAT728 Selected Topics in Algebra, Université de Sherbrooke [<a href="quivers.pdf" class="pdf-link">PDF</a>]</p>
         </div>
         
         <div class="talk">
