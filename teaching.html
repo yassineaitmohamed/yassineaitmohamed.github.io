@@ -15,66 +15,63 @@
         body {
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.8;
-            color: #002147;
-            background-color: #ffffff;
+            color: #003366;
+            background-color: #f5f5dc;
             font-size: 18px;
+            padding: 20px;
         }
         
         /* Navigation */
         nav {
-            background-color: #ffffff;
-            border-bottom: 2px solid #002147;
-            padding: 25px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            padding: 40px 40px 20px 40px;
+            background-color: #f5f5dc;
+            border-bottom: 2px solid #d4d4b8;
+            margin-bottom: 50px;
+            gap: 20px;
         }
-        
+
         .nav-name {
-            font-size: 32px;
-            font-weight: 600;
-            color: #002147;
+            font-size: 36px;
+            font-weight: 700;
+            color: #24292e;
             white-space: nowrap;
         }
-        
+
         .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 40px;
+            flex-wrap: wrap;
             list-style: none;
         }
-        
+
         .nav-links a {
             text-decoration: none;
-            color: #002147;
+            color: #003366;
             font-weight: 500;
             font-size: 20px;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
-            color: #003d82;
+            color: #dc3545;
         }
         
         /* Main Container */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto;
             padding: 0 40px;
         }
         
         h1 {
             font-size: 42px;
             margin-bottom: 35px;
-            color: #002147;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #dc3545;
+            color: #24292e;
             font-weight: 600;
         }
         
@@ -82,72 +79,56 @@
             font-size: 32px;
             margin-top: 45px;
             margin-bottom: 25px;
-            color: #002147;
+            color: #24292e;
             font-weight: 600;
-            border-bottom: 2px solid #002147;
+            border-bottom: 2px solid #dc3545;
             padding-bottom: 10px;
         }
         
         /* Teaching Entry */
         .entry {
             position: relative;
+            margin-bottom: 35px;
             padding-left: 35px;
-            margin-bottom: 30px;
-            padding-bottom: 22px;
-            border-bottom: 1px solid #d0d0d0;
-        }
-        
-        .entry:last-child {
-            border-bottom: none;
         }
         
         .entry::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 10px;
-            width: 14px;
-            height: 14px;
-            background-color: #002147;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            background-color: #dc3545;
             border-radius: 50%;
         }
         
         .date {
-            font-weight: 600;
-            color: #002147;
-            font-size: 20px;
-            display: block;
-            margin-bottom: 6px;
-        }
-        
-        .position {
-            font-weight: 600;
-            font-size: 20px;
-            color: #002147;
-            display: block;
-            margin-bottom: 6px;
+            font-weight: bold;
+            color: #24292e;
+            font-size: 22px;
         }
         
         .institution {
-            color: #002147;
-            font-size: 19px;
-            font-style: italic;
+            color: #003366;
+            font-size: 20px;
+            line-height: 1.8;
         }
         
         /* Notes Section */
         .notes-section {
             margin-top: 45px;
             padding: 28px;
-            background-color: #f0f4f8;
+            background-color: #ebe8d8;
             border-radius: 8px;
-            border: 1px solid #002147;
+            border: 2px solid #d4d4b8;
         }
         
         .notes-section h2 {
             margin-top: 0;
-            color: #002147;
-            border-bottom: none;
-            padding-bottom: 0;
+            color: #24292e;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 10px;
         }
         
         .notes-grid {
@@ -161,22 +142,22 @@
             display: flex;
             align-items: center;
             padding: 14px 18px;
-            background: white;
+            background: #f5f5dc;
             border-radius: 6px;
-            border: 1px solid #d0d0d0;
+            border: 1px solid #d4d4b8;
             cursor: pointer;
             transition: all 0.3s;
         }
         
         .note-item:hover {
-            background-color: #002147;
+            background-color: #dc3545;
             color: white;
             transform: translateX(5px);
-            box-shadow: 0 4px 10px rgba(0, 33, 71, 0.2);
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
         }
         
         .note-item i {
-            color: #002147;
+            color: #dc3545;
             margin-right: 14px;
             font-size: 18px;
         }
@@ -186,7 +167,7 @@
         }
         
         .note-item span {
-            color: #002147;
+            color: #003366;
             font-size: 18px;
         }
         
@@ -196,37 +177,26 @@
         
         /* Links in entries */
         .entry a {
-            color: #003d82;
+            color: #dc3545;
+            text-decoration: none;
             font-size: 18px;
+            font-weight: 500;
         }
         
         .entry a:hover {
-            color: #002147;
+            text-decoration: underline;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-            
-            .nav-container {
+            nav {
                 flex-direction: column;
-                gap: 18px;
+                gap: 15px;
+                padding: 20px;
             }
-            
-            .nav-name {
-                font-size: 26px;
-            }
-            
+
             .nav-links {
-                gap: 18px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-links a {
-                font-size: 18px;
+                gap: 15px;
             }
             
             .container {
@@ -241,12 +211,12 @@
                 font-size: 28px;
             }
             
-            .date, .position {
-                font-size: 18px;
+            .date {
+                font-size: 20px;
             }
             
             .institution {
-                font-size: 17px;
+                font-size: 18px;
             }
             
             .notes-grid {
@@ -262,15 +232,13 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="nav-name">Yassine Ait Mohamed</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="talks.html">Talks</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-            </ul>
+        <div class="nav-name">Yassine Ait Mohamed</div>
+        <div class="nav-links">
+            <a href="yassine_website.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="talks.html">Talks</a>
+            <a href="cv.html">CV</a>
+            <a href="teaching.html">Teaching</a>
         </div>
     </nav>
 
@@ -281,53 +249,41 @@
         <h2>Teaching Assistant</h2>
         
         <div class="entry">
-            <span class="date">August 2025 - Present</span>
-            <span class="institution">Elements of Algebra (MAT141), Université de  Sherbrooke</span>
+            <p><span class="date">August 2025 - Present:</span> <span class="institution">Elements of Algebra (MAT141), Université de Sherbrooke</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">August 2025 - Present</span>
-            <span class="institution">Applied Linear Algebra in Computer Science (MAT199), Université de  Sherbrooke</span>
+            <p><span class="date">August 2025 - Present:</span> <span class="institution">Applied Linear Algebra in Computer Science (MAT199), Université de Sherbrooke</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">January 2025 - April 2025</span>
-            <span class="institution">Linear Algebra (MAT253), Université de  Sherbrooke</span>
+            <p><span class="date">January 2025 - April 2025:</span> <span class="institution">Linear Algebra (MAT253), Université de Sherbrooke</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">September 2024 - December 2024</span>
-            <span class="institution">Differential and Integral Calculus I (MAT194), Université de  Sherbrooke</span>
+            <p><span class="date">September 2024 - December 2024:</span> <span class="institution">Differential and Integral Calculus I (MAT194), Université de Sherbrooke</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">September 2024 - December 2024</span>
-            <span class="institution">Center for Mathematics Help, Université de  Sherbrooke</span>
+            <p><span class="date">September 2024 - December 2024:</span> <span class="institution">Center for Mathematics Help, Université de Sherbrooke</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">September 2022 - November 2023</span>
-            <span class="institution">Mini School Center, Fez, Morocco</span>
+            <p><span class="date">September 2022 - November 2023:</span> <span class="institution">Mini School Center, Fez, Morocco</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">September 2018 - March 2019</span>
-            <span class="institution">Olympia Centre Zarhounia, Meknes, Morocco</span>
+            <p><span class="date">September 2018 - March 2019:</span> <span class="institution">Olympia Centre Zarhounia, Meknes, Morocco</span></p>
         </div>
 
         <div class="entry">
-            <span class="date">September 2017 - March 2018</span>
-            <span class="institution">Maxcence Centre, Meknes, Morocco</span>
+            <p><span class="date">September 2017 - March 2018:</span> <span class="institution">Maxcence Centre, Meknes, Morocco</span></p>
         </div>
         
         <h2>Mathematics Tutor</h2>
 
         <div class="entry">
-            <span class="date">September 2022 - Today</span>
-            <span class="institution">Algebra, Real and Complex Analysis, and Topology</span>
-            <div style="margin-top: 8px;">
-                <a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank">View profile on VosCours</a>
-            </div>
+            <p><span class="date">September 2022 - Today:</span> <span class="institution">Algebra, Real and Complex Analysis, and Topology</span> [<a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="pdf-link">View profile on VosCours</a>]</p>
         </div>
        
         <!-- Notes Section -->
