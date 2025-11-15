@@ -16,139 +16,145 @@
             font-family: 'Courier New', Courier, monospace;
             line-height: 1.8;
             color: #003366;
-            background-color: #ffffff;
+            background-color: #f5f5dc;
+            font-size: 18px;
+            padding: 20px;
         }
         
         /* Navigation */
         nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 40px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            padding: 40px 40px 20px 40px;
+            background-color: #f5f5dc;
+            border-bottom: 2px solid #d4d4b8;
+            margin-bottom: 50px;
+            gap: 20px;
         }
-        
+
         .nav-name {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 36px;
+            font-weight: 700;
             color: #24292e;
             white-space: nowrap;
         }
-        
+
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 40px;
+            flex-wrap: wrap;
             list-style: none;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: #003366;
             font-weight: 500;
+            font-size: 20px;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
             color: #dc3545;
         }
         
         /* Main Container */
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 40px;
         }
         
         h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
+            font-size: 42px;
+            margin-bottom: 35px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #dc3545;
             color: #24292e;
             font-weight: 600;
         }
         
         h2 {
-            font-size: 28px;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-top: 45px;
+            margin-bottom: 25px;
             color: #24292e;
             font-weight: 600;
+            border-bottom: 2px solid #dc3545;
+            padding-bottom: 10px;
         }
         
         .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            align-items: baseline;
+            position: relative;
+            margin-bottom: 35px;
+            padding-left: 35px;
+        }
+        
+        .summary-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            background-color: #dc3545;
+            border-radius: 50%;
         }
         
         .institution {
-            font-weight: 600;
-            color: #003366;
-            font-size: 18px;
+            font-weight: bold;
+            color: #24292e;
+            font-size: 22px;
         }
         
         .position {
             color: #003366;
-            margin-left: 20px;
-            font-size: 17px;
-            flex-grow: 1;
+            font-size: 20px;
+            line-height: 1.8;
         }
         
         .dates {
             color: #003366;
-            white-space: nowrap;
-            font-size: 17px;
+            font-size: 20px;
+            line-height: 1.8;
         }
         
         /* Review Activities */
         .review-item {
-            display: flex;
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #f8f9fa;
+            position: relative;
+            margin-bottom: 35px;
+            padding-left: 35px;
+        }
+        
+        .review-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            background-color: #dc3545;
+            border-radius: 50%;
         }
         
         .review-date {
-            color: #003366;
-            font-size: 17px;
-            min-width: 120px;
-        }
-        
-        .review-content {
-            flex-grow: 1;
+            font-weight: bold;
+            color: #24292e;
+            font-size: 22px;
         }
         
         .review-journal {
             color: #003366;
-            font-weight: 500;
-            font-size: 17px;
-        }
-        
-        .review-note {
-            color: #003366;
-            font-size: 16px;
-            font-style: italic;
-            margin-top: 4px;
+            font-size: 20px;
+            line-height: 1.8;
         }
         
         a {
-            color: green;
+            color: #dc3545;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: 500;
         }
         
         a:hover {
@@ -157,33 +163,34 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-container {
+            nav {
                 flex-direction: column;
                 gap: 15px;
+                padding: 20px;
             }
-            
+
             .nav-links {
                 gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
             }
             
             .container {
                 padding: 0 20px;
             }
             
-            .summary-item {
-                flex-direction: column;
-                gap: 5px;
+            h1 {
+                font-size: 34px;
             }
             
-            .position {
-                margin-left: 0;
+            h2 {
+                font-size: 28px;
             }
             
-            .review-item {
-                flex-direction: column;
-                gap: 8px;
+            .institution, .review-date {
+                font-size: 20px;
+            }
+            
+            .position, .dates, .review-journal {
+                font-size: 18px;
             }
         }
     </style>
@@ -191,15 +198,13 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="nav-name">Yassine Ait Mohamed</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="talks.html">Talks</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-            </ul>
+        <div class="nav-name">Yassine Ait Mohamed</div>
+        <div class="nav-links">
+            <a href="yassine_website.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="talks.html">Talks</a>
+            <a href="cv.html">CV</a>
+            <a href="teaching.html">Teaching</a>
         </div>
     </nav>
 
@@ -210,46 +215,29 @@
         <h2>Summary</h2>
         <div class="summary">
             <div class="summary-item">
-                <span class="institution">University of Sherbrooke</span>
-                <span class="position">PhD Student in Mathematics</span>
-                <span class="dates">2024—Today</span>
+                <p><span class="institution">University of Sherbrooke:</span> <span class="position">PhD Student in Mathematics</span> <span class="dates">(2024—Today)</span></p>
             </div>
             <div class="summary-item">
-                <span class="institution">University of Sidi Mohamed Ben Abdellah</span>
-                <span class="position">PhD Student in Mathematics</span>
-                <span class="dates">2022—2023</span>
+                <p><span class="institution">University of Sidi Mohamed Ben Abdellah:</span> <span class="position">PhD Student in Mathematics</span> <span class="dates">(2022—2023)</span></p>
             </div>
             <div class="summary-item">
-                <span class="institution">University of Sidi Mohamed Ben Abdellah</span>
-                <span class="position">Master's degree in Mathematics</span>
-                <span class="dates">2020—2022</span>
+                <p><span class="institution">University of Sidi Mohamed Ben Abdellah:</span> <span class="position">Master's degree in Mathematics</span> <span class="dates">(2020—2022)</span></p>
             </div>
             <div class="summary-item">
-                <span class="institution">University of Moulay Ismail</span>
-                <span class="position">Bachelor's degree in Mathematics</span>
-                <span class="dates">2016—2020</span>
+                <p><span class="institution">University of Moulay Ismail:</span> <span class="position">Bachelor's degree in Mathematics</span> <span class="dates">(2016—2020)</span></p>
             </div>
         </div>
 
        <h2>Peer Review Activities</h2>
 <div class="review-activities">
     <div class="review-item">
-        <span class="review-date">August 2025</span>
-        <div class="review-content">
-            <div class="review-journal">Peer Reviewer, Proceedings of the International Geometry Center</div>
-        </div>
+        <p><span class="review-date">August 2025:</span> <span class="review-journal">Peer Reviewer, Proceedings of the International Geometry Center</span></p>
     </div>
     <div class="review-item">
-        <span class="review-date">June 2025</span>
-        <div class="review-content">
-            <div class="review-journal">Peer Reviewer, International Journal of Neutrosophic Science</div>
-        </div>
+        <p><span class="review-date">June 2025:</span> <span class="review-journal">Peer Reviewer, International Journal of Neutrosophic Science</span></p>
     </div>
     <div class="review-item">
-        <span class="review-date">February 2025</span>
-        <div class="review-content">
-            <div class="review-journal">Peer Reviewer, Asian Research Journal of Mathematics</div>
-        </div>
+        <p><span class="review-date">February 2025:</span> <span class="review-journal">Peer Reviewer, Asian Research Journal of Mathematics</span></p>
     </div>
 </div>
         <h2>Full CV</h2>
