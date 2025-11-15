@@ -24,17 +24,18 @@
         /* Navigation */
         nav {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             padding: 40px 40px 20px 40px;
             background-color: #f5f5dc;
             border-bottom: 2px solid #d4d4b8;
             margin-bottom: 50px;
-            gap: 20px;
+            gap: 40px;
+            position: relative;
         }
 
         .nav-name {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
             color: #24292e;
             white-space: nowrap;
@@ -45,6 +46,7 @@
             gap: 40px;
             flex-wrap: wrap;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -56,6 +58,103 @@
         }
 
         .nav-links a:hover {
+            color: #dc3545;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            background-color: #ebe8d8;
+            border: 2px solid #d4d4b8;
+            border-radius: 25px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #003366;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle:hover {
+            background-color: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background-color: #1a1a1a;
+            border-bottom-color: #333;
+        }
+
+        body.dark-mode .nav-name {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            color: #dc3545;
+        }
+
+        body.dark-mode .theme-toggle {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .theme-toggle:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2 {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .date {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .institution {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .notes-section {
+            background-color: #2a2a2a;
+            border-color: #444;
+        }
+
+        body.dark-mode .note-item {
+            background-color: #1a1a1a;
+            border-color: #444;
+        }
+
+        body.dark-mode .note-item span {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .note-item:hover {
+            background-color: #dc3545;
+        }
+
+        body.dark-mode .note-item:hover span {
+            color: white;
+        }
+
+        body.dark-mode .entry a {
             color: #dc3545;
         }
         
@@ -192,11 +291,17 @@
             nav {
                 flex-direction: column;
                 gap: 15px;
-                padding: 20px;
+                padding: 60px 20px 20px 20px;
+            }
+
+            .theme-toggle {
+                top: 10px;
+                right: 20px;
             }
 
             .nav-links {
                 gap: 15px;
+                justify-content: center;
             }
             
             .container {
@@ -232,9 +337,13 @@
 <body>
     <!-- Navigation -->
     <nav>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="theme-icon"></i>
+            <span id="theme-text">Dark Mode</span>
+        </button>
         <div class="nav-name">Yassine Ait Mohamed</div>
         <div class="nav-links">
-            <a href="./">Home</a>
+            <a href="index.html">Home</a>
             <a href="research.html">Research</a>
             <a href="talks.html">Talks</a>
             <a href="cv.html">CV</a>
@@ -390,5 +499,38 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+            }
+        });
+    </script>
 </body>
 </html>
