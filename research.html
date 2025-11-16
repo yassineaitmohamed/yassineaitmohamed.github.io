@@ -275,6 +275,12 @@
             text-decoration: underline;
         }
 
+        .links .accepted {
+            color: green;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
         .abstract-toggle {
             cursor: pointer;
             font-size: 18px;
@@ -430,73 +436,62 @@
 
         <h2>Papers</h2>
 
-
-
-<div class="paper">
-            <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
-                <div id="triangle2" class="triangle"></div>
+        <!-- Paper 1: dp-Derivations -->
+        <div class="paper">
+            <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
+                <div id="triangle1" class="triangle"></div>
                 <span>dp-Derivations on Graded Rings</span>
             </div>
-            <div id="paper2-content" class="paper-content">
-
-       <div class="links">
-       <span class="accepted">Under review</span>
-        </div>                
-                <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', ''); event.stopPropagation();">▸ abstract</a>
-                <div id="abstract2" class="abstract">
-      This paper investigates homogeneous derivations that preserve degree, which we call dp-derivations. We prove basic structural results, showing that the inverse images of graded prime differential ideals are integrally closed in commutative graded rings equipped with dp-derivations. For differential simplicity, we establish that in graded simple rings of prime characteristic, the graded nilradical is the only graded prime ideal. Additionally, we show that dp-skew polynomial rings maintain the graded Noetherian property, thus extending the Hilbert basis theorem to differential graded settings.            </div>
+            <div id="paper1-content" class="paper-content">
+                <div class="links">
+                    <span class="accepted">Under review</span>
+                </div>                
+                <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', ''); event.stopPropagation();">▸ abstract</a>
+                <div id="abstract1" class="abstract">
+                    This paper investigates homogeneous derivations that preserve degree, which we call dp-derivations. We prove basic structural results, showing that the inverse images of graded prime differential ideals are integrally closed in commutative graded rings equipped with dp-derivations. For differential simplicity, we establish that in graded simple rings of prime characteristic, the graded nilradical is the only graded prime ideal. Additionally, we show that dp-skew polynomial rings maintain the graded Noetherian property, thus extending the Hilbert basis theorem to differential graded settings.
+                </div>
+            </div>
         </div>
 
-
-
-        
-
+        <!-- Paper 2: Generalized homogeneous derivations -->
         <div class="paper">
             <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
                 <div id="triangle2" class="triangle"></div>
                 <span>Generalized homogeneous derivations in graded rings</span>
             </div>
             <div id="paper2-content" class="paper-content">
-
-       <div class="links">
-       <span class="accepted">Accepted for publication in Siberian Mathematical Journal</span>
-        </div>                
+                <div class="links">
+                    <span class="accepted">Accepted for publication in Siberian Mathematical Journal</span>
+                </div>                
                 <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', ''); event.stopPropagation();">▸ abstract</a>
                 <div id="abstract2" class="abstract">
-               We introduce a  notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations introduced by Kanunnikov. We then define the concept of gr-generalized derivations, which preserve the degree of homogeneous components. Several significant results originally established for prime rings are extended to the setting of gr-prime rings. Furthermore, we characterize the conditions under which gr-semiprime rings contain non-trivial central graded ideals. In addition, we investigate the algebraic and module-theoretic structures of these maps, establish their functorial properties, and develop categorical frameworks that describe their derivation structures in both ring and module contexts.                </div>
+                    We introduce a notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations introduced by Kanunnikov. We then define the concept of gr-generalized derivations, which preserve the degree of homogeneous components. Several significant results originally established for prime rings are extended to the setting of gr-prime rings. Furthermore, we characterize the conditions under which gr-semiprime rings contain non-trivial central graded ideals. In addition, we investigate the algebraic and module-theoretic structures of these maps, establish their functorial properties, and develop categorical frameworks that describe their derivation structures in both ring and module contexts.
+                </div>
             </div>
         </div>
 
-
-
-        
-
+        <!-- Paper 3: On graded rings -->
         <div class="paper">
-            <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
-                <div id="triangle1" class="triangle"></div>
+            <div class="paper-title" onclick="togglePaperContent('paper3-content', 'triangle3')">
+                <div id="triangle3" class="triangle"></div>
                 <span>On graded rings with homogeneous derivations</span>
             </div>
-            <div id="paper1-content" class="paper-content">
+            <div id="paper3-content" class="paper-content">
                 <p class="journal">Revista de la Unión Matemática Argentina</p>
                 <div class="links">
                     <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
                 </div>
-                <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', ''); event.stopPropagation();">▸ abstract</a>
-                <div id="abstract1" class="abstract">
-             We establish results related to homogeneous derivations, a con-cept introduced by Kanunnikov (2018). First, we prove the existence of a
-               non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing
-             significant results in the context of prime (resp. semiprime) rings to gr-prime
-               (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.  
+                <a href="#abstract3" class="abstract-toggle" onclick="togglePaperContent('abstract3', ''); event.stopPropagation();">▸ abstract</a>
+                <div id="abstract3" class="abstract">
+                    We establish results related to homogeneous derivations, a concept introduced by Kanunnikov (2018). First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
                 </div>
             </div>
         </div>
 
-       
-
         <h2>Master's Thesis (Sidi Mohamed Ben Abdellah University 2022)</h2>
         <div class="paper">
-            <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle5')">
-                <div id="triangle5" class="triangle"></div>
+            <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle4')">
+                <div id="triangle4" class="triangle"></div>
                 <span>Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties</span>
             </div>
             <div id="thesis-content" class="paper-content">
