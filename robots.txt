@@ -2,6 +2,5 @@ User-agent: *
 Allow: /
 Sitemap: https://yassineaitmohamed.github.io/sitemap.xml
 
-# Disallow admin or private directories if any
 Disallow: /private/
 Disallow: /.git/
