@@ -31,3 +31,15 @@
     <priority>0.7</priority>
   </url>
 </urlset>
+```
+
+### 5. **Commit le fichier**
+- En bas, écris : `Add sitemap.xml for SEO`
+- Clique sur **"Commit new file"**
+
+### 6. **Attends 1-2 minutes** ⏱️
+
+### 7. **Vérifie que le fichier est accessible**
+Ouvre ton navigateur et va sur :
+```
+https://yassineaitmohamed.github.io/sitemap.xml
