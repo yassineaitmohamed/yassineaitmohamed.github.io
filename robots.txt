@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://yassineaitmohamed.github.io/sitemap.xml
-
-Disallow: /private/
-Disallow: /.git/
