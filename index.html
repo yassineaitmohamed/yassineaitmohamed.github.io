@@ -71,6 +71,62 @@
             padding: 20px;
         }
 
+        /* 3D Welcome Animation */
+        .welcome-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeOut 1s ease-in-out 3s forwards;
+        }
+
+        .welcome-text {
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: float 2s ease-in-out infinite, scale3d 2s ease-in-out;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotateX(0deg) rotateY(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotateX(10deg) rotateY(5deg);
+            }
+        }
+
+        @keyframes scale3d {
+            0% {
+                transform: scale(0) rotateY(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotateY(180deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) rotateY(360deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
         /* Navigation */
         nav {
             display: flex;
@@ -190,6 +246,27 @@
             color: #e0e0e0;
         }
 
+        body.dark-mode .news-item {
+            background-color: #2a2a2a;
+            border-left-color: #dc3545;
+        }
+
+        body.dark-mode .news-date {
+            color: #888;
+        }
+
+        body.dark-mode .footer {
+            background-color: #1a1a1a;
+            border-top-color: #333;
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .live-clock {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: #003366;
@@ -236,6 +313,36 @@
             color: #003366;
             margin-bottom: 30px;
             line-height: 1.8;
+        }
+
+        /* News Section */
+        .news-section {
+            margin: 40px 0;
+        }
+
+        .news-item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #dc3545;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+        }
+
+        .news-date {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .news-content {
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         /* Photo Section */
@@ -355,8 +462,41 @@
             text-decoration: underline;
         }
 
+        /* Footer with live clock */
+        .footer {
+            max-width: 1200px;
+            margin: 60px auto 20px;
+            padding: 30px 20px;
+            border-top: 2px solid #d4d4b8;
+            background-color: #f5f5dc;
+            text-align: center;
+        }
+
+        .live-clock {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366;
+            background-color: #ebe8d8;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid #d4d4b8;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-text {
+            font-size: 16px;
+            color: #666;
+            margin-top: 15px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 36px;
+            }
+
             nav {
                 flex-direction: column;
                 gap: 15px;
@@ -386,10 +526,20 @@
             .content {
                 grid-column: 1 / -1;
             }
+
+            .live-clock {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 3D Welcome Animation -->
+    <div class="welcome-container">
+        <div class="welcome-text">Welcome to My Homepage</div>
+    </div>
+
     <nav>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
             <i class="fas fa-moon" id="theme-icon"></i>
@@ -404,39 +554,6 @@
             <a href="teaching.html">Teaching</a>
         </div>
     </nav>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.className = 'fas fa-moon';
-                themeText.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Load saved theme on page load
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const savedTheme = localStorage.getItem('theme');
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-            }
-        });
-    </script>
 
     <div class="container">
         <div class="content">
@@ -470,5 +587,75 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer with Live Clock -->
+    <footer class="footer">
+        <div class="live-clock" id="liveClock"></div>
+        <div class="footer-text">
+            © <span id="currentYear"></span> Yassine Ait Mohamed. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Function
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Live Clock Function
+        function updateClock() {
+            const now = new Date();
+            
+            // Format options
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            
+            const dateTimeString = now.toLocaleDateString('en-US', options);
+            document.getElementById('liveClock').textContent = dateTimeString;
+            
+            // Update year in footer
+            document.getElementById('currentYear').textContent = now.getFullYear();
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+            }
+
+            // Initialize clock
+            updateClock();
+            // Update clock every second
+            setInterval(updateClock, 1000);
+        });
+    </script>
 </body>
 </html>
