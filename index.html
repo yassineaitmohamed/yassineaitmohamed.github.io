@@ -71,52 +71,101 @@
             padding: 20px;
         }
 
-        /* 3D Welcome Animation */
+        /* Vector Field Welcome Animation - Sherbrooke Green/White + Morocco Red/Green */
         .welcome-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #006747 0%, #C8102E 50%, #006747 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10000;
-            animation: fadeOut 1s ease-in-out 3s forwards;
+            animation: fadeOut 1s ease-in-out 4s forwards;
+            overflow: hidden;
+        }
+
+        .welcome-container::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(200, 16, 46, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 103, 71, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(200, 16, 46, 0.2) 0%, transparent 50%);
+            animation: vectorFlow 8s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        .welcome-container::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            animation: gridFlow 20s linear infinite;
         }
 
         .welcome-text {
             font-size: 60px;
             font-weight: bold;
             color: white;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: float 2s ease-in-out infinite, scale3d 2s ease-in-out;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            text-shadow: 
+                0 0 20px rgba(200, 16, 46, 0.8),
+                0 0 40px rgba(0, 103, 71, 0.6),
+                0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: textFlow 3s ease-in-out;
+            position: relative;
+            z-index: 10;
+            filter: blur(0px);
+            letter-spacing: 2px;
         }
 
-        @keyframes float {
+        @keyframes vectorFlow {
             0%, 100% {
-                transform: translateY(0) rotateX(0deg) rotateY(0deg);
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(-5%, 5%) rotate(5deg) scale(1.1);
             }
             50% {
-                transform: translateY(-20px) rotateX(10deg) rotateY(5deg);
+                transform: translate(5%, -5%) rotate(-5deg) scale(1);
+            }
+            75% {
+                transform: translate(-5%, -5%) rotate(5deg) scale(1.1);
             }
         }
 
-        @keyframes scale3d {
+        @keyframes gridFlow {
             0% {
-                transform: scale(0) rotateY(0deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1) rotateY(180deg);
-                opacity: 1;
+                transform: translate(0, 0);
             }
             100% {
-                transform: scale(1) rotateY(360deg);
+                transform: translate(50px, 50px);
+            }
+        }
+
+        @keyframes textFlow {
+            0% {
+                transform: scale(0) translateY(100px);
+                opacity: 0;
+                filter: blur(20px);
+            }
+            50% {
+                transform: scale(1.1) translateY(-10px);
                 opacity: 1;
+                filter: blur(2px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+                filter: blur(0px);
             }
         }
 
