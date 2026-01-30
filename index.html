@@ -86,13 +86,19 @@
         }
 
         .nav-name {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 700;
             color: #24292e;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #d4d4b8;
-            text-align: center;
+            padding: 12px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .nav-name:hover {
+            background-color: #dc3545;
+            color: white;
         }
 
         .nav-links {
@@ -156,7 +162,11 @@
 
         body.dark-mode .nav-name {
             color: #e0e0e0;
-            border-bottom-color: #333;
+        }
+
+        body.dark-mode .nav-name:hover {
+            background-color: #dc3545;
+            color: white;
         }
 
         body.dark-mode .nav-links a {
@@ -369,8 +379,8 @@
 </head>
 <body>
     <nav>
-        <div class="nav-name">Yassine Ait Mohamed</div>
         <div class="nav-links">
+            <a href="index.html" class="nav-name">Yassine Ait Mohamed</a>
             <a href="index.html">Home</a>
             <a href="research.html">Research</a>
             <a href="talks.html">Talks</a>
