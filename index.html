@@ -50,6 +50,10 @@
     }
     </script>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -57,160 +61,254 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --morocco-red: #C1272D;
+            --morocco-green: #006233;
+            --dark-red: #8B1E23;
+            --light-bg: #FFF9F5;
+            --text-color: #333;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
-            color: #24292e;
+            color: var(--text-color);
             background-color: #ffffff;
-            padding: 40px 20px;
-            max-width: 980px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--morocco-red);
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .site-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .site-title:hover {
+            background-color: var(--dark-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            display: block;
+            font-weight: 400;
+            transition: background-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 3px solid var(--morocco-green);
+        }
+
+        .profile-image {
+            width: 250px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .profile-info {
+            flex: 1;
         }
 
         h1 {
-            font-size: 2em;
-            font-weight: 600;
-            margin-bottom: 0.5em;
-            border-bottom: none;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--morocco-red);
+            margin-bottom: 15px;
         }
 
-        h1 a {
-            color: #0366d6;
-            text-decoration: none;
-        }
-
-        h1 a:hover {
-            text-decoration: underline;
-        }
-
-        .subtitle {
-            font-size: 1em;
+        .position {
+            font-size: 1.1rem;
             line-height: 1.8;
-            margin-bottom: 2em;
-            color: #24292e;
+            margin-bottom: 25px;
+            color: var(--text-color);
         }
 
-        h3 {
-            font-size: 1.25em;
-            font-weight: 600;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
+        .contact-info {
+            font-size: 1rem;
+            line-height: 1.8;
         }
 
-        h3 a {
-            color: #0366d6;
+        .contact-info strong {
+            color: var(--morocco-green);
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            color: var(--morocco-red);
             text-decoration: none;
         }
 
-        h3 a:hover {
+        .contact-info a:hover {
             text-decoration: underline;
         }
 
-        h4 {
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-top: 2em;
-            margin-bottom: 0.8em;
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 40px;
         }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 200px;
-            gap: 40px;
-            margin-top: 2em;
-        }
-
-        .content {
-            min-width: 0;
-        }
-
-        .sidebar {
-            position: sticky;
-            top: 20px;
-            height: fit-content;
-        }
-
-        .profile-photo {
-            width: 100%;
-            height: auto;
-            display: block;
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--morocco-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--morocco-red);
         }
 
         p {
-            margin-bottom: 1em;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
-        a {
-            color: #0366d6;
+        .content-section a {
+            color: var(--morocco-red);
             text-decoration: none;
+            font-weight: 500;
         }
 
-        a:hover {
+        .content-section a:hover {
             text-decoration: underline;
+            color: var(--dark-red);
         }
 
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, var(--morocco-red), var(--morocco-green));
+            margin: 40px 0;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
+            .nav-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .site-title {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .nav-links a {
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
             .container {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                padding: 40px 20px;
             }
 
-            .sidebar {
-                position: static;
-                order: -1;
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 30px;
             }
 
-            .profile-photo {
-                max-width: 200px;
-                margin: 0 auto;
+            .profile-image {
+                width: 200px;
+            }
+
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <h1><a href="./">Yassine Ait Mohamed</a></h1>
-    
-    <div class="subtitle">
-        PhD Student<br>
-        Department of Mathematics<br>
-        University of Sherbrooke
-    </div>
-
-    <h3><a href="./research.html">Research</a></h3>
-    <h3><a href="./talks.html">Talks</a></h3>
-    <h3><a href="./cv.html">CV</a></h3>
-    <h3><a href="./teaching.html">Teaching</a></h3>
+    <nav>
+        <div class="nav-container">
+            <a href="./" class="site-title">Yassine Ait Mohamed</a>
+            <ul class="nav-links">
+                <li><a href="./">Home</a></li>
+                <li><a href="./research.html">Research</a></li>
+                <li><a href="./talks.html">Talks</a></li>
+                <li><a href="./cv.html">CV</a></li>
+                <li><a href="./teaching.html">Teaching</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
-        <div class="content">
-            <h4>Introduction</h4>
-            <p>
-                I am a PhD student in Mathematics at the <a href="https://www.usherbrooke.ca/mathematiques/" target="_blank" rel="noopener">University of Sherbrooke, Department of Mathematics</a>. I am under the supervision of <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener">Prof. Maxence Mayrand</a>. Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
-            </p>
+        <div class="profile-section">
+            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-image">
+            
+            <div class="profile-info">
+                <h1>Yassine Ait Mohamed</h1>
+                
+                <div class="position">
+                    PhD Student<br>
+                    Department of Mathematics<br>
+                    University of Sherbrooke
+                </div>
+                
+                <div class="contact-info">
+                    <strong>Email:</strong> <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a><br>
+                    <strong>GitHub:</strong> <a href="https://github.com/yassineaitmohamed" target="_blank" rel="noopener">yassineaitmohamed</a>
+                </div>
+            </div>
+        </div>
 
-            <h4>Research Interests</h4>
+        <div class="content-section">
+            <h2>Introduction</h2>
             <p>
-                Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry, Poisson geometry
-            </p>
-
-            <h4>Email</h4>
-            <p>
-                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
-            </p>
-
-            <h4>Links</h4>
-            <p>
-                <a href="https://github.com/yassineaitmohamed" target="_blank" rel="noopener">GitHub</a>
+                I am a PhD student in Mathematics at the <a href="https://www.usherbrooke.ca/mathematiques/" target="_blank" rel="noopener">Department of Mathematics</a> at the University of Sherbrooke. I am under the supervision of <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener">Prof. Maxence Mayrand</a>. Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
             </p>
         </div>
 
-        <div class="sidebar">
-            <img src="photo.jpg" alt="Yassine Ait Mohamed" class="profile-photo">
+        <div class="content-section">
+            <h2>Research Interests</h2>
+            <p>
+                Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry, Poisson geometry
+            </p>
         </div>
     </div>
 </body>
