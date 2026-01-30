@@ -68,69 +68,45 @@
             line-height: 1.8;
             color: #003366;
             background-color: #f5f5dc;
-            display: flex;
-            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Vertical Navigation - Left Side */
+        /* Navigation */
         nav {
-            width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 40px 20px 40px;
             background-color: #f5f5dc;
-            border-right: 2px solid #d4d4b8;
-            padding: 40px 20px;
-            position: fixed;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            overflow-y: auto;
+            border-bottom: 2px solid #d4d4b8;
+            margin-bottom: 50px;
+            position: relative;
+            gap: 40px;
         }
 
         .nav-name {
-            font-size: 18px;
+            font-size: 28px;
             font-weight: 700;
             color: #24292e;
-            padding: 12px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s;
-        }
-
-        .nav-name:hover {
-            background-color: #dc3545;
-            color: white;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 40px;
+            flex-wrap: wrap;
             list-style: none;
-            margin-bottom: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #003366;
-            font-weight: 500;
-            font-size: 18px;
-            padding: 12px 15px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            display: block;
-        }
-
-        .nav-links a:hover {
-            background-color: #dc3545;
-            color: white;
+            align-items: center;
         }
 
         .theme-toggle {
-            width: 100%;
+            position: absolute;
+            top: 20px;
+            right: 40px;
             background-color: #ebe8d8;
             border: 2px solid #d4d4b8;
             border-radius: 25px;
-            padding: 10px 16px;
+            padding: 8px 16px;
             cursor: pointer;
             font-size: 16px;
             color: #003366;
@@ -138,9 +114,7 @@
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
-            font-family: 'Courier New', Courier, monospace;
         }
 
         .theme-toggle:hover {
@@ -157,16 +131,11 @@
 
         body.dark-mode nav {
             background-color: #1a1a1a;
-            border-right-color: #333;
+            border-bottom-color: #333;
         }
 
         body.dark-mode .nav-name {
             color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-name:hover {
-            background-color: #dc3545;
-            color: white;
         }
 
         body.dark-mode .nav-links a {
@@ -174,8 +143,7 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background-color: #dc3545;
-            color: white;
+            color: #dc3545;
         }
 
         body.dark-mode .theme-toggle {
@@ -194,8 +162,7 @@
             color: #b0b0b0;
         }
 
-        body.dark-mode h2,
-        body.dark-mode .intro-title {
+        body.dark-mode h2 {
             color: #e0e0e0;
             border-bottom-color: #dc3545;
         }
@@ -215,12 +182,45 @@
             color: white;
         }
 
-        /* Main Content Area */
-        .main-wrapper {
-            margin-left: 250px;
-            flex: 1;
-            padding: 40px;
-            width: calc(100% - 250px);
+        body.dark-mode .contact-info {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .contact-info strong {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .news-item {
+            background-color: #2a2a2a;
+            border-left-color: #dc3545;
+        }
+
+        body.dark-mode .news-date {
+            color: #888;
+        }
+
+        body.dark-mode .footer {
+            background-color: #1a1a1a;
+            border-top-color: #333;
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .live-clock {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 500;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #dc3545;
         }
 
         /* Main Container */
@@ -230,6 +230,7 @@
             display: grid;
             grid-template-columns: 1fr 280px;
             gap: 60px;
+            padding: 0 20px;
         }
 
         /* Content Section */
@@ -249,6 +250,43 @@
             color: #003366;
             margin-bottom: 30px;
             line-height: 1.8;
+        }
+
+        .affiliation {
+            font-size: 20px;
+            color: #003366;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        /* News Section */
+        .news-section {
+            margin: 40px 0;
+        }
+
+        .news-item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #dc3545;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+        }
+
+        .news-date {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .news-content {
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         /* Photo Section */
@@ -308,6 +346,45 @@
             color: white;
         }
 
+        .social-links .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            font-size: 16px;
+            color: #003366;
+        }
+
+        .social-links .info-item i {
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
+            color: #dc3545;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #003366;
+            line-height: 1.6;
+        }
+
+        .contact-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #24292e;
+            font-weight: 600;
+        }
+
+        .contact-info a {
+            color: #dc3545;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
         /* Section Titles */
         h2 {
             font-size: 28px;
@@ -329,36 +406,51 @@
             text-decoration: underline;
         }
 
+        /* Footer with live clock */
+        .footer {
+            max-width: 1200px;
+            margin: 60px auto 20px;
+            padding: 30px 20px;
+            border-top: 2px solid #d4d4b8;
+            background-color: #f5f5dc;
+            text-align: center;
+        }
+
+        .live-clock {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366;
+            background-color: #ebe8d8;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: 2px solid #d4d4b8;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-text {
+            font-size: 16px;
+            color: #666;
+            margin-top: 15px;
+        }
+
         /* Responsive Design */
-        @media (max-width: 968px) {
-            body {
-                flex-direction: column;
-            }
-
+        @media (max-width: 768px) {
             nav {
-                width: 100%;
-                height: auto;
-                position: relative;
-                border-right: none;
-                border-bottom: 2px solid #d4d4b8;
-                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                padding: 60px 20px 20px 20px;
             }
 
-            body.dark-mode nav {
-                border-bottom-color: #333;
+            .theme-toggle {
+                top: 10px;
+                right: 20px;
             }
 
             .nav-links {
-                flex-direction: row;
-                flex-wrap: wrap;
+                gap: 15px;
                 justify-content: center;
-                gap: 10px;
-            }
-
-            .main-wrapper {
-                margin-left: 0;
-                width: 100%;
-                padding: 20px;
             }
 
             .container {
@@ -374,60 +466,64 @@
             .content {
                 grid-column: 1 / -1;
             }
+
+            .live-clock {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <i class="fas fa-moon" id="theme-icon"></i>
+            <span id="theme-text">Dark Mode</span>
+        </button>
+        <div class="nav-name">Yassine Ait Mohamed</div>
         <div class="nav-links">
-            <a href="index.html" class="nav-name">Yassine Ait Mohamed</a>
             <a href="index.html">Home</a>
             <a href="research.html">Research</a>
             <a href="talks.html">Talks</a>
             <a href="cv.html">CV</a>
             <a href="teaching.html">Teaching</a>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-            <i class="fas fa-moon" id="theme-icon"></i>
-            <span id="theme-text">Dark Mode</span>
-        </button>
     </nav>
 
-    <div class="main-wrapper">
-        <div class="container">
-            <div class="content">
-                <h1 class="intro-title">Introduction</h1>
-                <div class="intro-text">
-                    I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
-                    <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener"> Prof. Maxence Mayrand</a>.
-                    Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by 
-                    <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
-                </div>
-
-                <h2>Research Interests</h2>
-                <p class="intro-text">
-                    Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry, Poisson geometry
-                </p>
-
-                <h2>Contact</h2>
-                <p class="intro-text">
-                    <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
-                </p>
+    <div class="container">
+        <div class="content">
+            <h1 class="intro-title">Introduction</h1>
+            <div class="intro-text">
+                I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
+                <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener"> Prof. Maxence Mayrand</a>.
+                Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by 
+                <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
             </div>
 
-            <div class="photo-section">
-                <img src="photo.jpg" alt="Yassine Ait Mohamed - PhD Student in Mathematics" class="profile-photo">
-                
-                <div class="social-links">
-                    <a href="https://github.com/yassineaitmohamed" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                </div>
+            <h2>Research Interests</h2>
+            <p class="intro-text">
+                Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry, Poisson geometry
+            </p>
+
+            <h2>Contact</h2>
+            <p class="intro-text">
+                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
+            </p>
+        </div>
+
+        <div class="photo-section">
+            <img src="photo.jpg" alt="Yassine Ait Mohamed - PhD Student in Mathematics" class="profile-photo">
+            
+            <div class="social-links">
+                <a href="https://github.com/yassineaitmohamed" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
             </div>
         </div>
     </div>
 
+   
     <script>
         // Theme Toggle Function
         function toggleTheme() {
@@ -448,6 +544,29 @@
             }
         }
 
+        // Live Clock Function
+        function updateClock() {
+            const now = new Date();
+            
+            // Format options
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            
+            const dateTimeString = now.toLocaleDateString('en-US', options);
+            document.getElementById('liveClock').textContent = dateTimeString;
+            
+            // Update year in footer
+            document.getElementById('currentYear').textContent = now.getFullYear();
+        }
+
         // Load saved theme on page load
         window.addEventListener('DOMContentLoaded', (event) => {
             const savedTheme = localStorage.getItem('theme');
@@ -459,6 +578,11 @@
                 themeIcon.className = 'fas fa-sun';
                 themeText.textContent = 'Light Mode';
             }
+
+            // Initialize clock
+            updateClock();
+            // Update clock every second
+            setInterval(updateClock, 1000);
         });
     </script>
 </body>
