@@ -38,231 +38,40 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --bg: #091a0f;
+            --bg2: #0d2215;
+            --green1: #00A759;
+            --green2: #00c96b;
+            --green3: #34d88a;
+            --green-dark: #006e3a;
+            --gold: #e5a939;
+            --gold-light: #f0c060;
+            --text: #e8f0ec;
+            --text2: #8fa89a;
+            --glass: rgba(0, 167, 89, 0.06);
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.8;
-            color: #1a3a2a;
-            background-color: #f4f9f5;
-            padding: 20px;
-            transition: background-color 0.4s, color 0.4s;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 40px 20px;
-            background-color: #f4f9f5;
-            border-bottom: 2px solid #c8e6c9;
-            margin-bottom: 50px;
-            position: relative;
-            gap: 40px;
-            transition: all 0.4s;
-        }
-
-        .nav-name {
-            font-family: 'Merriweather', serif;
-            font-size: 26px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00A759, #e5a939);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2e5a3e;
-            font-weight: 500;
-            font-size: 18px;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00A759, #e5a939);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover { color: #00A759; }
-        .nav-links a:hover::after { width: 100%; }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            background: linear-gradient(135deg, #00A759, #008a48);
-            border: none;
-            border-radius: 25px;
-            padding: 8px 18px;
-            cursor: pointer;
-            font-size: 14px;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 10px rgba(0, 167, 89, 0.3);
-        }
-
-        .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 167, 89, 0.4);
-        }
-
-        /* Dark Mode */
-        body.dark-mode { background-color: #091a0f; color: #d0e8d8; }
-        body.dark-mode nav { background-color: #091a0f; border-bottom-color: #1a3a25; }
-        body.dark-mode .nav-links a { color: #8aaa96; }
-        body.dark-mode .nav-links a:hover { color: #00c96b; }
-        body.dark-mode .theme-toggle { background: linear-gradient(135deg, #e5a939, #c48a20); }
-        body.dark-mode .intro-title { color: #e0f0e4; }
-        body.dark-mode .intro-text, body.dark-mode .affiliation { color: #8aaa96; }
-        body.dark-mode h2 { color: #e0f0e4; border-bottom-color: #00A759; }
-        body.dark-mode .content a { color: #00c96b; }
-        body.dark-mode .social-links a { background-color: #12291a; color: #d0e8d8; border: 1px solid #1a3a25; }
-        body.dark-mode .social-links a:hover { background: linear-gradient(135deg, #00A759, #008a48); color: white; }
-        body.dark-mode .social-links a i { color: #e5a939; }
-        body.dark-mode .social-links a:hover i { color: white; }
-        body.dark-mode .contact-info { color: #8aaa96; }
-        body.dark-mode .contact-info strong { color: #e0f0e4; }
-        body.dark-mode .footer { background-color: #091a0f; border-top-color: #1a3a25; color: #5a7a66; }
-        body.dark-mode .live-clock { background-color: #12291a; border-color: #1a3a25; color: #d0e8d8; }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 60px;
-            padding: 0 20px;
-        }
-
-        .content { grid-column: 1 / 2; }
-
-        .intro-title {
-            font-family: 'Merriweather', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a3a2a;
-            margin-bottom: 20px;
-        }
-
-        .intro-text {
-            font-size: 18px;
-            color: #2e5a3e;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 26px;
-            color: #1a3a2a;
-            margin-bottom: 20px;
-            margin-top: 40px;
-            font-weight: 700;
-            border-bottom: 3px solid #00A759;
-            padding-bottom: 10px;
-        }
-
-        .content a {
-            color: #00A759;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .content a:hover {
-            color: #e5a939;
-            text-decoration: underline;
-        }
-
-        /* Photo Section */
-        .photo-section {
-            grid-column: 2 / 3;
-            position: sticky;
-            top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .profile-photo {
-            width: 100%;
-            border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(0, 167, 89, 0.2);
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border: 4px solid transparent;
-            background-image: linear-gradient(#f4f9f5, #f4f9f5), linear-gradient(135deg, #00A759, #e5a939);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-            transition: box-shadow 0.3s;
-        }
-
-        .profile-photo:hover {
-            box-shadow: 0 8px 30px rgba(0, 167, 89, 0.3);
-        }
-
-        .social-links { display: flex; flex-direction: column; gap: 10px; }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            background-color: #e8f5e9;
-            color: #2e5a3e;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 16px;
-            border: 1px solid #c8e6c9;
-        }
-
-        .social-links a i { width: 24px; text-align: center; font-size: 18px; color: #e5a939; }
-
-        .social-links a:hover {
-            background: linear-gradient(135deg, #00A759, #008a48);
-            color: white;
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0, 167, 89, 0.3);
-        }
-
-        .social-links a:hover i { color: white; }
-
-        .contact-info { margin-top: 20px; font-size: 16px; color: #2e5a3e; line-height: 1.6; }
-        .contact-info strong { display: block; margin-bottom: 5px; color: #1a3a2a; font-weight: 600; }
-        .contact-info a { color: #00A759; text-decoration: none; }
-        .contact-info a:hover { color: #e5a939; text-decoration: underline; }
-
-        /* Floating Math */
+        /* Floating math symbols */
         .math-float {
             position: fixed;
             font-family: 'JetBrains Mono', monospace;
-            color: rgba(0, 167, 89, 0.07);
+            color: rgba(0, 167, 89, 0.08);
+            font-size: 2rem;
             z-index: 0;
             pointer-events: none;
             animation: floatUp linear infinite;
         }
-
         @keyframes floatUp {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
@@ -270,93 +79,452 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Footer */
-        .footer {
-            max-width: 1200px;
-            margin: 60px auto 20px;
-            padding: 30px 20px;
-            border-top: 2px solid #c8e6c9;
-            background-color: #f4f9f5;
-            text-align: center;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(9, 26, 15, 0.7);
+            border-bottom: 1px solid rgba(0, 167, 89, 0.15);
             transition: all 0.4s;
         }
+        nav.scrolled {
+            background: rgba(9, 26, 15, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 167, 89, 0.1);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--green2), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text2);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green1), var(--gold));
+            transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
 
-        .live-clock {
-            display: inline-block;
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a3a2a;
-            background: linear-gradient(135deg, #e8f5e9, #fff8e1);
-            padding: 15px 30px;
-            border-radius: 12px;
-            border: 2px solid #c8e6c9;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0, 167, 89, 0.1);
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 2rem 4rem;
+        }
+        .hero-content {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .footer-text { font-size: 14px; color: #5a7a66; margin-top: 15px; }
+        /* Text */
+        .hero-text .subtitle {
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero-text h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .hero-text h1 .gradient {
+            background: linear-gradient(135deg, var(--green2), var(--gold), var(--green3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradShift 4s ease infinite;
+        }
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .hero-text .desc {
+            color: var(--text2);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        .hero-text .desc a {
+            color: var(--green2);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 201, 107, 0.3);
+            transition: all 0.3s;
+        }
+        .hero-text .desc a:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* Photo */
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .photo-wrapper {
+            position: relative;
+            width: 280px;
+            height: 280px;
+        }
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--green1), var(--gold), var(--green3), var(--gold-light), var(--green1));
+            animation: spin 6s linear infinite;
+            z-index: 1;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .photo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            background: var(--bg);
+            z-index: 2;
+        }
+        .photo-inner {
+            position: absolute;
+            inset: 6px;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 3;
+        }
+        .photo-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 167, 89, 0.12), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-title .icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .section-line {
+            width: 60px;
+            height: 3px;
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* Research Interests */
+        .interest-text {
+            color: var(--text2);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Contact card */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .contact-card {
+            background: var(--glass);
+            border: 1px solid rgba(0, 167, 89, 0.1);
+            border-radius: 14px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .contact-card:hover {
+            border-color: rgba(0, 167, 89, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 167, 89, 0.1);
+        }
+        .contact-card .c-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contact-card .c-label {
+            font-size: 0.8rem;
+            color: var(--text2);
+            margin-bottom: 0.15rem;
+        }
+        .contact-card .c-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Equation marquee */
+        .equation-bar {
+            overflow: hidden;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(0, 167, 89, 0.08);
+            border-bottom: 1px solid rgba(0, 167, 89, 0.08);
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 167, 89, 0.03);
+        }
+        .equation-track {
+            display: flex;
+            gap: 3rem;
+            animation: eqscroll 30s linear infinite;
+            width: max-content;
+        }
+        .equation-track span {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text2);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0.5;
+        }
+        @keyframes eqscroll { to { transform: translateX(-50%); } }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text2);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(0, 167, 89, 0.08);
+            position: relative;
+            z-index: 2;
+        }
+        footer .footer-math {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--green1);
+            opacity: 0.4;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; padding: 60px 20px 20px; }
-            .theme-toggle { top: 10px; right: 20px; }
-            .nav-links { gap: 15px; justify-content: center; }
-            .container { grid-template-columns: 1fr; gap: 30px; }
-            .photo-section { position: static; order: -1; }
-            .content { grid-column: 1 / -1; }
-            .live-clock { font-size: 16px; padding: 10px 20px; }
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-photo { order: -1; }
+            .photo-wrapper { width: 220px; height: 220px; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .nav-inner { flex-direction: column; gap: 0.75rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .section-title { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
     <div id="mathSymbols"></div>
 
-    <nav>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-            <i class="fas fa-moon" id="theme-icon"></i>
-            <span id="theme-text">Dark Mode</span>
-        </button>
-        <div class="nav-name">Yassine Ait Mohamed</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="talks.html">Talks</a>
-            <a href="cv.html">CV</a>
-            <a href="teaching.html">Teaching</a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <div class="nav-logo">Yassine Ait Mohamed</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="talks.html">Talks</a>
+                <a href="cv.html">CV</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="content">
-            <h1 class="intro-title">Introduction</h1>
-            <div class="intro-text">
-                I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
-                <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener"> Prof. Maxence Mayrand</a>.
-                Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by 
-                <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="subtitle">PhD Student in Mathematics</div>
+                <h1>Yassine<br><span class="gradient">Ait Mohamed</span></h1>
+                <p class="desc">
+                    I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
+                    <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener">Prof. Maxence Mayrand</a>.
+                    Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by 
+                    <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
+                </p>
             </div>
+            <div class="hero-photo">
+                <div class="photo-wrapper">
+                    <div class="photo-glow"></div>
+                    <div class="photo-inner">
+                        <img src="photo.jpg" alt="Yassine Ait Mohamed - PhD Student in Mathematics">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h2>Research Interests</h2>
-            <p class="intro-text">
+    <!-- Equation marquee -->
+    <div class="equation-bar">
+        <div class="equation-track">
+            <span>&#x2202;&#xB2;f/&#x2202;x&#xB2; + &#x2202;&#xB2;f/&#x2202;y&#xB2; = 0</span>
+            <span>&#x03C0;&#x2081;(X) &#x2192; H&#x2081;(X; &#x2124;)</span>
+            <span>d&#x03C9; = 0 &#x27F9; &#x03C9; = d&#x03B1;</span>
+            <span>{f, g} = &#x2211; (&#x2202;f/&#x2202;q&#x1D62;)(&#x2202;g/&#x2202;p&#x1D62;) &#x2212; (&#x2202;f/&#x2202;p&#x1D62;)(&#x2202;g/&#x2202;q&#x1D62;)</span>
+            <span>[X, Y] = XY &#x2212; YX</span>
+            <span>&#x222B;&#x2098; &#x03C9; &#x2227; *&#x03C9; = &#x2016;&#x03C9;&#x2016;&#xB2;</span>
+            <span>Z(M) = &#x222B; D&#x03C6; e^{iS[&#x03C6;]}</span>
+            <span>Hom(V&#x2297;W, U) &#x2245; Hom(V, Hom(W, U))</span>
+            <span>&#x2202;&#xB2;f/&#x2202;x&#xB2; + &#x2202;&#xB2;f/&#x2202;y&#xB2; = 0</span>
+            <span>&#x03C0;&#x2081;(X) &#x2192; H&#x2081;(X; &#x2124;)</span>
+            <span>d&#x03C9; = 0 &#x27F9; &#x03C9; = d&#x03B1;</span>
+            <span>{f, g} = &#x2211; (&#x2202;f/&#x2202;q&#x1D62;)(&#x2202;g/&#x2202;p&#x1D62;) &#x2212; (&#x2202;f/&#x2202;p&#x1D62;)(&#x2202;g/&#x2202;q&#x1D62;)</span>
+            <span>[X, Y] = XY &#x2212; YX</span>
+            <span>&#x222B;&#x2098; &#x03C9; &#x2227; *&#x03C9; = &#x2016;&#x03C9;&#x2016;&#xB2;</span>
+        </div>
+    </div>
+
+    <!-- Research Interests -->
+    <section id="research">
+        <div class="section-inner">
+            <div class="reveal">
+                <h2 class="section-title">
+                    <span class="icon" style="background:rgba(0,167,89,0.15);color:var(--green2)"><i class="fas fa-atom"></i></span>
+                    Research Interests
+                </h2>
+                <div class="section-line" style="background:linear-gradient(90deg,var(--green1),var(--gold))"></div>
+            </div>
+            <p class="interest-text reveal">
                 Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry, Poisson geometry
             </p>
-
-            <h2>Contact</h2>
-            <p class="intro-text">
-                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca">yassine.ait.mohamed@usherbrooke.ca</a>
-            </p>
         </div>
+    </section>
 
-        <div class="photo-section">
-            <img src="photo.jpg" alt="Yassine Ait Mohamed - PhD Student in Mathematics" class="profile-photo">
-            <div class="social-links">
-                <a href="https://github.com/yassineaitmohamed" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
+    <!-- Contact -->
+    <section id="contact" style="background:rgba(0,167,89,0.02)">
+        <div class="section-inner">
+            <div class="reveal">
+                <h2 class="section-title">
+                    <span class="icon" style="background:rgba(229,169,57,0.15);color:var(--gold)"><i class="fas fa-paper-plane"></i></span>
+                    Contact
+                </h2>
+                <div class="section-line" style="background:linear-gradient(90deg,var(--gold),var(--green2))"></div>
+            </div>
+            <div class="contact-grid">
+                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" class="contact-card reveal">
+                    <div class="c-icon" style="background:rgba(0,167,89,0.15);color:var(--green2)"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="c-label">Email</div>
+                        <div class="c-value">yassine.ait.mohamed@usherbrooke.ca</div>
+                    </div>
+                </a>
+                <a href="https://github.com/yassineaitmohamed" target="_blank" class="contact-card reveal">
+                    <div class="c-icon" style="background:rgba(229,169,57,0.15);color:var(--gold)"><i class="fab fa-github"></i></div>
+                    <div>
+                        <div class="c-label">GitHub</div>
+                        <div class="c-value">yassineaitmohamed</div>
+                    </div>
                 </a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&#xA9; 2025 Yassine Ait Mohamed &#x2014; University of Sherbrooke</p>
+        <div class="footer-math">&#x2200;&#x03B5; > 0, &#x2203;&#x03B4; > 0 : |x &#x2212; a| < &#x03B4; &#x27F9; |f(x) &#x2212; L| < &#x03B5;</div>
+    </footer>
 
     <script>
         // Floating math symbols
@@ -375,31 +543,25 @@
         for (let i = 0; i < 12; i++) setTimeout(spawnSymbol, i * 700);
         setInterval(spawnSymbol, 3000);
 
-        // Theme Toggle
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.className = 'fas fa-moon';
-                themeText.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        }
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
 
-        // Load saved theme
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('theme-icon').className = 'fas fa-sun';
-                document.getElementById('theme-text').textContent = 'Light Mode';
-            }
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
         });
     </script>
 </body>
