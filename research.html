@@ -6,249 +6,255 @@
     <title>Research - Yassine Ait Mohamed</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #091a0f;
+            --bg2: #0d2215;
+            --green1: #00A759;
+            --green2: #00c96b;
+            --green3: #34d88a;
+            --green-dark: #006e3a;
+            --gold: #e5a939;
+            --gold-light: #f0c060;
+            --text: #e8f0ec;
+            --text2: #8fa89a;
+            --glass: rgba(0, 167, 89, 0.06);
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Inter', sans-serif;
             line-height: 1.8;
-            color: #003366;
-            background-color: #f5f5dc;
+            color: var(--text);
+            background: var(--bg);
             font-size: 18px;
             padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Floating math symbols */
+        .math-float {
+            position: fixed;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(0, 167, 89, 0.08);
+            z-index: 0;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         /* Navigation */
         nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 40px 20px 40px;
-            background-color: #f5f5dc;
-            border-bottom: 2px solid #d4d4b8;
-            margin-bottom: 50px;
-            gap: 40px;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(9, 26, 15, 0.7);
+            border-bottom: 1px solid rgba(0, 167, 89, 0.15);
+            transition: all 0.4s;
         }
-
-        .nav-name {
-            font-size: 28px;
-            font-weight: 700;
-            color: #24292e;
-            white-space: nowrap;
+        nav.scrolled {
+            background: rgba(9, 26, 15, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 167, 89, 0.1);
         }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #003366;
-            font-weight: 500;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #dc3545;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            background-color: #ebe8d8;
-            border: 2px solid #d4d4b8;
-            border-radius: 25px;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-size: 16px;
-            color: #003366;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .theme-toggle:hover {
-            background-color: #dc3545;
-            color: white;
-            border-color: #dc3545;
-        }
-
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode nav {
-            background-color: #1a1a1a;
-            border-bottom-color: #333;
-        }
-
-        body.dark-mode .nav-name {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            color: #dc3545;
-        }
-
-        body.dark-mode .theme-toggle {
-            background-color: #2a2a2a;
-            border-color: #444;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .theme-toggle:hover {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        body.dark-mode h1,
-        body.dark-mode h2,
-        body.dark-mode .paper-title {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .research-info {
-            background-color: #2a2a2a;
-            border-left-color: #dc3545;
-        }
-
-        body.dark-mode .research-info h3 {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .research-info p {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .paper {
-            background-color: #2a2a2a;
-            border-left-color: #dc3545;
-        }
-
-        body.dark-mode .abstract {
-            background-color: #1a1a1a;
-            border-color: #444;
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .journal {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .paper p {
-            color: #b0b0b0;
-        }
-
-        /* Main Container */
-        .container {
+        .nav-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--green2), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text2);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green1), var(--gold));
+            transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
-            font-size: 42px;
-            margin-bottom: 35px;
-            color: #24292e;
-            font-weight: 600;
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--green2), var(--gold), var(--green3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradShift 4s ease infinite;
+        }
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         h2 {
-            font-size: 28px;
-            margin-top: 45px;
-            margin-bottom: 25px;
-            color: #24292e;
-            font-weight: 600;
-            border-bottom: 2px solid #dc3545;
-            padding-bottom: 10px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            border-radius: 2px;
+            background: linear-gradient(180deg, var(--green1), var(--gold));
+            flex-shrink: 0;
         }
 
         /* Research Groups */
         .research-info {
-            background-color: #fdfcf5;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #dc3545;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1.75rem;
+            border-radius: 14px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(0, 167, 89, 0.1);
+            border-left: 4px solid var(--gold);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
         }
-
+        .research-info::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 167, 89, 0.03));
+            pointer-events: none;
+        }
+        .research-info:hover {
+            transform: translateX(6px);
+            border-color: rgba(0, 167, 89, 0.25);
+            box-shadow: 0 8px 30px rgba(0, 167, 89, 0.08);
+        }
         .research-info h3 {
-            font-size: 24px;
-            color: #24292e;
-            margin-bottom: 12px;
-            font-weight: 600;
+            font-family: 'Merriweather', serif;
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
-
-        .research-info p {
-            font-size: 20px;
-        }
-
+        .research-info p { font-size: 1rem; color: var(--text2); }
         .research-info a {
-            color: green;
+            color: var(--green2);
             text-decoration: none;
-            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-
-        .research-info a:hover {
-            text-decoration: underline;
-        }
+        .research-info a:hover { color: var(--gold); text-decoration: underline; }
 
         /* Paper */
         .paper {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #fdfcf5;
-            border-radius: 8px;
-            border-left: 4px solid #dc3545;
+            margin-bottom: 1.25rem;
+            padding: 1.5rem 1.75rem;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            border: 1px solid rgba(0, 167, 89, 0.1);
+            border-left: 4px solid var(--green1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .paper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 167, 89, 0.03));
+            pointer-events: none;
+        }
+        .paper:hover {
+            transform: translateX(6px);
+            border-color: rgba(0, 167, 89, 0.25);
+            box-shadow: 0 8px 30px rgba(0, 167, 89, 0.08);
         }
 
         .paper-title {
-            font-size: 22px;
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #24292e;
+            color: var(--text);
             display: flex;
             align-items: flex-start;
             cursor: pointer;
-            line-height: 1.4;
+            line-height: 1.5;
+            transition: color 0.3s;
         }
-
-        .paper-title:hover {
-            color: #dc3545;
-        }
+        .paper-title:hover { color: var(--green2); }
 
         .triangle {
             width: 0;
             height: 0;
             border-left: 7px solid transparent;
             border-right: 7px solid transparent;
-            border-top: 9px solid #dc3545;
+            border-top: 9px solid var(--green1);
             margin-right: 14px;
             margin-top: 7px;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
             flex-shrink: 0;
+            filter: drop-shadow(0 0 4px rgba(0, 167, 89, 0.3));
         }
-
-        .triangle.open {
-            transform: rotate(90deg);
-        }
+        .triangle.open { transform: rotate(90deg); }
 
         .paper-content {
             display: none;
@@ -258,103 +264,82 @@
 
         .journal {
             font-style: italic;
-            color: #003366;
+            color: var(--text2);
             margin-bottom: 10px;
-            font-size: 20px;
+            font-size: 1rem;
         }
 
         .links a {
-            color: #dc3545;
+            color: var(--green2);
             text-decoration: none;
             margin-right: 18px;
-            font-size: 20px;
+            font-size: 1rem;
             font-weight: 500;
+            transition: color 0.3s;
         }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
+        .links a:hover { color: var(--gold); text-decoration: underline; }
         .links .accepted {
-            color: green;
-            font-weight: 600;
-            font-size: 20px;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(229, 169, 57, 0.2);
         }
 
         .abstract-toggle {
             cursor: pointer;
-            font-size: 18px;
-            color: #dc3545;
+            font-size: 0.9rem;
+            color: var(--green2);
             text-decoration: none;
             display: inline-block;
             margin-top: 10px;
             font-weight: 500;
+            transition: color 0.3s;
         }
-
-        .abstract-toggle:hover {
-            text-decoration: underline;
-        }
+        .abstract-toggle:hover { color: var(--gold); text-decoration: underline; }
 
         .abstract {
             display: none;
             margin-top: 12px;
-            padding: 18px;
-            background-color: #f5f5f5;
-            border-radius: 6px;
-            font-size: 19px;
-            color: #003366;
+            padding: 1.25rem;
+            background: rgba(0, 167, 89, 0.04);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: var(--text2);
             line-height: 1.8;
-            border: 1px solid #d4d4b8;
+            border: 1px solid rgba(0, 167, 89, 0.08);
         }
 
         .paper p {
-            font-size: 20px;
+            font-size: 1rem;
             margin-bottom: 8px;
+            color: var(--text2);
         }
-
         .paper p a {
-            color: #dc3545;
+            color: var(--green2);
             text-decoration: none;
             font-weight: 500;
         }
+        .paper p a:hover { color: var(--gold); text-decoration: underline; }
 
-        .paper p a:hover {
-            text-decoration: underline;
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 60px 20px 20px 20px;
-            }
-
-            .theme-toggle {
-                top: 10px;
-                right: 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            h1 {
-                font-size: 34px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .paper-title {
-                font-size: 20px;
-            }
+            .nav-inner { flex-direction: column; gap: 0.75rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .container { padding: 6rem 1rem 3rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            .paper-title { font-size: 1rem; }
         }
     </style>
     <script>
@@ -369,53 +354,22 @@
                 if (triangle) triangle.classList.remove("open");
             }
         }
-
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.className = 'fas fa-moon';
-                themeText.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Load saved theme on page load
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const savedTheme = localStorage.getItem('theme');
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-            }
-        });
     </script>
 </head>
 <body>
+    <div id="mathSymbols"></div>
+
     <!-- Navigation -->
-    <nav>
-        <button class="theme-toggle" onclick="toggleTheme()">
-            <i class="fas fa-moon" id="theme-icon"></i>
-            <span id="theme-text">Dark Mode</span>
-        </button>
-        <div class="nav-name">Yassine Ait Mohamed</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="talks.html">Talks</a>
-            <a href="cv.html">CV</a>
-            <a href="teaching.html">Teaching</a>
+    <nav id="navbar">
+        <div class="nav-inner">
+            <div class="nav-logo">Yassine Ait Mohamed</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="talks.html">Talks</a>
+                <a href="cv.html">CV</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
         </div>
     </nav>
 
@@ -424,20 +378,20 @@
         <h1>Research</h1>
 
         <!-- Research Groups -->
-        <div class="research-info">
+        <div class="research-info reveal">
             <h3>Research Group</h3>
             <p><a href="https://sag.recherche.usherbrooke.ca/equipe" target="_blank">SAG-Algebraic and Geometric Structures</a></p>
         </div>
 
-        <div class="research-info">
+        <div class="research-info reveal">
             <h3>Seminar Organization</h3>
             <p>Organizer of <a href="https://junior-seminar-geomphys.github.io/JSGMP/index.html" target="_blank">Junior Seminar in Geometry and Mathematical Physics</a></p>
         </div>
 
-        <h2>Papers</h2>
+        <h2 class="reveal">Papers</h2>
 
-        <!-- Paper 1: dp-Derivations -->
-        <div class="paper">
+        <!-- Paper 1 -->
+        <div class="paper reveal">
             <div class="paper-title" onclick="togglePaperContent('paper1-content', 'triangle1')">
                 <div id="triangle1" class="triangle"></div>
                 <span>Degree-Preserving Derivations on Graded Rings and Modules</span>
@@ -446,14 +400,15 @@
                 <div class="links">
                     <span class="accepted">Under review</span>
                 </div>                
-                <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', ''); event.stopPropagation();">▸ abstract</a>
+                <a href="#abstract1" class="abstract-toggle" onclick="togglePaperContent('abstract1', ''); event.stopPropagation();">&#9656; abstract</a>
                 <div id="abstract1" class="abstract">
-In this manuscript, we study homogeneous derivations that preserve the grading of a graded ring, which we call degree-preserving derivations (dp-derivations). We introduce the basic notions attached to dp-derivations and investigate their main properties, including dp-graded ideals, dp-closures, and dp-preimages. We then analyze structural aspects of dp-gr-simple rings and describe their behavior in both characteristic zero and positive characteristic. Furthermore, we construct dp-skew polynomial rings and show that important properties such as the gr-Noetherian condition and gr-simplicity are preserved under these extensions. Finally, we extend the theory to graded modules and develop an appropriate categorical framework for dp-graded structures.                </div>
+In this manuscript, we study homogeneous derivations that preserve the grading of a graded ring, which we call degree-preserving derivations (dp-derivations). We introduce the basic notions attached to dp-derivations and investigate their main properties, including dp-graded ideals, dp-closures, and dp-preimages. We then analyze structural aspects of dp-gr-simple rings and describe their behavior in both characteristic zero and positive characteristic. Furthermore, we construct dp-skew polynomial rings and show that important properties such as the gr-Noetherian condition and gr-simplicity are preserved under these extensions. Finally, we extend the theory to graded modules and develop an appropriate categorical framework for dp-graded structures.
+                </div>
             </div>
         </div>
 
-        <!-- Paper 2: Generalized homogeneous derivations -->
-        <div class="paper">
+        <!-- Paper 2 -->
+        <div class="paper reveal">
             <div class="paper-title" onclick="togglePaperContent('paper2-content', 'triangle2')">
                 <div id="triangle2" class="triangle"></div>
                 <span>Generalized homogeneous derivations on graded rings</span>
@@ -471,46 +426,46 @@ In this manuscript, we study homogeneous derivations that preserve the grading o
                         </svg>
                     </a>
                 </div>                
-                <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', ''); event.stopPropagation();">▸ abstract</a>
+                <a href="#abstract2" class="abstract-toggle" onclick="togglePaperContent('abstract2', ''); event.stopPropagation();">&#9656; abstract</a>
                 <div id="abstract2" class="abstract">
 We introduce a notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations defined by Kanunnikov. We then define gr-generalized
 derivations, which preserve the degrees of homogeneous components. Several significant results originally established for prime rings are extended to the setting of gr-prime rings, and we characterize
 conditions under which gr-semiprime rings contain nontrivial central graded ideals. In addition, we
 investigate the algebraic and module-theoretic structures of these maps, establish their functorial properties, and develop categorical frameworks that describe their derivation structures in both ring and
-module contexts.                </div>
+module contexts.
+                </div>
             </div>
         </div>
 
-        <!-- Paper 3: On graded rings -->
-      <div class="paper">
-    <div class="paper-title" onclick="togglePaperContent('paper3-content', 'triangle3')">
-        <div id="triangle3" class="triangle"></div>
-        <span>On graded rings with homogeneous derivations</span>
-    </div>
-    <div id="paper3-content" class="paper-content">
-        <p class="journal">Revista de la Unión Matemática Argentina</p>
-        <div class="links">
-            <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
-            <a href="Documents research/pdf1.pdf" target="_blank" class="pdf-icon" title="PDF">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-            </a>
-        </div>
-        <a href="#abstract3" class="abstract-toggle" onclick="togglePaperContent('abstract3', ''); event.stopPropagation();">▸ abstract</a>
-        <div id="abstract3" class="abstract">
+        <!-- Paper 3 -->
+        <div class="paper reveal">
+            <div class="paper-title" onclick="togglePaperContent('paper3-content', 'triangle3')">
+                <div id="triangle3" class="triangle"></div>
+                <span>On graded rings with homogeneous derivations</span>
+            </div>
+            <div id="paper3-content" class="paper-content">
+                <p class="journal">Revista de la Uni&#xF3;n Matem&#xE1;tica Argentina</p>
+                <div class="links">
+                    <a href="https://doi.org/10.33044/revuma.4934" target="_blank">DOI</a>
+                    <a href="Documents research/pdf1.pdf" target="_blank" class="pdf-icon" title="PDF">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <a href="#abstract3" class="abstract-toggle" onclick="togglePaperContent('abstract3', ''); event.stopPropagation();">&#9656; abstract</a>
+                <div id="abstract3" class="abstract">
             We establish results related to homogeneous derivations, a concept introduced by Kanunnikov (2018). First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-        
-        <h2>Master's Thesis (Sidi Mohamed Ben Abdellah University 2022)</h2>
-        <div class="paper">
+        <h2 class="reveal">Master's Thesis (Sidi Mohamed Ben Abdellah University 2022)</h2>
+        <div class="paper reveal">
             <div class="paper-title" onclick="togglePaperContent('thesis-content', 'triangle4')">
                 <div id="triangle4" class="triangle"></div>
                 <span>Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties</span>
@@ -522,11 +477,42 @@ module contexts.                </div>
             </div>
         </div>
 
-        <h2>Notes</h2>
-        <div class="paper">
-            <p>• Note on Central Simple Algebras and the Brauer Group [<a href="Documents research/On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
-            <p>• Note on Sheaf Theory [<a href="Documents research/Note_on_sheaf_theory.pdf" target="_blank">PDF</a>]</p>                
+        <h2 class="reveal">Notes</h2>
+        <div class="paper reveal">
+            <p>&#8226; Note on Central Simple Algebras and the Brauer Group [<a href="Documents research/On_Simple_Algebras.pdf" target="_blank">PDF</a>]</p>
+            <p>&#8226; Note on Sheaf Theory [<a href="Documents research/Note_on_sheaf_theory.pdf" target="_blank">PDF</a>]</p>                
         </div>
     </div>
+
+    <script>
+        // Floating math symbols
+        const symbols = ['\u2202','\u222B','\u2211','\u220F','\u221E','\u2207','\u03A9','\u211D','\u2102','\u2124','\u2297','\u2295','\u2227','\u27F9','\u2200','\u2203','\u03BB','\u03C0','\u03B5','\u03B4','\u03C6','\u03C8','\u03C9'];
+        const container = document.getElementById('mathSymbols');
+        function spawnSymbol() {
+            const el = document.createElement('div');
+            el.className = 'math-float';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (1 + Math.random() * 2) + 'rem';
+            el.style.animationDuration = (15 + Math.random() * 20) + 's';
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 35000);
+        }
+        for (let i = 0; i < 12; i++) setTimeout(spawnSymbol, i * 700);
+        setInterval(spawnSymbol, 3000);
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
 </body>
 </html>
