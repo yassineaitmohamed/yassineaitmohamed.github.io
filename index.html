@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yassine Ait Mohamed - PhD Student in Mathematics | University of Sherbrooke</title>
+    <title>Yassine Ait Mohamed - Mathematics | University of Sherbrooke</title>
     <meta name="description" content="Yassine Ait Mohamed, PhD student in Mathematics at University of Sherbrooke. Research in differential geometry, Poisson structures, shifted symplectic geometry, and algebraic geometry under supervision of Prof. Maxence Mayrand.">
-    <meta name="keywords" content="Yassine Ait Mohamed, mathematics, PhD student, differential geometry, Poisson geometry, shifted symplectic geometry, algebraic geometry, Lie groups, TQFT, University of Sherbrooke, Maxence Mayrand">
+    <meta name="keywords" content="Yassine Ait Mohamed, mathematics, differential geometry, Poisson geometry, shifted symplectic geometry, algebraic geometry, Lie groups, TQFT, University of Sherbrooke, Maxence Mayrand">
     <meta name="author" content="Yassine Ait Mohamed">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Yassine Ait Mohamed - PhD Student in Mathematics">
+    <meta property="og:title" content="Yassine Ait Mohamed - Mathematics">
     <meta property="og:description" content="Research in differential geometry, Poisson structures, and shifted symplectic geometry at University of Sherbrooke">
     <meta property="og:url" content="https://yassineaitmohamed.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://yassineaitmohamed.github.io/photo.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Yassine Ait Mohamed - PhD Student in Mathematics">
+    <meta name="twitter:title" content="Yassine Ait Mohamed - Mathematics">
     <meta name="twitter:description" content="Research in differential geometry, Poisson structures, and shifted symplectic geometry">
     <link rel="canonical" href="https://yassineaitmohamed.github.io/">
     <script type="application/ld+json">
@@ -39,27 +39,23 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #091a0f;
-            --bg2: #0d2215;
-            --green1: #00A759;
-            --green2: #00c96b;
-            --green3: #34d88a;
-            --green-dark: #006e3a;
-            --gold: #e5a939;
-            --gold-light: #f0c060;
-            --text: #e8f0ec;
-            --text2: #8fa89a;
-            --glass: rgba(0, 167, 89, 0.06);
+            --bg: #ffffff;
+            --bg2: #f8f9fa;
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --text: #2c3e50;
+            --text2: #7f8c8d;
+            --border: #e0e0e0;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             color: var(--text);
             background: var(--bg);
-            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -69,14 +65,9 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            backdrop-filter: blur(20px);
-            background: rgba(9, 26, 15, 0.7);
-            border-bottom: 1px solid rgba(0, 167, 89, 0.15);
-            transition: all 0.4s;
-        }
-        nav.scrolled {
-            background: rgba(9, 26, 15, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 167, 89, 0.1);
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .nav-inner {
             max-width: 1200px;
@@ -89,9 +80,7 @@
             font-family: 'Merriweather', serif;
             font-size: 1.2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--green2), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
         }
         .nav-links {
             display: flex;
@@ -103,22 +92,10 @@
             color: var(--text2);
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
+            transition: color 0.3s;
             letter-spacing: 0.5px;
         }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--green1), var(--gold));
-            transition: width 0.3s;
-        }
-        .nav-links a:hover { color: var(--text); }
-        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--accent); }
 
         /* Hero Section */
         .hero {
@@ -126,62 +103,59 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             padding: 6rem 2rem 4rem;
         }
         .hero-content {
             max-width: 1100px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 1fr 280px;
             gap: 4rem;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
         /* Text */
-        .hero-text .subtitle {
-            color: var(--gold);
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
         .hero-text h1 {
             font-family: 'Merriweather', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 3.2rem;
+            font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-        }
-        .hero-text h1 .gradient {
-            background: linear-gradient(135deg, var(--green2), var(--gold), var(--green3));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradShift 4s ease infinite;
-        }
-        @keyframes gradShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            color: var(--primary);
         }
         .hero-text .desc {
             color: var(--text2);
             font-size: 1.05rem;
             margin-bottom: 2rem;
-            line-height: 1.8;
+            line-height: 1.7;
         }
         .hero-text .desc a {
-            color: var(--green2);
+            color: var(--accent);
             text-decoration: none;
-            border-bottom: 1px solid rgba(0, 201, 107, 0.3);
-            transition: all 0.3s;
+            font-weight: 500;
         }
-        .hero-text .desc a:hover {
-            color: var(--gold);
-            border-color: var(--gold);
+        .hero-text .desc a:hover { text-decoration: underline; }
+
+        /* Email contact */
+        .email-contact {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'Inter', monospace;
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .email-contact:hover {
+            border-color: var(--accent);
+        }
+        .email-contact i {
+            color: var(--accent);
         }
 
         /* Photo */
@@ -191,89 +165,38 @@
             align-items: center;
         }
         .photo-wrapper {
-            position: relative;
-            width: 280px;
-            height: 280px;
-        }
-        .photo-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--green1), var(--gold), var(--green3), var(--gold-light), var(--green1));
-            animation: spin 6s linear infinite;
-            z-index: 1;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .photo-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            border-radius: 50%;
-            background: var(--bg);
-            z-index: 2;
-        }
-        .photo-inner {
-            position: absolute;
-            inset: 6px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             overflow: hidden;
-            z-index: 3;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .photo-inner img {
+        .photo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        .photo-glow {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 167, 89, 0.12), transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            animation: pulse 4s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
         }
 
         /* Sections */
         section {
             padding: 4rem 2rem;
-            position: relative;
-            z-index: 2;
         }
         .section-inner {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
         .section-title {
             font-family: 'Merriweather', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .section-title .icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
         .section-line {
             width: 60px;
             height: 3px;
-            border-radius: 2px;
+            background: var(--accent);
             margin-bottom: 2rem;
         }
 
@@ -281,80 +204,15 @@
         .interest-text {
             color: var(--text2);
             font-size: 1.05rem;
-            line-height: 1.8;
+            line-height: 1.7;
             max-width: 800px;
         }
 
-        /* Email contact */
-        .email-contact {
-            background: var(--glass);
-            border: 1px solid rgba(0, 167, 89, 0.1);
-            border-radius: 14px;
-            padding: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s;
-            text-decoration: none;
-            color: var(--text);
-            margin-top: 1.5rem;
-        }
-        .email-contact:hover {
-            border-color: rgba(0, 167, 89, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 167, 89, 0.1);
-        }
-        .email-contact .c-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            background: rgba(0, 167, 89, 0.15);
-            color: var(--green2);
-        }
-        .email-contact .c-label {
-            font-size: 0.8rem;
-            color: var(--text2);
-            margin-bottom: 0.15rem;
-        }
-        .email-contact .c-value {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        /* Dynamic email animation */
-        .dynamic-email {
-            position: relative;
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(0, 167, 89, 0.1);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 167, 89, 0.2);
-            font-family: 'Inter', monospace;
-            font-size: 0.9rem;
-            color: var(--green2);
-            animation: emailPulse 2s ease-in-out infinite;
-        }
-        @keyframes emailPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         /* Responsive */
@@ -364,32 +222,23 @@
                 text-align: center;
             }
             .hero-photo { order: -1; }
-            .photo-wrapper { width: 220px; height: 220px; }
-            .hero-text h1 { 
-                font-size: 2.5rem; 
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+            .photo-wrapper { width: 200px; height: 200px; margin: 0 auto; }
+            .hero-text h1 { font-size: 2.2rem; }
             .nav-inner { flex-direction: column; gap: 0.75rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             .section-title { font-size: 1.5rem; }
-            .hero-text .desc {
-                font-size: 1rem;
-            }
         }
 
         @media (max-width: 480px) {
-            .hero-text h1 { 
-                font-size: 2rem;
-                white-space: normal;
-            }
+            .hero-text h1 { font-size: 1.8rem; }
+            .hero { padding: 5rem 1.5rem 3rem; }
+            section { padding: 3rem 1.5rem; }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-inner">
             <div class="nav-logo">Yassine Ait Mohamed</div>
             <div class="nav-links">
@@ -403,118 +252,53 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="subtitle">PhD Student in Mathematics</div>
-                <h1><span class="gradient">Yassine Ait Mohamed</span></h1>
+                <h1>Yassine Ait Mohamed</h1>
                 <p class="desc">
                     I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
                     <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener">Prof. Maxence Mayrand</a>.
                     Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by 
                     <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
                 </p>
-                <div class="dynamic-email">
-                    yassine.ait.mohamed@usherbrooke.ca
-                </div>
+                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" class="email-contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>yassine.ait.mohamed@usherbrooke.ca</span>
+                </a>
             </div>
             <div class="hero-photo">
                 <div class="photo-wrapper">
-                    <div class="photo-glow"></div>
-                    <div class="photo-inner">
-                        <img src="photo.jpg" alt="Yassine Ait Mohamed - PhD Student in Mathematics">
-                    </div>
+                    <img src="photo.jpg" alt="Yassine Ait Mohamed">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Research Interests -->
-    <section id="research">
+    <section>
         <div class="section-inner">
-            <div class="reveal">
-                <h2 class="section-title">
-                    <span class="icon" style="background:rgba(0,167,89,0.15);color:var(--green2)"><i class="fas fa-atom"></i></span>
-                    Research Interests
-                </h2>
-                <div class="section-line" style="background:linear-gradient(90deg,var(--green1),var(--gold))"></div>
-            </div>
-            <p class="interest-text reveal">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="section-line"></div>
+            <p class="interest-text">
                 Derivations theory, Algebraic geometry, Lie groups, topological quantum field theories, shifted symplectic geometry, Poisson geometry
             </p>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" style="background:rgba(0,167,89,0.02)">
+    <section class="contact-section">
         <div class="section-inner">
-            <div class="reveal">
-                <h2 class="section-title">
-                    <span class="icon" style="background:rgba(229,169,57,0.15);color:var(--gold)"><i class="fas fa-paper-plane"></i></span>
-                    Contact
-                </h2>
-                <div class="section-line" style="background:linear-gradient(90deg,var(--gold),var(--green2))"></div>
-            </div>
-            
-            <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" class="email-contact reveal">
-                <div class="c-icon"><i class="fas fa-envelope"></i></div>
-                <div>
-                    <div class="c-label">Email</div>
-                    <div class="c-value">yassine.ait.mohamed@usherbrooke.ca</div>
-                </div>
+            <h2 class="section-title">Contact</h2>
+            <div class="section-line"></div>
+            <p class="interest-text">
+                For academic inquiries, collaborations, or questions about my research, please feel free to reach out via email.
+            </p>
+            <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" class="email-contact" style="margin-top: 1.5rem;">
+                <i class="fas fa-envelope"></i>
+                <span>yassine.ait.mohamed@usherbrooke.ca</span>
             </a>
         </div>
     </section>
-
-    <script>
-        // Navbar scroll
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Scroll reveal
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { 
-                    e.target.classList.add('visible'); 
-                    obs.unobserve(e.target); 
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Dynamic email animation
-        const emailElement = document.querySelector('.dynamic-email');
-        if (emailElement) {
-            let opacity = 1;
-            let direction = -1;
-            
-            setInterval(() => {
-                opacity += direction * 0.02;
-                if (opacity <= 0.7 || opacity >= 1) {
-                    direction *= -1;
-                }
-                emailElement.style.opacity = opacity;
-            }, 50);
-        }
-    </script>
 </body>
 </html>
