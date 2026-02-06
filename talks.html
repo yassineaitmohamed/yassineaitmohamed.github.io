@@ -6,48 +6,29 @@
     <title>Talks - Yassine Ait Mohamed</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #091a0f;
-            --green1: #00A759;
-            --green2: #00c96b;
-            --green3: #34d88a;
-            --green-dark: #006e3a;
-            --gold: #e5a939;
-            --gold-light: #f0c060;
-            --text: #e8f0ec;
-            --text2: #8fa89a;
-            --glass: rgba(0, 167, 89, 0.06);
+            --bg: #ffffff;
+            --bg2: #f8f9fa;
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --text: #2c3e50;
+            --text2: #7f8c8d;
+            --border: #e0e0e0;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.8;
+            line-height: 1.6;
             color: var(--text);
             background: var(--bg);
-            font-size: 18px;
-            overflow-x: hidden;
-        }
-
-        /* Floating math symbols */
-        .math-float {
-            position: fixed;
-            font-family: 'JetBrains Mono', monospace;
-            color: rgba(0, 167, 89, 0.08);
-            z-index: 0;
-            pointer-events: none;
-            animation: floatUp linear infinite;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            font-size: 16px;
         }
 
         /* Navigation */
@@ -58,14 +39,9 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            backdrop-filter: blur(20px);
-            background: rgba(9, 26, 15, 0.7);
-            border-bottom: 1px solid rgba(0, 167, 89, 0.15);
-            transition: all 0.4s;
-        }
-        nav.scrolled {
-            background: rgba(9, 26, 15, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 167, 89, 0.1);
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .nav-inner {
             max-width: 1200px;
@@ -78,9 +54,7 @@
             font-family: 'Merriweather', serif;
             font-size: 1.2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--green2), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
         }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
@@ -88,147 +62,82 @@
             color: var(--text2);
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
+            transition: color 0.3s;
             letter-spacing: 0.5px;
         }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--green1), var(--gold));
-            transition: width 0.3s;
-        }
-        .nav-links a:hover { color: var(--text); }
-        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--accent); }
 
         /* Main Content */
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 7rem 2rem 4rem;
-            position: relative;
-            z-index: 2;
+            padding: 6rem 2rem 3rem;
         }
 
         h1 {
             font-family: 'Merriweather', serif;
-            font-size: 2.8rem;
-            font-weight: 900;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--green2), var(--gold), var(--green3));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradShift 4s ease infinite;
-        }
-        @keyframes gradShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
         }
 
         /* Talk entries */
         .talk-entry {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 167, 89, 0.1);
-            border-radius: 14px;
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--gold);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        .talk-entry::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 167, 89, 0.03));
-            pointer-events: none;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.3s;
         }
         .talk-entry:hover {
-            transform: translateX(6px);
-            border-color: rgba(229, 169, 57, 0.25);
-            box-shadow: 0 8px 30px rgba(0, 167, 89, 0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .talk-date {
-            font-weight: 700;
-            color: var(--gold);
-            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.9rem;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
         .talk-title {
-            color: var(--text);
-            font-size: 1.1rem;
-            line-height: 1.6;
+            color: var(--primary);
+            font-size: 1.05rem;
+            line-height: 1.5;
+            font-weight: 500;
         }
         .talk-location {
             color: var(--text2);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-top: 0.3rem;
         }
         .pdf-link {
-            color: var(--green2);
+            color: var(--accent);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             margin-left: 0.75rem;
-            transition: color 0.3s;
         }
         .pdf-link:hover { 
-            color: var(--gold); 
             text-decoration: underline;
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: var(--text2);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(0, 167, 89, 0.08);
-            position: relative;
-            z-index: 2;
-        }
-        footer .footer-math {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--green1);
-            opacity: 0.4;
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .nav-inner { flex-direction: column; gap: 0.75rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .container { padding: 6rem 1rem 3rem; }
+            .container { padding: 5rem 1rem 2rem; }
             h1 { font-size: 2rem; }
             .talk-title { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div id="mathSymbols"></div>
-
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-inner">
             <div class="nav-logo">Yassine Ait Mohamed</div>
             <div class="nav-links">
@@ -245,7 +154,7 @@
     <div class="container">
         <h1>Talks</h1>
 
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">November 2025</span>
             <div class="talk-title">
                 Poisson structures on 1-shifted coisotropics
@@ -254,7 +163,7 @@
             <div class="talk-location">Séminaire SAG, Université de Sherbrooke</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">November 2024</span>
             <div class="talk-title">
                 On bound quivers
@@ -263,25 +172,25 @@
             <div class="talk-location">MAT728 Selected Topics in Algebra, Université de Sherbrooke</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">July 2023</span>
             <div class="talk-title">Generalized homogeneous derivations on graded rings</div>
             <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">April 2023</span>
             <div class="talk-title">On Graded Rings with homogeneous derivations</div>
             <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">February 2023</span>
             <div class="talk-title">On Graded Rings and derivations</div>
             <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">January 2023</span>
             <div class="talk-title">
                 On Graded Rings
@@ -290,13 +199,13 @@
             <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">December 2021</span>
             <div class="talk-title">Tensor Algebra and Enveloping Algebra of a Lie Algebra</div>
             <div class="talk-location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">November 2021</span>
             <div class="talk-title">
                 On Riemann-Roch Theorem
@@ -305,52 +214,11 @@
             <div class="talk-location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</div>
         </div>
         
-        <div class="talk-entry reveal">
+        <div class="talk-entry">
             <span class="talk-date">February 2021</span>
             <div class="talk-title">Action of a Lie Group on a Smooth Manifold</div>
             <div class="talk-location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Yassine Ait Mohamed &mdash; University of Sherbrooke</p>
-        <div class="footer-math">&forall;&epsilon; > 0, &exist;&delta; > 0 : |x &minus; a| < &delta; &rArr; |f(x) &minus; L| < &epsilon;</div>
-    </footer>
-
-    <script>
-        // Floating math symbols
-        const symbols = ['\u2202','\u222B','\u2211','\u220F','\u221E','\u2207','\u03A9','\u211D','\u2102','\u2124','\u2297','\u2295','\u2227','\u27F9','\u2200','\u2203','\u03BB','\u03C0','\u03B5','\u03B4','\u03C6','\u03C8','\u03C9'];
-        const container = document.getElementById('mathSymbols');
-        function spawnSymbol() {
-            const el = document.createElement('div');
-            el.className = 'math-float';
-            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            el.style.left = Math.random() * 100 + '%';
-            el.style.fontSize = (1 + Math.random() * 2) + 'rem';
-            el.style.animationDuration = (15 + Math.random() * 20) + 's';
-            container.appendChild(el);
-            setTimeout(() => el.remove(), 35000);
-        }
-        for (let i = 0; i < 12; i++) setTimeout(spawnSymbol, i * 700);
-        setInterval(spawnSymbol, 3000);
-
-        // Navbar scroll
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Scroll reveal
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) { 
-                    e.target.classList.add('visible'); 
-                    obs.unobserve(e.target); 
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    </script>
 </body>
 </html>
