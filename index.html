@@ -34,7 +34,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -60,23 +60,6 @@
             color: var(--text);
             background: var(--bg);
             overflow-x: hidden;
-        }
-
-        /* Floating math symbols */
-        .math-float {
-            position: fixed;
-            font-family: 'JetBrains Mono', monospace;
-            color: rgba(0, 167, 89, 0.08);
-            font-size: 2rem;
-            z-index: 0;
-            pointer-events: none;
-            animation: floatUp linear infinite;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         /* Navigation */
@@ -168,7 +151,7 @@
         }
         .hero-text h1 {
             font-family: 'Merriweather', serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -299,33 +282,29 @@
             color: var(--text2);
             font-size: 1.05rem;
             line-height: 1.8;
+            max-width: 800px;
         }
 
-        /* Contact card */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-        .contact-card {
+        /* Email contact */
+        .email-contact {
             background: var(--glass);
             border: 1px solid rgba(0, 167, 89, 0.1);
             border-radius: 14px;
             padding: 1.5rem;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 1rem;
             transition: all 0.3s;
             text-decoration: none;
             color: var(--text);
+            margin-top: 1.5rem;
         }
-        .contact-card:hover {
+        .email-contact:hover {
             border-color: rgba(0, 167, 89, 0.3);
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 167, 89, 0.1);
         }
-        .contact-card .c-icon {
+        .email-contact .c-icon {
             width: 48px;
             height: 48px;
             border-radius: 12px;
@@ -334,58 +313,37 @@
             justify-content: center;
             font-size: 1.2rem;
             flex-shrink: 0;
+            background: rgba(0, 167, 89, 0.15);
+            color: var(--green2);
         }
-        .contact-card .c-label {
+        .email-contact .c-label {
             font-size: 0.8rem;
             color: var(--text2);
             margin-bottom: 0.15rem;
         }
-        .contact-card .c-value {
+        .email-contact .c-value {
             font-size: 0.9rem;
             font-weight: 500;
+            color: var(--text);
         }
 
-        /* Equation marquee */
-        .equation-bar {
-            overflow: hidden;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(0, 167, 89, 0.08);
-            border-bottom: 1px solid rgba(0, 167, 89, 0.08);
+        /* Dynamic email animation */
+        .dynamic-email {
             position: relative;
-            z-index: 2;
-            background: rgba(0, 167, 89, 0.03);
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 167, 89, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 167, 89, 0.2);
+            font-family: 'Inter', monospace;
+            font-size: 0.9rem;
+            color: var(--green2);
+            animation: emailPulse 2s ease-in-out infinite;
         }
-        .equation-track {
-            display: flex;
-            gap: 3rem;
-            animation: eqscroll 30s linear infinite;
-            width: max-content;
-        }
-        .equation-track span {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text2);
-            font-size: 0.85rem;
-            white-space: nowrap;
-            opacity: 0.5;
-        }
-        @keyframes eqscroll { to { transform: translateX(-50%); } }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: var(--text2);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(0, 167, 89, 0.08);
-            position: relative;
-            z-index: 2;
-        }
-        footer .footer-math {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--green1);
-            opacity: 0.4;
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
+        @keyframes emailPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         /* Scroll reveal */
@@ -407,16 +365,29 @@
             }
             .hero-photo { order: -1; }
             .photo-wrapper { width: 220px; height: 220px; }
-            .hero-text h1 { font-size: 2.2rem; }
+            .hero-text h1 { 
+                font-size: 2.5rem; 
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
             .nav-inner { flex-direction: column; gap: 0.75rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             .section-title { font-size: 1.5rem; }
+            .hero-text .desc {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 { 
+                font-size: 2rem;
+                white-space: normal;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="mathSymbols"></div>
-
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-inner">
@@ -436,13 +407,16 @@
         <div class="hero-content">
             <div class="hero-text">
                 <div class="subtitle">PhD Student in Mathematics</div>
-                <h1>Yassine<br><span class="gradient">Ait Mohamed</span></h1>
+                <h1><span class="gradient">Yassine Ait Mohamed</span></h1>
                 <p class="desc">
                     I am a PhD student in Mathematics at the University of Sherbrooke, under the supervision of 
                     <a href="https://maxencemayrand.github.io/" target="_blank" rel="noopener">Prof. Maxence Mayrand</a>.
                     Before that, I was a PhD student at the University of Sidi Mohamed Ben Abdellah, supervised by 
                     <a href="https://scholar.google.com/citations?hl=fr&user=D2ZlnJIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Prof. Lahcen Oukhtite</a>.
                 </p>
+                <div class="dynamic-email">
+                    yassine.ait.mohamed@usherbrooke.ca
+                </div>
             </div>
             <div class="hero-photo">
                 <div class="photo-wrapper">
@@ -454,26 +428,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Equation marquee -->
-    <div class="equation-bar">
-        <div class="equation-track">
-            <span>&#x2202;&#xB2;f/&#x2202;x&#xB2; + &#x2202;&#xB2;f/&#x2202;y&#xB2; = 0</span>
-            <span>&#x03C0;&#x2081;(X) &#x2192; H&#x2081;(X; &#x2124;)</span>
-            <span>d&#x03C9; = 0 &#x27F9; &#x03C9; = d&#x03B1;</span>
-            <span>{f, g} = &#x2211; (&#x2202;f/&#x2202;q&#x1D62;)(&#x2202;g/&#x2202;p&#x1D62;) &#x2212; (&#x2202;f/&#x2202;p&#x1D62;)(&#x2202;g/&#x2202;q&#x1D62;)</span>
-            <span>[X, Y] = XY &#x2212; YX</span>
-            <span>&#x222B;&#x2098; &#x03C9; &#x2227; *&#x03C9; = &#x2016;&#x03C9;&#x2016;&#xB2;</span>
-            <span>Z(M) = &#x222B; D&#x03C6; e^{iS[&#x03C6;]}</span>
-            <span>Hom(V&#x2297;W, U) &#x2245; Hom(V, Hom(W, U))</span>
-            <span>&#x2202;&#xB2;f/&#x2202;x&#xB2; + &#x2202;&#xB2;f/&#x2202;y&#xB2; = 0</span>
-            <span>&#x03C0;&#x2081;(X) &#x2192; H&#x2081;(X; &#x2124;)</span>
-            <span>d&#x03C9; = 0 &#x27F9; &#x03C9; = d&#x03B1;</span>
-            <span>{f, g} = &#x2211; (&#x2202;f/&#x2202;q&#x1D62;)(&#x2202;g/&#x2202;p&#x1D62;) &#x2212; (&#x2202;f/&#x2202;p&#x1D62;)(&#x2202;g/&#x2202;q&#x1D62;)</span>
-            <span>[X, Y] = XY &#x2212; YX</span>
-            <span>&#x222B;&#x2098; &#x03C9; &#x2227; *&#x03C9; = &#x2016;&#x03C9;&#x2016;&#xB2;</span>
-        </div>
-    </div>
 
     <!-- Research Interests -->
     <section id="research">
@@ -501,48 +455,18 @@
                 </h2>
                 <div class="section-line" style="background:linear-gradient(90deg,var(--gold),var(--green2))"></div>
             </div>
-            <div class="contact-grid">
-                <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" class="contact-card reveal">
-                    <div class="c-icon" style="background:rgba(0,167,89,0.15);color:var(--green2)"><i class="fas fa-envelope"></i></div>
-                    <div>
-                        <div class="c-label">Email</div>
-                        <div class="c-value">yassine.ait.mohamed@usherbrooke.ca</div>
-                    </div>
-                </a>
-                <a href="https://github.com/yassineaitmohamed" target="_blank" class="contact-card reveal">
-                    <div class="c-icon" style="background:rgba(229,169,57,0.15);color:var(--gold)"><i class="fab fa-github"></i></div>
-                    <div>
-                        <div class="c-label">GitHub</div>
-                        <div class="c-value">yassineaitmohamed</div>
-                    </div>
-                </a>
-            </div>
+            
+            <a href="mailto:yassine.ait.mohamed@usherbrooke.ca" class="email-contact reveal">
+                <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <div class="c-label">Email</div>
+                    <div class="c-value">yassine.ait.mohamed@usherbrooke.ca</div>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&#xA9; 2025 Yassine Ait Mohamed &#x2014; University of Sherbrooke</p>
-        <div class="footer-math">&#x2200;&#x03B5; > 0, &#x2203;&#x03B4; > 0 : |x &#x2212; a| < &#x03B4; &#x27F9; |f(x) &#x2212; L| < &#x03B5;</div>
-    </footer>
-
     <script>
-        // Floating math symbols
-        const symbols = ['\u2202','\u222B','\u2211','\u220F','\u221E','\u2207','\u03A9','\u211D','\u2102','\u2124','\u2297','\u2295','\u2227','\u27F9','\u2200','\u2203','\u03BB','\u03C0','\u03B5','\u03B4','\u03C6','\u03C8','\u03C9'];
-        const container = document.getElementById('mathSymbols');
-        function spawnSymbol() {
-            const el = document.createElement('div');
-            el.className = 'math-float';
-            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            el.style.left = Math.random() * 100 + '%';
-            el.style.fontSize = (1 + Math.random() * 2) + 'rem';
-            el.style.animationDuration = (15 + Math.random() * 20) + 's';
-            container.appendChild(el);
-            setTimeout(() => el.remove(), 35000);
-        }
-        for (let i = 0; i < 12; i++) setTimeout(spawnSymbol, i * 700);
-        setInterval(spawnSymbol, 3000);
-
         // Navbar scroll
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
@@ -551,18 +475,46 @@
         // Scroll reveal
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => {
-                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+                if (e.isIntersecting) { 
+                    e.target.classList.add('visible'); 
+                    obs.unobserve(e.target); 
+                }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        // Smooth scroll
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
             });
         });
+
+        // Dynamic email animation
+        const emailElement = document.querySelector('.dynamic-email');
+        if (emailElement) {
+            let opacity = 1;
+            let direction = -1;
+            
+            setInterval(() => {
+                opacity += direction * 0.02;
+                if (opacity <= 0.7 || opacity >= 1) {
+                    direction *= -1;
+                }
+                emailElement.style.opacity = opacity;
+            }, 50);
+        }
     </script>
 </body>
 </html>
