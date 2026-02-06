@@ -6,366 +6,306 @@
     <title>Teaching - Yassine Ait Mohamed</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #091a0f;
+            --green1: #00A759;
+            --green2: #00c96b;
+            --green3: #34d88a;
+            --green-dark: #006e3a;
+            --gold: #e5a939;
+            --gold-light: #f0c060;
+            --text: #e8f0ec;
+            --text2: #8fa89a;
+            --glass: rgba(0, 167, 89, 0.06);
         }
-        
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Inter', sans-serif;
             line-height: 1.8;
-            color: #003366;
-            background-color: #f5f5dc;
+            color: var(--text);
+            background: var(--bg);
             font-size: 18px;
-            padding: 20px;
+            overflow-x: hidden;
         }
-        
+
+        /* Floating math symbols */
+        .math-float {
+            position: fixed;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(0, 167, 89, 0.08);
+            z-index: 0;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
         /* Navigation */
         nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 40px 20px 40px;
-            background-color: #f5f5dc;
-            border-bottom: 2px solid #d4d4b8;
-            margin-bottom: 50px;
-            gap: 40px;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(20px);
+            background: rgba(9, 26, 15, 0.7);
+            border-bottom: 1px solid rgba(0, 167, 89, 0.15);
+            transition: all 0.4s;
         }
-
-        .nav-name {
-            font-size: 28px;
-            font-weight: 700;
-            color: #24292e;
-            white-space: nowrap;
+        nav.scrolled {
+            background: rgba(9, 26, 15, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 167, 89, 0.1);
         }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #003366;
-            font-weight: 500;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #dc3545;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            background-color: #ebe8d8;
-            border: 2px solid #d4d4b8;
-            border-radius: 25px;
-            padding: 8px 16px;
-            cursor: pointer;
-            font-size: 16px;
-            color: #003366;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .theme-toggle:hover {
-            background-color: #dc3545;
-            color: white;
-            border-color: #dc3545;
-        }
-
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode nav {
-            background-color: #1a1a1a;
-            border-bottom-color: #333;
-        }
-
-        body.dark-mode .nav-name {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            color: #dc3545;
-        }
-
-        body.dark-mode .theme-toggle {
-            background-color: #2a2a2a;
-            border-color: #444;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .theme-toggle:hover {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        body.dark-mode h1,
-        body.dark-mode h2 {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .date {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .institution {
-            color: #b0b0b0;
-        }
-        
-        body.dark-mode .institution a {
-            color: #dc3545;
-        }
-        
-        body.dark-mode .institution a:hover {
-            text-decoration: underline;
-        }
-
-        body.dark-mode .notes-section {
-            background-color: #2a2a2a;
-            border-color: #444;
-        }
-
-        body.dark-mode .note-item {
-            background-color: #1a1a1a;
-            border-color: #444;
-        }
-
-        body.dark-mode .note-item span {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .note-item:hover {
-            background-color: #dc3545;
-        }
-
-        body.dark-mode .note-item:hover span {
-            color: white;
-        }
-
-        body.dark-mode .entry a {
-            color: #dc3545;
-        }
-        
-        /* Main Container */
-        .container {
+        .nav-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        h1 {
-            font-size: 42px;
-            margin-bottom: 35px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #dc3545;
-            color: #24292e;
-            font-weight: 600;
+        .nav-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--green2), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        h2 {
-            font-size: 32px;
-            margin-top: 45px;
-            margin-bottom: 25px;
-            color: #24292e;
-            font-weight: 600;
-            border-bottom: 2px solid #dc3545;
-            padding-bottom: 10px;
-        }
-        
-        /* Teaching Entry */
-        .entry {
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text2);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
             position: relative;
-            margin-bottom: 35px;
-            padding-left: 35px;
+            letter-spacing: 0.5px;
         }
-        
-        .entry::before {
+        .nav-links a::after {
             content: '';
             position: absolute;
+            bottom: -4px;
             left: 0;
-            top: 12px;
-            width: 16px;
-            height: 16px;
-            background-color: #dc3545;
-            border-radius: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green1), var(--gold));
+            transition: width 0.3s;
         }
-        
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--green2), var(--gold), var(--green3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradShift 4s ease infinite;
+        }
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h2 .h2-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Teaching entries */
+        .entry {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 167, 89, 0.1);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--green1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .entry::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 167, 89, 0.03));
+            pointer-events: none;
+        }
+        .entry:hover {
+            transform: translateX(6px);
+            border-color: rgba(0, 167, 89, 0.25);
+            box-shadow: 0 8px 30px rgba(0, 167, 89, 0.08);
+        }
         .date {
-            font-weight: bold;
-            color: #24292e;
-            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 0.9rem;
         }
-        
         .institution {
-            color: #003366;
-            font-size: 20px;
-            line-height: 1.8;
+            color: var(--text2);
+            font-size: 0.95rem;
         }
-        
         .institution a {
-            color: #dc3545;
+            color: var(--green2);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s;
         }
-        
-        .institution a:hover {
-            text-decoration: underline;
+        .institution a:hover { color: var(--gold); text-decoration: underline; }
+
+        .entry-link {
+            color: var(--green2);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        
+        .entry-link:hover { color: var(--gold); text-decoration: underline; }
+
         /* Notes Section */
         .notes-section {
-            margin-top: 45px;
-            padding: 28px;
-            background-color: #ebe8d8;
-            border-radius: 8px;
-            border: 2px solid #d4d4b8;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0, 167, 89, 0.04);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 167, 89, 0.12);
         }
-        
-        .notes-section h2 {
-            margin-top: 0;
-            color: #24292e;
-            border-bottom: 2px solid #dc3545;
-            padding-bottom: 10px;
-        }
-        
+        .notes-section h2 { margin-top: 0; }
+
         .notes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 18px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1.25rem;
         }
-        
+
         .note-item {
             display: flex;
             align-items: center;
-            padding: 14px 18px;
-            background: #f5f5dc;
-            border-radius: 6px;
-            border: 1px solid #d4d4b8;
+            padding: 0.9rem 1.1rem;
+            background: var(--glass);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 167, 89, 0.08);
             cursor: pointer;
             transition: all 0.3s;
         }
-        
         .note-item:hover {
-            background-color: #dc3545;
-            color: white;
+            background: linear-gradient(135deg, var(--green1), var(--green-dark));
+            border-color: var(--green1);
             transform: translateX(5px);
-            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 167, 89, 0.2);
         }
-        
         .note-item i {
-            color: #dc3545;
-            margin-right: 14px;
-            font-size: 18px;
+            color: var(--gold);
+            margin-right: 12px;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
-        
-        .note-item:hover i {
-            color: white;
-        }
-        
+        .note-item:hover i { color: white; }
         .note-item span {
-            color: #003366;
-            font-size: 18px;
+            color: var(--text2);
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
-        
-        .note-item:hover span {
-            color: white;
+        .note-item:hover span { color: white; }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        /* Links in entries */
-        .entry a {
-            color: #dc3545;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text2);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(0, 167, 89, 0.08);
+            position: relative;
+            z-index: 2;
         }
-        
-        .entry a:hover {
-            text-decoration: underline;
+        footer .footer-math {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--green1);
+            opacity: 0.4;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 60px 20px 20px 20px;
-            }
-
-            .theme-toggle {
-                top: 10px;
-                right: 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                justify-content: center;
-            }
-            
-            .container {
-                padding: 0 20px;
-            }
-            
-            h1 {
-                font-size: 34px;
-            }
-            
-            h2 {
-                font-size: 28px;
-            }
-            
-            .date {
-                font-size: 20px;
-            }
-            
-            .institution {
-                font-size: 18px;
-            }
-            
-            .notes-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .note-item span {
-                font-size: 16px;
-            }
+            .nav-inner { flex-direction: column; gap: 0.75rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .container { padding: 6rem 1rem 3rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            .notes-grid { grid-template-columns: 1fr; }
+            .note-item span { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
+    <div id="mathSymbols"></div>
+
     <!-- Navigation -->
-    <nav>
-        <button class="theme-toggle" onclick="toggleTheme()">
-            <i class="fas fa-moon" id="theme-icon"></i>
-            <span id="theme-text">Dark Mode</span>
-        </button>
-        <div class="nav-name">Yassine Ait Mohamed</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="talks.html">Talks</a>
-            <a href="cv.html">CV</a>
-            <a href="teaching.html">Teaching</a>
+    <nav id="navbar">
+        <div class="nav-inner">
+            <div class="nav-logo">Yassine Ait Mohamed</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="talks.html">Talks</a>
+                <a href="cv.html">CV</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
         </div>
     </nav>
 
@@ -373,207 +313,168 @@
     <div class="container">
         <h1>Teaching</h1>
 
-        <h2>Teaching Assistant</h2>
+        <h2 class="reveal">
+            <span class="h2-icon" style="background:rgba(0,167,89,0.15);color:var(--green2)"><i class="fas fa-chalkboard-teacher"></i></span>
+            Teaching Assistant
+        </h2>
 
-         <div class="entry">
-            <p><span class="date">Winter 2026:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT129/" target="_blank">Analysis I (MAT129)</a>, Université de Sherbrooke</span></p>
+        <div class="entry reveal">
+            <p><span class="date">Winter 2026:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT129/" target="_blank">Analysis I (MAT129)</a>, Universit&eacute; de Sherbrooke</span></p>
         </div>
-        
-        <div class="entry">
-            <p><span class="date">Fall 2025:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT141/" target="_blank">Elements of Algebra (MAT141)</a>, Université de Sherbrooke</span></p>
+        <div class="entry reveal">
+            <p><span class="date">Fall 2025:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT141/" target="_blank">Elements of Algebra (MAT141)</a>, Universit&eacute; de Sherbrooke</span></p>
         </div>
-
-        <div class="entry">
-            <p><span class="date">Fall 2025:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT199/" target="_blank">Applied Linear Algebra in Computer Science (MAT199)</a>, Université de Sherbrooke</span></p>
+        <div class="entry reveal">
+            <p><span class="date">Fall 2025:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT199/" target="_blank">Applied Linear Algebra in Computer Science (MAT199)</a>, Universit&eacute; de Sherbrooke</span></p>
         </div>
-
-        <div class="entry">
-            <p><span class="date">Winter 2025:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT253/" target="_blank">Linear Algebra (MAT253)</a>, Université de Sherbrooke</span></p>
+        <div class="entry reveal">
+            <p><span class="date">Winter 2025:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT253/" target="_blank">Linear Algebra (MAT253)</a>, Universit&eacute; de Sherbrooke</span></p>
         </div>
-
-        <div class="entry">
-            <p><span class="date">Fall 2024</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT194/" target="_blank">Differential and Integral Calculus I (MAT194)</a>, Université de Sherbrooke</span></p>
+        <div class="entry reveal">
+            <p><span class="date">Fall 2024:</span> <span class="institution"><a href="https://www.usherbrooke.ca/admission/fiches-cours/MAT194/" target="_blank">Differential and Integral Calculus I (MAT194)</a>, Universit&eacute; de Sherbrooke</span></p>
         </div>
-
-        <div class="entry">
-            <p><span class="date">Fall 2024:</span> <span class="institution">Center for Mathematics Help, Université de Sherbrooke</span></p>
+        <div class="entry reveal">
+            <p><span class="date">Fall 2024:</span> <span class="institution">Center for Mathematics Help, Universit&eacute; de Sherbrooke</span></p>
         </div>
-
-        <div class="entry">
+        <div class="entry reveal">
             <p><span class="date">September 2022 - November 2023:</span> <span class="institution">Mini School Center, Fez, Morocco</span></p>
         </div>
-
-        <div class="entry">
+        <div class="entry reveal">
             <p><span class="date">September 2018 - March 2019:</span> <span class="institution">Olympia Centre Zarhounia, Meknes, Morocco</span></p>
         </div>
-
-        <div class="entry">
+        <div class="entry reveal">
             <p><span class="date">September 2017 - March 2018:</span> <span class="institution">Maxcence Centre, Meknes, Morocco</span></p>
         </div>
-        
-        <h2>Mathematics Tutor</h2>
 
-        <div class="entry">
-            <p><span class="date">September 2022 - Today:</span> <span class="institution">Algebra, Real and Complex Analysis, and Topology</span> [<a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="pdf-link">View profile on VosCours</a>]</p>
+        <h2 class="reveal">
+            <span class="h2-icon" style="background:rgba(229,169,57,0.15);color:var(--gold)"><i class="fas fa-user-graduate"></i></span>
+            Mathematics Tutor
+        </h2>
+
+        <div class="entry reveal">
+            <p><span class="date">September 2022 - Today:</span> <span class="institution">Algebra, Real and Complex Analysis, and Topology</span> [<a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="entry-link">View profile on VosCours</a>]</p>
         </div>
-       
+
         <!-- Notes Section -->
-        <div class="notes-section">
-            <h2>Notes</h2>
+        <div class="notes-section reveal">
+            <h2>
+                <span class="h2-icon" style="background:rgba(0,167,89,0.15);color:var(--green2)"><i class="fas fa-book-open"></i></span>
+                Notes
+            </h2>
 
+            <div class="note-item" onclick="window.open('Documents teach/Guide MAT141 25.pdf', '_blank')" style="margin-bottom:1rem">
+                <i class="fas fa-file-pdf"></i>
+                <span>Guide (La r&eacute;daction math&eacute;matique)</span>
+            </div>
 
-               <div class="note-item" onclick="window.open('Documents teach/Guide MAT141 25.pdf', '_blank')">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>Guide (La rédaction mathématique)</span>
-                </div>
-                
-
-            
             <div class="notes-grid">
                 <div class="note-item" onclick="window.open('Documents teach/TD_Algebre_1.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>TD Algèbre 1</span>
+                    <span>TD Alg&egrave;bre 1</span>
                 </div>
-
-
-
-             <div class="note-item" onclick="window.open('Documents teach/redu.pdf', '_blank')">
+                <div class="note-item" onclick="window.open('Documents teach/redu.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Note sur réduction des endomorphismes</span>
+                    <span>Note sur r&eacute;duction des endomorphismes</span>
                 </div>
-                    
                 <div class="note-item" onclick="window.open('Documents teach/Reduction_des_endomorphismes__exercices.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Réduction des endomorphismes (Exercices)</span>
+                    <span>R&eacute;duction des endomorphismes (Exercices)</span>
                 </div>
-
-
-
-     
                 <div class="note-item" onclick="window.open('Documents teach/Test4.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
                     <span>Test 4</span>
                 </div>
-                    
-
-
-
                 <div class="note-item" onclick="window.open('Documents teach/anneaux.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
                     <span>Anneaux (Exercices)</span>
                 </div>
-
-
                 <div class="note-item" onclick="window.open('Documents teach/SMA.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Résumé  SMA (par Prof. Elamdaoui)</span>
+                    <span>R&eacute;sum&eacute; SMA (par Prof. Elamdaoui)</span>
                 </div>
-
-              <div class="note-item" onclick="window.open('Documents teach/ALG31.pdf', '_blank')">
+                <div class="note-item" onclick="window.open('Documents teach/ALG31.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Algèbre linéaire 1 (Prof. Abdellatif Bentaleb, Université de Mouly Ismail, Meknes)</span>
+                    <span>Alg&egrave;bre lin&eacute;aire 1 (Prof. Abdellatif Bentaleb, Universit&eacute; de Mouly Ismail, Meknes)</span>
                 </div>
- 
-                  <div class="note-item" onclick="window.open('Documents teach/ALG32.pdf', '_blank')">
+                <div class="note-item" onclick="window.open('Documents teach/ALG32.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Algèbre linéaire 2 (Prof. Abdellatif Bentaleb, Université de Mouly Ismail, Meknes)</span>
+                    <span>Alg&egrave;bre lin&eacute;aire 2 (Prof. Abdellatif Bentaleb, Universit&eacute; de Mouly Ismail, Meknes)</span>
                 </div>
-
-
-
-                
-                
-
-                
-             <div class="note-item" onclick="window.open('Documents teach/Devoir1_Mesures_Integration.pdf', '_blank')">
+                <div class="note-item" onclick="window.open('Documents teach/Devoir1_Mesures_Integration.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
                     <span>Mesures et integration (Devoir 1)</span>
                 </div>
-
-
-
-
-
-                
                 <div class="note-item" onclick="window.open('Documents teach/nmreelles.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Nombres réels (Exercices)</span>
+                    <span>Nombres r&eacute;els (Exercices)</span>
                 </div>
-                    
                 <div class="note-item" onclick="window.open('Documents teach/Exercices__Analyse_II.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
                     <span>Exercices: Analyse II</span>
                 </div>
-   
-               
                 <div class="note-item" onclick="window.open('Documents teach/topologie.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Topologie générale (Exercices)</span>
+                    <span>Topologie g&eacute;n&eacute;rale (Exercices)</span>
                 </div>
-                    
                 <div class="note-item" onclick="window.open('Documents teach/Test_1.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Test 1 </span>
+                    <span>Test 1</span>
                 </div>
-                    
                 <div class="note-item" onclick="window.open('Documents teach/Devoir_1 (1).pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Test 2 </span>
+                    <span>Test 2</span>
                 </div>
-                    
                 <div class="note-item" onclick="window.open('Documents teach/Devoir3.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
                     <span>Devoir 3</span>
                 </div>
-                    
-               
-            
-
-                 
                 <div class="note-item" onclick="window.open('Documents teach/integrales.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Integrales à paramètres (Exercices)</span>
+                    <span>Integrales &agrave; param&egrave;tres (Exercices)</span>
                 </div>
-                     
                 <div class="note-item" onclick="window.open('Documents teach/Devoir1_Suites_Reelles.pdf', '_blank')">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Suites réelles (Devoir 1)</span>
+                    <span>Suites r&eacute;elles (Devoir 1)</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.className = 'fas fa-moon';
-                themeText.textContent = 'Dark Mode';
-                localStorage.setItem('theme', 'light');
-            }
-        }
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Yassine Ait Mohamed &mdash; University of Sherbrooke</p>
+        <div class="footer-math">&forall;&epsilon; > 0, &exist;&delta; > 0 : |x &minus; a| < &delta; &rArr; |f(x) &minus; L| < &epsilon;</div>
+    </footer>
 
-        // Load saved theme on page load
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const savedTheme = localStorage.getItem('theme');
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
-            }
+    <script>
+        // Floating math symbols
+        const symbols = ['\u2202','\u222B','\u2211','\u220F','\u221E','\u2207','\u03A9','\u211D','\u2102','\u2124','\u2297','\u2295','\u2227','\u27F9','\u2200','\u2203','\u03BB','\u03C0','\u03B5','\u03B4','\u03C6','\u03C8','\u03C9'];
+        const container = document.getElementById('mathSymbols');
+        function spawnSymbol() {
+            const el = document.createElement('div');
+            el.className = 'math-float';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (1 + Math.random() * 2) + 'rem';
+            el.style.animationDuration = (15 + Math.random() * 20) + 's';
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 35000);
+        }
+        for (let i = 0; i < 12; i++) setTimeout(spawnSymbol, i * 700);
+        setInterval(spawnSymbol, 3000);
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>
