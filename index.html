@@ -3,30 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
     <title>Yassine Ait Mohamed - PhD Student in Mathematics | University of Sherbrooke</title>
     <meta name="description" content="Yassine Ait Mohamed, PhD student in Mathematics at University of Sherbrooke. Research in differential geometry, Poisson structures, shifted symplectic geometry, and algebraic geometry under supervision of Prof. Maxence Mayrand.">
     <meta name="keywords" content="Yassine Ait Mohamed, mathematics, PhD student, differential geometry, Poisson geometry, shifted symplectic geometry, algebraic geometry, Lie groups, TQFT, University of Sherbrooke, Maxence Mayrand">
     <meta name="author" content="Yassine Ait Mohamed">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Yassine Ait Mohamed - PhD Student in Mathematics">
     <meta property="og:description" content="Research in differential geometry, Poisson structures, and shifted symplectic geometry at University of Sherbrooke">
     <meta property="og:url" content="https://yassineaitmohamed.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://yassineaitmohamed.github.io/photo.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Yassine Ait Mohamed - PhD Student in Mathematics">
     <meta name="twitter:description" content="Research in differential geometry, Poisson structures, and shifted symplectic geometry">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://yassineaitmohamed.github.io/">
-    
-    <!-- Schema.org structured data for Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,40 +25,26 @@
       "url": "https://yassineaitmohamed.github.io/",
       "image": "https://yassineaitmohamed.github.io/photo.jpg",
       "jobTitle": "PhD Student in Mathematics",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "University of Sherbrooke"
-      },
+      "affiliation": {"@type": "Organization","name": "University of Sherbrooke"},
       "alumniOf": "University of Sidi Mohamed Ben Abdellah",
       "email": "yassine.ait.mohamed@usherbrooke.ca",
-      "sameAs": [
-        "https://github.com/yassineaitmohamed"
-      ],
-      "knowsAbout": [
-        "Differential Geometry",
-        "Poisson Geometry",
-        "Shifted Symplectic Geometry",
-        "Algebraic Geometry",
-        "Lie Groups",
-        "Topological Quantum Field Theories"
-      ]
+      "sameAs": ["https://github.com/yassineaitmohamed"],
+      "knowsAbout": ["Differential Geometry","Poisson Geometry","Shifted Symplectic Geometry","Algebraic Geometry","Lie Groups","Topological Quantum Field Theories"]
     }
     </script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Inter', sans-serif;
             line-height: 1.8;
-            color: #003366;
-            background-color: #f5f5dc;
+            color: #1a3a2a;
+            background-color: #f4f9f5;
             padding: 20px;
+            transition: background-color 0.4s, color 0.4s;
         }
 
         /* Navigation */
@@ -76,19 +52,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 40px 20px 40px;
-            background-color: #f5f5dc;
-            border-bottom: 2px solid #d4d4b8;
+            padding: 40px 40px 20px;
+            background-color: #f4f9f5;
+            border-bottom: 2px solid #c8e6c9;
             margin-bottom: 50px;
             position: relative;
             gap: 40px;
+            transition: all 0.4s;
         }
 
         .nav-name {
-            font-size: 28px;
+            font-family: 'Merriweather', serif;
+            font-size: 26px;
             font-weight: 700;
-            color: #24292e;
-            white-space: nowrap;
+            background: linear-gradient(135deg, #00A759, #e5a939);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
@@ -99,129 +78,71 @@
             align-items: center;
         }
 
+        .nav-links a {
+            text-decoration: none;
+            color: #2e5a3e;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00A759, #e5a939);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: #00A759; }
+        .nav-links a:hover::after { width: 100%; }
+
         .theme-toggle {
             position: absolute;
             top: 20px;
             right: 40px;
-            background-color: #ebe8d8;
-            border: 2px solid #d4d4b8;
+            background: linear-gradient(135deg, #00A759, #008a48);
+            border: none;
             border-radius: 25px;
-            padding: 8px 16px;
+            padding: 8px 18px;
             cursor: pointer;
-            font-size: 16px;
-            color: #003366;
-            font-weight: 500;
+            font-size: 14px;
+            color: white;
+            font-weight: 600;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 2px 10px rgba(0, 167, 89, 0.3);
         }
 
         .theme-toggle:hover {
-            background-color: #dc3545;
-            color: white;
-            border-color: #dc3545;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 167, 89, 0.4);
         }
 
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode nav {
-            background-color: #1a1a1a;
-            border-bottom-color: #333;
-        }
-
-        body.dark-mode .nav-name {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            color: #dc3545;
-        }
-
-        body.dark-mode .theme-toggle {
-            background-color: #2a2a2a;
-            border-color: #444;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .theme-toggle:hover {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        body.dark-mode .intro-text,
-        body.dark-mode .affiliation {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode h2 {
-            color: #e0e0e0;
-            border-bottom-color: #dc3545;
-        }
-
-        body.dark-mode .content a {
-            color: #dc3545;
-        }
-
-        body.dark-mode .social-links a {
-            background-color: #2a2a2a;
-            color: #e0e0e0;
-            border: 1px solid #444;
-        }
-
-        body.dark-mode .social-links a:hover {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        body.dark-mode .contact-info {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .contact-info strong {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .news-item {
-            background-color: #2a2a2a;
-            border-left-color: #dc3545;
-        }
-
-        body.dark-mode .news-date {
-            color: #888;
-        }
-
-        body.dark-mode .footer {
-            background-color: #1a1a1a;
-            border-top-color: #333;
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .live-clock {
-            background-color: #2a2a2a;
-            border-color: #444;
-            color: #e0e0e0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #003366;
-            font-weight: 500;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #dc3545;
-        }
+        /* Dark Mode */
+        body.dark-mode { background-color: #091a0f; color: #d0e8d8; }
+        body.dark-mode nav { background-color: #091a0f; border-bottom-color: #1a3a25; }
+        body.dark-mode .nav-links a { color: #8aaa96; }
+        body.dark-mode .nav-links a:hover { color: #00c96b; }
+        body.dark-mode .theme-toggle { background: linear-gradient(135deg, #e5a939, #c48a20); }
+        body.dark-mode .intro-title { color: #e0f0e4; }
+        body.dark-mode .intro-text, body.dark-mode .affiliation { color: #8aaa96; }
+        body.dark-mode h2 { color: #e0f0e4; border-bottom-color: #00A759; }
+        body.dark-mode .content a { color: #00c96b; }
+        body.dark-mode .social-links a { background-color: #12291a; color: #d0e8d8; border: 1px solid #1a3a25; }
+        body.dark-mode .social-links a:hover { background: linear-gradient(135deg, #00A759, #008a48); color: white; }
+        body.dark-mode .social-links a i { color: #e5a939; }
+        body.dark-mode .social-links a:hover i { color: white; }
+        body.dark-mode .contact-info { color: #8aaa96; }
+        body.dark-mode .contact-info strong { color: #e0f0e4; }
+        body.dark-mode .footer { background-color: #091a0f; border-top-color: #1a3a25; color: #5a7a66; }
+        body.dark-mode .live-clock { background-color: #12291a; border-color: #1a3a25; color: #d0e8d8; }
 
         /* Main Container */
         .container {
@@ -233,60 +154,44 @@
             padding: 0 20px;
         }
 
-        /* Content Section */
-        .content {
-            grid-column: 1 / 2;
-        }
+        .content { grid-column: 1 / 2; }
 
         .intro-title {
+            font-family: 'Merriweather', serif;
             font-size: 28px;
-            font-weight: 600;
-            color: #24292e;
+            font-weight: 700;
+            color: #1a3a2a;
             margin-bottom: 20px;
         }
 
         .intro-text {
-            font-size: 20px;
-            color: #003366;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .affiliation {
-            font-size: 20px;
-            color: #003366;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        /* News Section */
-        .news-section {
-            margin: 40px 0;
-        }
-
-        .news-item {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid #dc3545;
-            border-radius: 4px;
-            transition: transform 0.2s;
-        }
-
-        .news-item:hover {
-            transform: translateX(5px);
-        }
-
-        .news-date {
-            font-weight: bold;
-            color: #666;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-
-        .news-content {
             font-size: 18px;
-            line-height: 1.6;
+            color: #2e5a3e;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 26px;
+            color: #1a3a2a;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            font-weight: 700;
+            border-bottom: 3px solid #00A759;
+            padding-bottom: 10px;
+        }
+
+        .content a {
+            color: #00A759;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .content a:hover {
+            color: #e5a939;
+            text-decoration: underline;
         }
 
         /* Photo Section */
@@ -302,179 +207,110 @@
         .profile-photo {
             width: 100%;
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 167, 89, 0.2);
             aspect-ratio: 1 / 1;
             object-fit: cover;
+            border: 4px solid transparent;
+            background-image: linear-gradient(#f4f9f5, #f4f9f5), linear-gradient(135deg, #00A759, #e5a939);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            transition: box-shadow 0.3s;
         }
 
-        /* Social Links */
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .profile-photo:hover {
+            box-shadow: 0 8px 30px rgba(0, 167, 89, 0.3);
         }
+
+        .social-links { display: flex; flex-direction: column; gap: 10px; }
 
         .social-links a {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 10px 14px;
-            border-radius: 8px;
-            background-color: #ebe8d8;
-            color: #003366;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background-color: #e8f5e9;
+            color: #2e5a3e;
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 18px;
-            width: 100%;
+            font-size: 16px;
+            border: 1px solid #c8e6c9;
         }
 
-        .social-links a i {
-            width: 24px;
-            text-align: center;
-            font-size: 18px;
-            color: #dc3545;
-        }
+        .social-links a i { width: 24px; text-align: center; font-size: 18px; color: #e5a939; }
 
         .social-links a:hover {
-            background-color: #dc3545;
+            background: linear-gradient(135deg, #00A759, #008a48);
             color: white;
             transform: translateX(5px);
-            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 167, 89, 0.3);
         }
 
-        .social-links a:hover i {
-            color: white;
+        .social-links a:hover i { color: white; }
+
+        .contact-info { margin-top: 20px; font-size: 16px; color: #2e5a3e; line-height: 1.6; }
+        .contact-info strong { display: block; margin-bottom: 5px; color: #1a3a2a; font-weight: 600; }
+        .contact-info a { color: #00A759; text-decoration: none; }
+        .contact-info a:hover { color: #e5a939; text-decoration: underline; }
+
+        /* Floating Math */
+        .math-float {
+            position: fixed;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(0, 167, 89, 0.07);
+            z-index: 0;
+            pointer-events: none;
+            animation: floatUp linear infinite;
         }
 
-        .social-links .info-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
-            font-size: 16px;
-            color: #003366;
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        .social-links .info-item i {
-            width: 24px;
-            text-align: center;
-            font-size: 16px;
-            color: #dc3545;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #003366;
-            line-height: 1.6;
-        }
-
-        .contact-info strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #24292e;
-            font-weight: 600;
-        }
-
-        .contact-info a {
-            color: #dc3545;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Section Titles */
-        h2 {
-            font-size: 28px;
-            color: #24292e;
-            margin-bottom: 20px;
-            margin-top: 40px;
-            font-weight: 600;
-            border-bottom: 2px solid #dc3545;
-            padding-bottom: 10px;
-        }
-
-        /* Links in content */
-        .content a {
-            color: #dc3545;
-            text-decoration: none;
-        }
-
-        .content a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer with live clock */
+        /* Footer */
         .footer {
             max-width: 1200px;
             margin: 60px auto 20px;
             padding: 30px 20px;
-            border-top: 2px solid #d4d4b8;
-            background-color: #f5f5dc;
+            border-top: 2px solid #c8e6c9;
+            background-color: #f4f9f5;
             text-align: center;
+            transition: all 0.4s;
         }
 
         .live-clock {
             display: inline-block;
-            font-size: 24px;
-            font-weight: bold;
-            color: #003366;
-            background-color: #ebe8d8;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a3a2a;
+            background: linear-gradient(135deg, #e8f5e9, #fff8e1);
             padding: 15px 30px;
-            border-radius: 10px;
-            border: 2px solid #d4d4b8;
+            border-radius: 12px;
+            border: 2px solid #c8e6c9;
             margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 167, 89, 0.1);
         }
 
-        .footer-text {
-            font-size: 16px;
-            color: #666;
-            margin-top: 15px;
-        }
+        .footer-text { font-size: 14px; color: #5a7a66; margin-top: 15px; }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 60px 20px 20px 20px;
-            }
-
-            .theme-toggle {
-                top: 10px;
-                right: 20px;
-            }
-
-            .nav-links {
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .photo-section {
-                position: static;
-                order: -1;
-            }
-
-            .content {
-                grid-column: 1 / -1;
-            }
-
-            .live-clock {
-                font-size: 18px;
-                padding: 10px 20px;
-            }
+            nav { flex-direction: column; gap: 15px; padding: 60px 20px 20px; }
+            .theme-toggle { top: 10px; right: 20px; }
+            .nav-links { gap: 15px; justify-content: center; }
+            .container { grid-template-columns: 1fr; gap: 30px; }
+            .photo-section { position: static; order: -1; }
+            .content { grid-column: 1 / -1; }
+            .live-clock { font-size: 16px; padding: 10px 20px; }
         }
     </style>
 </head>
 <body>
+    <div id="mathSymbols"></div>
+
     <nav>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
             <i class="fas fa-moon" id="theme-icon"></i>
@@ -513,7 +349,6 @@
 
         <div class="photo-section">
             <img src="photo.jpg" alt="Yassine Ait Mohamed - PhD Student in Mathematics" class="profile-photo">
-            
             <div class="social-links">
                 <a href="https://github.com/yassineaitmohamed" target="_blank" rel="noopener">
                     <i class="fab fa-github"></i>
@@ -523,16 +358,29 @@
         </div>
     </div>
 
-   
     <script>
-        // Theme Toggle Function
+        // Floating math symbols
+        const symbols = ['\u2202','\u222B','\u2211','\u220F','\u221E','\u2207','\u03A9','\u211D','\u2102','\u2124','\u2297','\u2295','\u2227','\u27F9','\u2200','\u2203','\u03BB','\u03C0','\u03B5','\u03B4','\u03C6','\u03C8','\u03C9'];
+        const container = document.getElementById('mathSymbols');
+        function spawnSymbol() {
+            const el = document.createElement('div');
+            el.className = 'math-float';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (1 + Math.random() * 2) + 'rem';
+            el.style.animationDuration = (15 + Math.random() * 20) + 's';
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 35000);
+        }
+        for (let i = 0; i < 12; i++) setTimeout(spawnSymbol, i * 700);
+        setInterval(spawnSymbol, 3000);
+
+        // Theme Toggle
         function toggleTheme() {
             const body = document.body;
             const themeIcon = document.getElementById('theme-icon');
             const themeText = document.getElementById('theme-text');
-            
             body.classList.toggle('dark-mode');
-            
             if (body.classList.contains('dark-mode')) {
                 themeIcon.className = 'fas fa-sun';
                 themeText.textContent = 'Light Mode';
@@ -544,45 +392,14 @@
             }
         }
 
-        // Live Clock Function
-        function updateClock() {
-            const now = new Date();
-            
-            // Format options
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: false
-            };
-            
-            const dateTimeString = now.toLocaleDateString('en-US', options);
-            document.getElementById('liveClock').textContent = dateTimeString;
-            
-            // Update year in footer
-            document.getElementById('currentYear').textContent = now.getFullYear();
-        }
-
-        // Load saved theme on page load
-        window.addEventListener('DOMContentLoaded', (event) => {
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
-            const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
-            
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
-                themeIcon.className = 'fas fa-sun';
-                themeText.textContent = 'Light Mode';
+                document.getElementById('theme-icon').className = 'fas fa-sun';
+                document.getElementById('theme-text').textContent = 'Light Mode';
             }
-
-            // Initialize clock
-            updateClock();
-            // Update clock every second
-            setInterval(updateClock, 1000);
         });
     </script>
 </body>
