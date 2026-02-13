@@ -4,34 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Yassine Ait Mohamed</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --bg: #ffffff;
-            --bg2: #f8f9fa;
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #2980b9;
-            --text: #2c3e50;
-            --text2: #7f8c8d;
-            --border: #e0e0e0;
-        }
-
-        html { scroll-behavior: smooth; }
-
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
             line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            font-size: 16px;
+            color: #333;
+            background: #fff;
+            font-size: 17px;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -39,173 +23,84 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: #fff;
         }
         .nav-inner {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .nav-logo {
-            font-family: 'Merriweather', serif;
             font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-weight: bold;
+            color: #333;
         }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             text-decoration: none;
-            color: var(--text2);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            letter-spacing: 0.5px;
+            color: #555;
+            font-size: 0.95rem;
         }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: #000; }
 
-        /* Main Content */
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 6rem 2rem 3rem;
+            padding: 5rem 2rem 3rem;
         }
 
         h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #222;
         }
 
         h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1.2rem;
-            color: var(--primary);
-            font-weight: 600;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #222;
+            font-weight: bold;
         }
 
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin-top: 1rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
-        }
+        a { color: #1a0dab; }
+        a:hover { text-decoration: underline; }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 1.5rem;
+        ul {
+            list-style: none;
+            padding-left: 0;
         }
-        .timeline-dot {
-            position: absolute;
-            left: -2rem;
-            top: 0.3rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-            z-index: 1;
-        }
-
-        .timeline-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.2rem;
-            transition: box-shadow 0.3s;
-        }
-        .timeline-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .institution {
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-            color: var(--text);
-            font-size: 1rem;
-        }
-        .position {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        .dates {
-            color: var(--text2);
-            font-size: 0.85rem;
-            margin-top: 0.2rem;
-        }
-
-        /* Review items */
-        .review-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.2rem;
+        ul li {
             margin-bottom: 0.8rem;
-            transition: box-shadow 0.3s;
         }
-        .review-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        .date {
+            font-weight: bold;
         }
-        .review-date {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 0.2rem;
-        }
-        .review-journal {
-            color: var(--text2);
-            font-size: 0.9rem;
+        .detail {
+            color: #555;
+            font-size: 0.95rem;
         }
 
-        /* PDF Link */
         .pdf-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding: 0.6rem 1.5rem;
-            border-radius: 4px;
-            background: var(--accent);
-            color: white;
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #1a0dab;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.3s;
         }
-        .pdf-link:hover {
-            background: var(--primary);
-        }
+        .pdf-link:hover { text-decoration: underline; }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-inner { flex-direction: column; gap: 0.75rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             .container { padding: 5rem 1rem 2rem; }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.2rem; }
+            h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-inner">
             <div class="nav-logo">Yassine Ait Mohamed</div>
@@ -219,68 +114,35 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container">
         <h1>CV</h1>
 
         <h2>Education</h2>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="institution">University of Sherbrooke</div>
-                    <div class="position">PhD in Mathematics</div>
-                    <div class="dates">2024 – Present</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="institution">University of Sidi Mohamed Ben Abdellah</div>
-                    <div class="position">First year in PhD Doctoral program</div>
-                    <div class="dates">2022 – 2023</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="institution">University of Sidi Mohamed Ben Abdellah</div>
-                    <div class="position">Master's degree in Mathematics</div>
-                    <div class="dates">2020 – 2022</div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="institution">University of Moulay Ismail</div>
-                    <div class="position">BSc in Mathematics</div>
-                    <div class="dates">2016 – 2020</div>
-                </div>
-            </div>
-        </div>
+        <ul>
+            <li>
+                <span class="date">2024 – Present:</span> PhD in Mathematics, University of Sherbrooke
+            </li>
+            <li>
+                <span class="date">2022 – 2023:</span> First year in PhD Doctoral program, University of Sidi Mohamed Ben Abdellah
+            </li>
+            <li>
+                <span class="date">2020 – 2022:</span> Master's degree in Mathematics, University of Sidi Mohamed Ben Abdellah
+            </li>
+            <li>
+                <span class="date">2016 – 2020:</span> BSc in Mathematics, University of Moulay Ismail
+            </li>
+        </ul>
 
         <h2>Peer Review Activities</h2>
-
-        <div class="review-card">
-            <div class="review-date">January 2026</div>
-            <div class="review-journal">Peer Reviewer, Asian Research Journal of Mathematics</div>
-        </div>
-        <div class="review-card">
-            <div class="review-date">August 2025</div>
-            <div class="review-journal">Peer Reviewer, Proceedings of the International Geometry Center</div>
-        </div>
-        <div class="review-card">
-            <div class="review-date">June 2025</div>
-            <div class="review-journal">Peer Reviewer, International Journal of Neutrosophic Science</div>
-        </div>
-        <div class="review-card">
-            <div class="review-date">February 2025</div>
-            <div class="review-journal">Peer Reviewer, Asian Research Journal of Mathematics</div>
-        </div>
+        <ul>
+            <li><span class="date">January 2026:</span> Peer Reviewer, Asian Research Journal of Mathematics</li>
+            <li><span class="date">August 2025:</span> Peer Reviewer, Proceedings of the International Geometry Center</li>
+            <li><span class="date">June 2025:</span> Peer Reviewer, International Journal of Neutrosophic Science</li>
+            <li><span class="date">February 2025:</span> Peer Reviewer, Asian Research Journal of Mathematics</li>
+        </ul>
 
         <h2>Full CV</h2>
-        <a href="cv.pdf" class="pdf-link"><i class="fas fa-download"></i> Download PDF</a>
+        <p><a href="cv.pdf" class="pdf-link">Download PDF</a></p>
     </div>
 </body>
 </html>
