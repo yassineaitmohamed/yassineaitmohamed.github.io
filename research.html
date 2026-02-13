@@ -1,112 +1,216 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Yassine Ait Mohamed | Research</title>
-    <link rel="stylesheet" href="stylesheets/styles.css?v=3">
-    <meta name="viewport" content="width=device-width">
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Yassine Ait Mohamed</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="./">Yassine Ait Mohamed</a></h1>
-        <h3><a href="./research.html">Research</a></h3>
-        <h3><a href="./talks.html">Talks</a></h3>
-        <h3><a href="./cv.html">CV</a></h3>
-        <h3><a href="./teaching.html">Teaching</a></h3>
-      </header>
-      <section>
-        <hr/>
+        body {
+            font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            font-size: 17px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: #fff;
+        }
+        .nav-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover { color: #000; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #222;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #222;
+            font-weight: bold;
+        }
+
+        a { color: #1a0dab; }
+        a:hover { text-decoration: underline; }
+
+        .info {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .papers-list {
+            list-style: decimal;
+            padding-left: 2rem;
+        }
+        .papers-list > li {
+            margin-bottom: 1.2rem;
+        }
+        .paper-title {
+            font-weight: bold;
+        }
+        .paper-meta {
+            margin-left: 20px;
+            margin-top: 2px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .paper-meta .journal {
+            font-style: italic;
+        }
+        .paper-meta .status {
+            color: #2a7e2a;
+            font-weight: 600;
+        }
+
+        .abstract-toggle {
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #1a0dab;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 4px;
+            margin-left: 20px;
+        }
+        .abstract-toggle:hover { text-decoration: underline; }
+
+        .abstract {
+            display: none;
+            margin-top: 8px;
+            margin-left: 20px;
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .thesis-item, .note-item {
+            margin-bottom: 0.8rem;
+        }
+        .thesis-item .paper-title, .note-item .paper-title {
+            font-weight: bold;
+        }
+        .note-item {
+            margin-left: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner { flex-direction: column; gap: 0.75rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .container { padding: 5rem 1rem 2rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+    <script>
+        function toggleAbstract(id) {
+            const el = document.getElementById(id);
+            el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-logo">Yassine Ait Mohamed</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="talks.html">Talks</a>
+                <a href="cv.html">CV</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
         <h1>Research</h1>
-        <hr/>
-        <p>
-            Research Group: <a href="https://sag.recherche.usherbrooke.ca/equipe" target="_blank">SAG-Algebraic and Geometric Structures</a><br>
-            Organizer of <a href="https://junior-seminar-geomphys.github.io/JSGMP/index.html" target="_blank">Junior Seminar in Geometry and Mathematical Physics</a>
-        </p>
 
-        <h3>Papers</h3>
-	<ol>
-          <li>
-            <div><b>Degree-Preserving Derivations on Graded Rings and Modules</b></div>
-	    <div style="margin-left:20px">
-              Under review
-            </div>
-            <div class="joint-with"><a data-toggle="dpd" href="#">abstract</a></div>
-            <div class="abstract" data-toggle-id="dpd">
-                    <p>
-		    In this manuscript, we study homogeneous derivations that preserve the grading of a graded ring, which we call degree-preserving derivations (dp-derivations). We introduce the basic notions attached to dp-derivations and investigate their main properties, including dp-graded ideals, dp-closures, and dp-preimages. We then analyze structural aspects of dp-gr-simple rings and describe their behavior in both characteristic zero and positive characteristic. Furthermore, we construct dp-skew polynomial rings and show that important properties such as the gr-Noetherian condition and gr-simplicity are preserved under these extensions. Finally, we extend the theory to graded modules and develop an appropriate categorical framework for dp-graded structures.
-              </p>
-            </div>
-          </li>
+        <p class="info"><b>Research Group:</b> <a href="https://sag.recherche.usherbrooke.ca/equipe" target="_blank">SAG-Algebraic and Geometric Structures</a></p>
+        <p class="info"><b>Seminar:</b> Organizer of <a href="https://junior-seminar-geomphys.github.io/JSGMP/index.html" target="_blank">Junior Seminar in Geometry and Mathematical Physics</a></p>
 
-          <li>
-            <div><b>Generalized homogeneous derivations on graded rings</b></div>
-	    <div style="margin-left:20px">
-              Siberian Mathematical Journal (to appear)<br>
-              [<a href="Documents research/pdf2.pdf" target="_blank">pdf</a>]
-            </div>
-            <div class="joint-with"><a data-toggle="ghd" href="#">abstract</a></div>
-            <div class="abstract" data-toggle-id="ghd">
-                    <p>
-		    We introduce a notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations defined by Kanunnikov. We then define gr-generalized derivations, which preserve the degrees of homogeneous components. Several significant results originally established for prime rings are extended to the setting of gr-prime rings, and we characterize conditions under which gr-semiprime rings contain nontrivial central graded ideals. In addition, we investigate the algebraic and module-theoretic structures of these maps, establish their functorial properties, and develop categorical frameworks that describe their derivation structures in both ring and module contexts.
-              </p>
-            </div>
-          </li>
+        <h2>Papers</h2>
 
-          <li>
-            <div><b>On graded rings with homogeneous derivations</b></div>
-            <div style="margin-left:20px">
-              <a href="https://doi.org/10.33044/revuma.4934" target="_blank">Revista de la Unión Matemática Argentina</a><br>
-              [<a href="Documents research/pdf1.pdf" target="_blank">pdf</a>]
-            </div>
-            <div class="joint-with"><a data-toggle="ogrwhd" href="#">abstract</a></div>
-            <div class="abstract" data-toggle-id="ogrwhd">
-                    <p>
-		    We establish results related to homogeneous derivations, a concept introduced by Kanunnikov (2018). First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
-              </p>
-            </div>
-          </li>
+        <ol class="papers-list">
+            <li>
+                <div class="paper-title">Degree-Preserving Derivations on Graded Rings and Modules</div>
+                <div class="paper-meta">
+                    <span class="status">Under review</span>
+                </div>
+                <a href="javascript:void(0)" class="abstract-toggle" onclick="toggleAbstract('abs1')">abstract</a>
+                <div id="abs1" class="abstract">
+                    In this manuscript, we study homogeneous derivations that preserve the grading of a graded ring, which we call degree-preserving derivations (dp-derivations). We introduce the basic notions attached to dp-derivations and investigate their main properties, including dp-graded ideals, dp-closures, and dp-preimages. We then analyze structural aspects of dp-gr-simple rings and describe their behavior in both characteristic zero and positive characteristic. Furthermore, we construct dp-skew polynomial rings and show that important properties such as the gr-Noetherian condition and gr-simplicity are preserved under these extensions. Finally, we extend the theory to graded modules and develop an appropriate categorical framework for dp-graded structures.
+                </div>
+            </li>
 
+            <li>
+                <div class="paper-title">Generalized homogeneous derivations on graded rings</div>
+                <div class="paper-meta">
+                    <span class="journal">Siberian Mathematical Journal</span> (to appear)<br>
+                    [<a href="Documents research/pdf2.pdf" target="_blank">pdf</a>]
+                </div>
+                <a href="javascript:void(0)" class="abstract-toggle" onclick="toggleAbstract('abs2')">abstract</a>
+                <div id="abs2" class="abstract">
+                    We introduce a notion of generalized homogeneous derivations on graded rings as a natural extension of the homogeneous derivations defined by Kanunnikov. We then define gr-generalized derivations, which preserve the degrees of homogeneous components. Several significant results originally established for prime rings are extended to the setting of gr-prime rings, and we characterize conditions under which gr-semiprime rings contain nontrivial central graded ideals. In addition, we investigate the algebraic and module-theoretic structures of these maps, establish their functorial properties, and develop categorical frameworks that describe their derivation structures in both ring and module contexts.
+                </div>
+            </li>
+
+            <li>
+                <div class="paper-title">On graded rings with homogeneous derivations</div>
+                <div class="paper-meta">
+                    <a href="https://doi.org/10.33044/revuma.4934" target="_blank"><span class="journal">Revista de la Unión Matemática Argentina</span></a><br>
+                    [<a href="Documents research/pdf1.pdf" target="_blank">pdf</a>]
+                </div>
+                <a href="javascript:void(0)" class="abstract-toggle" onclick="toggleAbstract('abs3')">abstract</a>
+                <div id="abs3" class="abstract">
+                    We establish results related to homogeneous derivations, a concept introduced by Kanunnikov (2018). First, we prove the existence of a non-trivial family of derivations that are not homogeneous on graded rings. Furthermore, based on homogeneous derivations, we extend certain existing significant results in the context of prime (resp. semiprime) rings to gr-prime (resp. gr-semiprime) rings, such as Posner's and Herstein's theorems.
+                </div>
+            </li>
         </ol>
 
+        <h2>Master's Thesis (Sidi Mohamed Ben Abdellah University, 2022)</h2>
+        <div class="thesis-item">
+            <span class="paper-title">Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties</span><br>
+            <span style="margin-left:20px;">[<a href="Documents research/master_thesis.pdf" target="_blank">pdf</a>]</span>
+        </div>
 
-        <h3>Master's Thesis (Sidi Mohamed Ben Abdellah University, 2022)</h3>
-        <ul>
-          <li>
-             <div><b>Divisors in Algebraic Geometry, Central Simple Algebras and Severi-Brauer Varieties</b></div>
-            <div style="margin-left:20px">
-              [<a href="Documents research/master_thesis.pdf" target="_blank">pdf</a>]
-            </div>
-          </li>
-        </ul>
-
-
-
-        <h3>Notes</h3>
-        <ul>
-          <li>
-            <div><b>Note on Central Simple Algebras and the Brauer Group</b></div>
-            <div style="margin-left: 20px;">[<a href="Documents research/On_Simple_Algebras.pdf" target="_blank">pdf</a>]</div>
-          </li>
-         <li>
-            <div><b>Note on Sheaf Theory</b></div>
-            <div style="margin-left: 20px;">[<a href="Documents research/Note_on_sheaf_theory.pdf" target="_blank">pdf</a>]</div>
-          </li>
-        <ul>
-
-      </section>
-
+        <h2>Notes</h2>
+        <div class="note-item">• Note on Central Simple Algebras and the Brauer Group [<a href="Documents research/On_Simple_Algebras.pdf" target="_blank">pdf</a>]</div>
+        <div class="note-item">• Note on Sheaf Theory [<a href="Documents research/Note_on_sheaf_theory.pdf" target="_blank">pdf</a>]</div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-    <script>
-      $(document.body).on('click', '[data-toggle]', function(event) {
-        event.preventDefault();
-        var $target = $(event.target);
-        $target.toggleClass('active');
-        $('[data-toggle-id=' + $target.data('toggle') + ']').slideToggle();
-      });
-    </script>
-  </body>
+</body>
 </html>
