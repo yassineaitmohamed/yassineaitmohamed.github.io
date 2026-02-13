@@ -4,34 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talks - Yassine Ait Mohamed</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --bg: #ffffff;
-            --bg2: #f8f9fa;
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #2980b9;
-            --text: #2c3e50;
-            --text2: #7f8c8d;
-            --border: #e0e0e0;
-        }
-
-        html { scroll-behavior: smooth; }
-
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
             line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            font-size: 16px;
+            color: #333;
+            background: #fff;
+            font-size: 17px;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -39,104 +23,68 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: #fff;
         }
         .nav-inner {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .nav-logo {
-            font-family: 'Merriweather', serif;
             font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-weight: bold;
+            color: #333;
         }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             text-decoration: none;
-            color: var(--text2);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            letter-spacing: 0.5px;
+            color: #555;
+            font-size: 0.95rem;
         }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { color: #000; }
 
-        /* Main Content */
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 6rem 2rem 3rem;
+            padding: 5rem 2rem 3rem;
         }
 
         h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #222;
         }
 
-        /* Talk entries */
-        .talk-entry {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.2rem;
+        a { color: #1a0dab; }
+        a:hover { text-decoration: underline; }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
             margin-bottom: 1rem;
-            transition: box-shadow 0.3s;
         }
-        .talk-entry:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        .date {
+            font-weight: bold;
         }
-        .talk-date {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 0.4rem;
-        }
-        .talk-title {
-            color: var(--primary);
-            font-size: 1.05rem;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-        .talk-location {
-            color: var(--text2);
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-        }
-        .pdf-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-left: 0.75rem;
-        }
-        .pdf-link:hover { 
-            text-decoration: underline;
+        .location {
+            color: #555;
+            font-size: 0.95rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-inner { flex-direction: column; gap: 0.75rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             .container { padding: 5rem 1rem 2rem; }
-            h1 { font-size: 2rem; }
-            .talk-title { font-size: 1rem; }
+            h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-inner">
             <div class="nav-logo">Yassine Ait Mohamed</div>
@@ -150,75 +98,47 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container">
         <h1>Talks</h1>
 
-        <div class="talk-entry">
-            <span class="talk-date">November 2025</span>
-            <div class="talk-title">
-                Poisson structures on 1-shifted coisotropics
-                <a href="Documents talks/ppt2025.pdf" class="pdf-link" target="_blank">[PDF]</a>
-            </div>
-            <div class="talk-location">Séminaire SAG, Université de Sherbrooke</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">November 2024</span>
-            <div class="talk-title">
-                On bound quivers
-                <a href="Documents talks/quivers.pdf" class="pdf-link" target="_blank">[PDF]</a>
-            </div>
-            <div class="talk-location">MAT728 Selected Topics in Algebra, Université de Sherbrooke</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">July 2023</span>
-            <div class="talk-title">Generalized homogeneous derivations on graded rings</div>
-            <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">April 2023</span>
-            <div class="talk-title">On Graded Rings with homogeneous derivations</div>
-            <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">February 2023</span>
-            <div class="talk-title">On Graded Rings and derivations</div>
-            <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">January 2023</span>
-            <div class="talk-title">
-                On Graded Rings
-                <a href="Documents talks/graded_rings.pdf" class="pdf-link" target="_blank">[PDF]</a>
-            </div>
-            <div class="talk-location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">December 2021</span>
-            <div class="talk-title">Tensor Algebra and Enveloping Algebra of a Lie Algebra</div>
-            <div class="talk-location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">November 2021</span>
-            <div class="talk-title">
-                On Riemann-Roch Theorem
-                <a href="Documents talks/roch.pdf" class="pdf-link" target="_blank">[PDF]</a>
-            </div>
-            <div class="talk-location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</div>
-        </div>
-        
-        <div class="talk-entry">
-            <span class="talk-date">February 2021</span>
-            <div class="talk-title">Action of a Lie Group on a Smooth Manifold</div>
-            <div class="talk-location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</div>
-        </div>
+        <ul>
+            <li>
+                <span class="date">November 2025:</span> Poisson structures on 1-shifted coisotropics [<a href="Documents talks/ppt2025.pdf" target="_blank">pdf</a>]<br>
+                <span class="location">Séminaire SAG, Université de Sherbrooke</span>
+            </li>
+            <li>
+                <span class="date">November 2024:</span> On bound quivers [<a href="Documents talks/quivers.pdf" target="_blank">pdf</a>]<br>
+                <span class="location">MAT728 Selected Topics in Algebra, Université de Sherbrooke</span>
+            </li>
+            <li>
+                <span class="date">July 2023:</span> Generalized homogeneous derivations on graded rings<br>
+                <span class="location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</span>
+            </li>
+            <li>
+                <span class="date">April 2023:</span> On Graded Rings with homogeneous derivations<br>
+                <span class="location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</span>
+            </li>
+            <li>
+                <span class="date">February 2023:</span> On Graded Rings and derivations<br>
+                <span class="location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</span>
+            </li>
+            <li>
+                <span class="date">January 2023:</span> On Graded Rings [<a href="Documents talks/graded_rings.pdf" target="_blank">pdf</a>]<br>
+                <span class="location">Seminar of NonCommutative Algebra, Laboratory of Modeling and Mathematical Structures, Faculty of Science and Technology, Fez</span>
+            </li>
+            <li>
+                <span class="date">December 2021:</span> Tensor Algebra and Enveloping Algebra of a Lie Algebra<br>
+                <span class="location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</span>
+            </li>
+            <li>
+                <span class="date">November 2021:</span> On Riemann-Roch Theorem [<a href="Documents talks/roch.pdf" target="_blank">pdf</a>]<br>
+                <span class="location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</span>
+            </li>
+            <li>
+                <span class="date">February 2021:</span> Action of a Lie Group on a Smooth Manifold<br>
+                <span class="location">Seminar of Geometry and Algebra, Faculty of Science, Dhar El Mahraz</span>
+            </li>
+        </ul>
     </div>
 </body>
 </html>
