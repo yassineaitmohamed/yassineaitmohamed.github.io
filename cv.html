@@ -8,11 +8,22 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --bg: #ffffff;
+            --bg2: #f8f9fa;
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --text: #2c3e50;
+            --text2: #7f8c8d;
+            --border: #e0e0e0;
+        }
+
         body {
             font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: var(--text);
+            background: var(--bg);
             font-size: 17px;
         }
 
@@ -23,7 +34,9 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            background: #fff;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .nav-inner {
             max-width: 800px;
@@ -35,15 +48,18 @@
         .nav-logo {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #333;
+            color: var(--primary);
         }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             text-decoration: none;
-            color: #555;
+            color: var(--text2);
             font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
         }
-        .nav-links a:hover { color: #000; }
+        .nav-links a:hover { color: var(--accent); }
 
         .container {
             max-width: 800px;
@@ -55,18 +71,18 @@
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
-            color: #222;
+            color: var(--primary);
         }
 
         h2 {
             font-size: 1.3rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #222;
+            color: var(--primary);
             font-weight: bold;
         }
 
-        a { color: #1a0dab; }
+        a { color: var(--accent); }
         a:hover { text-decoration: underline; }
 
         ul {
@@ -78,16 +94,16 @@
         }
         .date {
             font-weight: bold;
+            color: var(--primary);
         }
         .detail {
-            color: #555;
+            color: var(--text2);
             font-size: 0.95rem;
         }
-
         .pdf-link {
             display: inline-block;
             margin-top: 0.5rem;
-            color: #1a0dab;
+            color: var(--accent);
             text-decoration: none;
         }
         .pdf-link:hover { text-decoration: underline; }
@@ -112,7 +128,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <h1>CV</h1>
 
@@ -125,14 +140,12 @@
                 <span class="date">2022 – 2023:</span> First year in PhD Doctoral program, University of Sidi Mohamed Ben Abdellah, Morocco
             </li>
             <li>
-                <span class="date">2020 – 2022:</span> Master's degree in Mathematics, University of Sidi Mohamed Ben Abdellah, Morocco 
+                <span class="date">2020 – 2022:</span> Master's degree in Mathematics, University of Sidi Mohamed Ben Abdellah, Morocco
             </li>
             <li>
-                <span class="date">2016 – 2020:</span> BSc in Mathematics, University of Moulay Ismail, Morocco 
+                <span class="date">2016 – 2020:</span> BSc in Mathematics, University of Moulay Ismail, Morocco
             </li>
         </ul>
-
-        
 
         <h2>Full CV</h2>
         <p><a href="cv.pdf" class="pdf-link">Download PDF</a></p>
