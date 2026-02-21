@@ -8,11 +8,22 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --bg: #ffffff;
+            --bg2: #f8f9fa;
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #2980b9;
+            --text: #2c3e50;
+            --text2: #7f8c8d;
+            --border: #e0e0e0;
+        }
+
         body {
             font-family: 'Computer Modern Serif', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: var(--text);
+            background: var(--bg);
             font-size: 17px;
         }
 
@@ -23,7 +34,9 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            background: #fff;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .nav-inner {
             max-width: 800px;
@@ -35,15 +48,18 @@
         .nav-logo {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #333;
+            color: var(--primary);
         }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             text-decoration: none;
-            color: #555;
+            color: var(--text2);
             font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
         }
-        .nav-links a:hover { color: #000; }
+        .nav-links a:hover { color: var(--accent); }
 
         .container {
             max-width: 800px;
@@ -55,18 +71,18 @@
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
-            color: #222;
+            color: var(--primary);
         }
 
         h2 {
             font-size: 1.3rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #222;
+            color: var(--primary);
             font-weight: bold;
         }
 
-        a { color: #1a0dab; }
+        a { color: var(--accent); }
         a:hover { text-decoration: underline; }
 
         ul {
@@ -78,9 +94,10 @@
         }
         .date {
             font-weight: bold;
+            color: var(--primary);
         }
         .institution {
-            color: #444;
+            color: var(--text2);
         }
 
         .materials-list {
@@ -90,7 +107,7 @@
         .materials-list li {
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
-            color: #444;
+            color: var(--text2);
         }
 
         @media (max-width: 768px) {
