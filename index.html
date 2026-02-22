@@ -37,15 +37,31 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        /* ── CLAUDE.AI THEME PALETTE ── */
         :root {
-            --bg: #ffffff;
-            --bg2: #f8f9fa;
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #2980b9;
-            --text: #2c3e50;
-            --text2: #7f8c8d;
-            --border: #e0e0e0;
+            /* Backgrounds — warm layered cream, exact Claude.ai spirit */
+            --bg:          #F9F6F2;   /* page canvas — warm off-white */
+            --bg2:         #F2EDE6;   /* slightly deeper warm layer   */
+            --bg-nav:      rgba(249, 246, 242, 0.90);
+
+            /* Text */
+            --primary:     #1C1917;   /* near-black warm ink           */
+            --secondary:   #44403C;   /* mid-tone warm brown           */
+            --text:        #1C1917;
+            --text2:       #78716C;   /* muted warm grey               */
+
+            /* Accent — Claude.ai orange-amber */
+            --accent:      #D97757;   /* characteristic Claude orange  */
+            --accent-deep: #C2622D;   /* deeper hover state            */
+            --accent-glow: rgba(217, 119, 87, 0.12);
+
+            /* Borders */
+            --border:      rgba(28, 25, 23, 0.10);
+            --border-soft: rgba(28, 25, 23, 0.06);
+
+            /* Shadow */
+            --shadow-sm:   0 1px 4px rgba(28, 25, 23, 0.06);
+            --shadow-md:   0 4px 16px rgba(28, 25, 23, 0.08);
         }
 
         html { scroll-behavior: smooth; }
@@ -55,19 +71,31 @@
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
+
+            /* Subtle warm grain texture — Claude.ai signature */
+            background-image:
+                radial-gradient(ellipse 80% 60% at 70% 20%, rgba(217,119,87,0.055) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(194,98,45,0.04)  0%, transparent 55%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+            background-attachment: fixed;
         }
 
-        /* Navigation */
+        /* ────────────────────────────
+           NAVIGATION
+        ──────────────────────────── */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            background: var(--bg);
+            background: var(--bg-nav);
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: var(--shadow-sm);
         }
+
         .nav-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -75,28 +103,47 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .nav-logo {
             font-family: 'Computer Modern Serif', 'CMU Serif', Georgia, serif;
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
         }
+
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
+
         .nav-links a {
             text-decoration: none;
             color: var(--text2);
             font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.25s;
             letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 2px;
         }
-        .nav-links a:hover { color: var(--accent); }
 
-        /* Hero Section */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            height: 1px;
+            width: 0;
+            background: var(--accent);
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ────────────────────────────
+           HERO
+        ──────────────────────────── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -104,6 +151,7 @@
             justify-content: center;
             padding: 6rem 2rem 4rem;
         }
+
         .hero-content {
             max-width: 1100px;
             width: 100%;
@@ -113,7 +161,7 @@
             align-items: center;
         }
 
-        /* Text */
+        /* ── Text ── */
         .hero-text h1 {
             font-family: 'Computer Modern Serif', 'CMU Serif', Georgia, serif;
             font-size: 3.2rem;
@@ -122,18 +170,26 @@
             margin-bottom: 1.5rem;
             color: var(--primary);
         }
+
         .hero-text .desc {
             color: var(--text2);
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
+
         .hero-text .desc a {
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
         }
-        .hero-text .desc a:hover { text-decoration: underline; }
+
+        .hero-text .desc a:hover {
+            color: var(--accent-deep);
+            border-color: var(--accent-deep);
+        }
 
         .hero-text h2 {
             font-family: 'Computer Modern Serif', 'CMU Serif', Georgia, serif;
@@ -160,30 +216,43 @@
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
         }
-        .hero-text .contact-text a:hover { text-decoration: underline; }
 
-        /* Photo */
+        .hero-text .contact-text a:hover {
+            color: var(--accent-deep);
+            border-color: var(--accent-deep);
+        }
+
+        /* ── Photo ── */
         .hero-photo {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .photo-wrapper {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
             border: 1px solid var(--border);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow:
+                var(--shadow-md),
+                0 0 0 4px var(--bg),
+                0 0 0 5px var(--border);
         }
+
         .photo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Responsive */
+        /* ────────────────────────────
+           RESPONSIVE
+        ──────────────────────────── */
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -206,7 +275,6 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-inner">
-            
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="research.html">Research</a>
