@@ -9,14 +9,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #ffffff;
-            --bg2: #f8f9fa;
+            --bg: #F9F6F2;
+            --bg2: #F2EDE6;
             --primary: #2c3e50;
             --secondary: #34495e;
-            --accent: #2980b9;
+            --accent: #D97757;
             --text: #2c3e50;
             --text2: #7f8c8d;
-            --border: #e0e0e0;
+            --border: rgba(28,25,23,0.10);
         }
 
         body {
@@ -24,6 +24,11 @@
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
+            background-image:
+                radial-gradient(ellipse 80% 60% at 70% 20%, rgba(217,119,87,0.055) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(194,98,45,0.04)  0%, transparent 55%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+            background-attachment: fixed;
             font-size: 17px;
         }
 
@@ -34,9 +39,11 @@
             width: 100%;
             z-index: 100;
             padding: 1rem 2rem;
-            background: var(--bg);
+            background: rgba(249, 246, 242, 0.90);
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(28,25,23,0.05);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
         .nav-inner {
             max-width: 800px;
@@ -58,8 +65,19 @@
             font-weight: 500;
             transition: color 0.3s;
             letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            height: 1px; width: 0;
+            background: var(--accent);
+            transition: width 0.25s ease;
         }
         .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
 
         .container {
             max-width: 800px;
